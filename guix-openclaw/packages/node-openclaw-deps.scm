@@ -29,6 +29,7 @@
   #:use-module (guix build-system node)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (guix gexp)
   #:use-module (guix packages))
 
 (define-public node-zod-4.3.6
@@ -101,7 +102,12 @@
                               "eslint-config-prettier"
                               "@rollup/plugin-typescript"
                               "jest-ts-webcompat-resolver"
-                              "@babel/plugin-transform-typescript")))))))))
+                              "@babel/plugin-transform-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://eemeli.org/yaml/")
     (synopsis
       "JavaScript parser and stringifier for YAML")
@@ -135,7 +141,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("array-shuffle" "standard" "tape")))))))))
+                            '("array-shuffle" "standard" "tape"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/prebuild/node-gyp-build")
     (synopsis
@@ -307,7 +318,12 @@
                               "abort-controller"
                               "@matteo.collina/tspl"
                               "@sinonjs/fake-timers"
-                              "@metcoder95/https-pem")))))))))
+                              "@metcoder95/https-pem"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://undici.nodejs.org")
     (synopsis
       "An HTTP/1.1 client, written from scratch for Node.js")
@@ -366,7 +382,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("prettier" "tap" "tshy" "typedoc")))))))))
+                            '("prettier" "tap" "tshy" "typedoc"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/yallist#readme")
     (synopsis "Yet Another Linked List")
@@ -407,7 +428,12 @@
                               "tap"
                               "through2"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/minipass#readme")
     (synopsis
@@ -442,7 +468,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@types/node" "tap" "tshy" "typedoc")))))))))
+                            '("@types/node" "tap" "tshy" "typedoc"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs (list node-minipass-7.1.3))
     (home-page
       "https://github.com/isaacs/minizlib#readme")
@@ -484,7 +515,12 @@
                               "rimraf"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/chownr#readme")
     (synopsis "like `chown -R`")
@@ -522,7 +558,12 @@
                               "prettier"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-minipass-7.1.3))
     (home-page
       "https://github.com/npm/fs-minipass#readme")
@@ -569,7 +610,12 @@
                               "rimraf"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-yallist-5.0.0
             node-minizlib-3.1.0
@@ -719,13 +765,21 @@
       (list #:tests?
             #f
             #:phases
-            (gexp (modify-phases %standard-phases (delete 'build)))))
+            (gexp (modify-phases
+                    %standard-phases
+                    (delete 'build)
+                    (add-after
+                      'patch-dependencies
+                      'delete-platform-deps
+                      (lambda _
+                        (modify-json
+                          (delete-dependencies
+                            '("sqlite-vec-darwin-arm64"
+                              "sqlite-vec-darwin-x64"
+                              "sqlite-vec-windows-x64"
+                              "sqlite-vec-linux-arm64")))))))))
     (inputs
-      (list node-sqlite-vec-darwin-arm64-0.1.7-alpha.2
-            node-sqlite-vec-windows-x64-0.1.7-alpha.2
-            node-sqlite-vec-linux-arm64-0.1.7-alpha.2
-            node-sqlite-vec-darwin-x64-0.1.7-alpha.2
-            node-sqlite-vec-linux-x64-0.1.7-alpha.2))
+      (list node-sqlite-vec-linux-x64-0.1.7-alpha.2))
     (home-page
       "https://www.npmjs.com/package/node-sqlite-vec")
     (synopsis "A vector search SQLite extension.")
@@ -1019,7 +1073,12 @@
                               "@types/node"
                               "@vitest/coverage-v8"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/steipete/osc-progress#readme")
     (synopsis
@@ -1121,7 +1180,12 @@
                               "chai"
                               "ensure-posix-path"
                               "mocha"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/stefanpenner/get-caller-file#readme")
     (synopsis
@@ -1178,7 +1242,12 @@
                               "start-server-and-test"
                               "@typescript-eslint/parser"
                               "ts-transform-default-export"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/yargs/yargs-parser#readme")
     (synopsis
@@ -1213,7 +1282,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("xo" "ava" "tsd-check")))))))))
+                            '("xo" "ava" "tsd-check"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/is-fullwidth-code-point#readme")
     (synopsis
@@ -1587,7 +1661,12 @@
                               "eslint-plugin-node"
                               "eslint-plugin-import"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-string-width-4.2.3
             node-strip-ansi-6.0.1
@@ -1637,7 +1716,12 @@
                               "rollup"
                               "standardx"
                               "ts-transform-default-export"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/yargs/y18n")
     (synopsis
       "the bare-bones internationalization library used by yargs")
@@ -1692,7 +1776,12 @@
                               "rollup-plugin-ts"
                               "yargs-test-extends"
                               "rollup-plugin-terser"
-                              "rollup-plugin-cleanup")))))))))
+                              "rollup-plugin-cleanup"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-require-directory-2.1.1
             node-get-caller-file-2.0.5
@@ -1744,7 +1833,12 @@
                               "@types/node"
                               "@types/debug"
                               "async-listen"
-                              "@types/semver")))))))))
+                              "@types/semver"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/TooTallNate/proxy-agents#readme")
     (synopsis
@@ -1784,7 +1878,12 @@
                               "eslint"
                               "prettier"
                               "expect.js"
-                              "lint-staged")))))))))
+                              "lint-staged"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/vercel/ms#readme")
     (synopsis "Tiny millisecond conversion utility")
     (description
@@ -1873,7 +1972,12 @@
                               "async-retry"
                               "@types/debug"
                               "async-listen"
-                              "@types/async-retry")))))))))
+                              "@types/async-retry"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-agent-base-7.1.4 node-debug-4.4.3))
     (home-page
@@ -1910,7 +2014,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@types/ws" "@types/yargs" "typescript")))))))))
+                            '("@types/ws" "@types/yargs" "typescript"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs
       (list node-yargs-17.7.2
             node-ws-8.19.0
@@ -1952,7 +2061,12 @@
                             '("@unicode/unicode-15.1.0"
                               "mocha"
                               "rollup"
-                              "shelljs")))))))))
+                              "shelljs"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/markdown-it/uc.micro#readme")
     (synopsis
@@ -2118,7 +2232,12 @@
                               "eslint-plugin-node"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/fb55/entities#readme")
     (synopsis
@@ -2157,7 +2276,12 @@
                               "@babel/plugin-syntax-class-properties"
                               "eslint"
                               "mocha"
-                              "nyc")))))))))
+                              "nyc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/nodeca/argparse#readme")
     (synopsis
@@ -2264,7 +2388,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("esm2umd" "prettier" "typescript")))))))))
+                            '("esm2umd" "prettier" "typescript"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/dcodeIO/long.js#readme")
     (synopsis
@@ -2308,7 +2437,12 @@
                               "rollup-plugin-babel"
                               "rollup-plugin-node-resolve"
                               "rollup-plugin-terser"
-                              "uglify-js")))))))))
+                              "uglify-js"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/WebReflection/uhyphen#readme")
     (synopsis "A micro utility to hyphenize strings")
@@ -2347,7 +2481,12 @@
                               "typescript"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/fb55/domelementtype#readme")
     (synopsis
@@ -2392,7 +2531,12 @@
                               "htmlparser2"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-domelementtype-2.3.0))
     (home-page
       "https://github.com/fb55/domhandler#readme")
@@ -2446,7 +2590,12 @@
                               "eslint-config-biome"
                               "eslint-plugin-unicorn"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/fb55/entities#readme")
     (synopsis
@@ -2492,7 +2641,12 @@
                               "htmlparser2"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-domelementtype-2.3.0
             node-domhandler-5.0.3
@@ -2543,7 +2697,12 @@
                               "eslint-plugin-jsdoc"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-domelementtype-2.3.0
             node-dom-serializer-2.0.0
@@ -2594,7 +2753,12 @@
                               "typescript-eslint"
                               "@vitest/coverage-v8"
                               "eslint-plugin-unicorn"
-                              "eslint-config-prettier")))))))))
+                              "eslint-config-prettier"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-domelementtype-2.3.0
             node-domhandler-5.0.3
@@ -2636,7 +2800,12 @@
                               "c8"
                               "coveralls"
                               "rollup"
-                              "uglify-es")))))))))
+                              "uglify-es"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/WebReflection/html-escaper")
     (synopsis
@@ -2731,7 +2900,12 @@
                               "@types/boolbase"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-boolbase-1.0.0))
     (home-page "https://github.com/fb55/nth-check")
     (synopsis
@@ -2776,7 +2950,12 @@
                               "eslint-plugin-node"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/fb55/css-what#readme")
     (synopsis "a CSS selector parser")
@@ -2821,7 +3000,12 @@
                               "cheerio-soupselect"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-domhandler-5.0.3
             node-nth-check-2.1.1
@@ -2859,7 +3043,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("tap" "tape")))))))))
+                          (delete-dependencies '("tap" "tape"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/substack/github-from-package")
     (synopsis
@@ -4098,7 +4287,12 @@
                               "pixelmatch"
                               "standard"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-prebuild-install-7.1.3
             node-node-addon-api-7.1.1))
@@ -4143,14 +4337,18 @@
                               "eslint"
                               "rollup"
                               "typescript"
-                              "canvas")))))))))
+                              "canvas"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-uhyphen-0.2.0
             node-htmlparser2-10.1.0
             node-html-escaper-3.0.3
             node-cssom-0.5.0
-            node-css-select-5.2.2
-            node-canvas-3.2.1))
+            node-css-select-5.2.2))
     (home-page
       "https://github.com/WebReflection/linkedom#readme")
     (synopsis
@@ -4183,7 +4381,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("tap")))))))))
+                        (modify-json (delete-dependencies '("tap"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/calvinmetcalf/process-nextick-args")
     (synopsis
@@ -4542,7 +4745,12 @@
                               "rimraf"
                               "typescript"
                               "uglify-js"
-                              "unreachable-branch-transform")))))))))
+                              "unreachable-branch-transform"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-immediate-3.0.6))
     (home-page
       "https://github.com/calvinmetcalf/lie#readme")
@@ -4591,7 +4799,12 @@
                               "jszip-utils"
                               "grunt-browserify"
                               "grunt-contrib-uglify"
-                              "package-json-versionify")))))))))
+                              "package-json-versionify"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-readable-stream-2.3.8
             node-setimmediate-1.0.5
@@ -4739,7 +4952,12 @@
                               "vitest"
                               "vue"
                               "yoctocolors"
-                              "zod")))))))))
+                              "zod"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/unjs/jiti#readme")
     (synopsis
       "Runtime typescript and ESM support for Node.js")
@@ -4772,7 +4990,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("eslint" "uglify-es")))))))))
+                          (delete-dependencies '("eslint" "uglify-es"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/whitequark/ipaddr.js#readme")
     (synopsis
@@ -4814,7 +5037,12 @@
                               "async-listen"
                               "typescript"
                               "ws"
-                              "tsconfig")))))))))
+                              "tsconfig"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/TooTallNate/proxy-agents#readme")
     (synopsis
@@ -4856,7 +5084,34 @@
                               "async-retry"
                               "typescript"
                               "proxy"
-                              "tsconfig")))))))))
+                              "tsconfig"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))
+                    ;; The upstream 8.0.0 tarball on npm omits the "." key in
+                    ;; the exports map, causing ERR_PACKAGE_PATH_NOT_EXPORTED
+                    ;; when openclaw requires the package via CJS.  Wrap the
+                    ;; "import" entry under "." so Node can resolve it.
+                    (add-after
+                      'delete-dev-dependencies
+                      'fix-exports-map
+                      (lambda _
+                        (use-modules (ice-9 textual-ports)
+                                     (ice-9 string-fun))
+                        (let* ((content
+                                (call-with-input-file "package.json"
+                                  get-string-all))
+                               ;; modify-json minifies JSON; match the
+                               ;; compact form it produces.
+                               (fixed
+                                (string-replace-substring
+                                 content
+                                 "\"exports\":{\"import\":{\"types\":\"./dist/index.d.ts\",\"default\":\"./dist/index.js\"}}"
+                                 "\"exports\":{\".\": {\"import\":{\"types\":\"./dist/index.d.ts\",\"default\":\"./dist/index.js\"},\"default\":\"./dist/index.js\"}}")))
+                          (call-with-output-file "package.json"
+                            (lambda (port) (display fixed port))))))))))
     (inputs
       (list node-agent-base-8.0.0 node-debug-4.4.3))
     (home-page
@@ -4920,7 +5175,12 @@
                               "@vitest/coverage-v8"
                               "editorconfig-checker"
                               "@typescript/native-preview"
-                              "vite-plugin-fastly-js-compute")))))))))
+                              "vite-plugin-fastly-js-compute"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://hono.dev")
     (synopsis "Web framework built on Web Standards")
     (description
@@ -4951,7 +5211,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("mocha")))))))))
+                        (modify-json (delete-dependencies '("mocha"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/jsdom/webidl-conversions#readme")
     (synopsis
@@ -5199,7 +5464,12 @@
                               "rollup-plugin-babel"
                               "string-to-arraybuffer"
                               "teeny-request"
-                              "encoding")))))))))
+                              "encoding"))
+                          (delete-fields
+                            '(("scripts" "build")
+                              ("scripts" "prepare")
+                              ("scripts" "prebuild"))
+                            #:strict? #f))))))))
     (inputs
       (list node-whatwg-url-5.0.0 node-encoding-0.1.13))
     (home-page
@@ -5266,7 +5536,12 @@
                               "rollup-plugin-node-resolve"
                               "rollup-watch"
                               "type-tester"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/mysticatea/event-target-shim")
     (synopsis
@@ -5336,7 +5611,12 @@
                               "rollup-watch"
                               "ts-node"
                               "type-tester"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-event-target-shim-5.0.1))
     (home-page
       "https://github.com/mysticatea/abort-controller#readme")
@@ -5370,7 +5650,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("deno-bin")))))))))
+                        (modify-json (delete-dependencies '("deno-bin"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page "https://grammy.dev/")
     (synopsis
       "Telegram Bot API type declarations for grammY")
@@ -5407,7 +5692,11 @@
                             '("@types/debug"
                               "@types/node"
                               "@types/node-fetch"
-                              "deno2node")))))))))
+                              "deno2node"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "backport"))
+                              #:strict? #f))))))))
     (inputs
       (list node-node-fetch-2.7.0
             node-debug-4.4.3
@@ -5444,7 +5733,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("ava" "typescript" "xo" "benchmark")))))))))
+                            '("ava" "typescript" "xo" "benchmark"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/uint8array-extras#readme")
     (synopsis
@@ -5478,7 +5772,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("@types/node")))))))))
+                          (delete-dependencies '("@types/node"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/Borewit/tokenizer-token#readme")
     (synopsis
@@ -5519,7 +5818,12 @@
                               "chai"
                               "mocha"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/Borewit/text-codec#readme")
     (synopsis "Text Decoder")
@@ -5564,7 +5868,12 @@
                               "remark-preset-lint-recommended"
                               "source-map-support"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-ieee754-1.2.1
             node-tokenizer-token-0.3.0
@@ -5620,7 +5929,12 @@
                               "token-types"
                               "ts-node"
                               "typescript"
-                              "uint8array-extras")))))))))
+                              "uint8array-extras"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-tokenizer-token-0.3.0))
     (home-page
       "https://github.com/Borewit/strtok3#readme")
@@ -5668,7 +5982,12 @@
                               "@types/mocha"
                               "@tokenizer/s3"
                               "@biomejs/biome"
-                              "@aws-sdk/client-s3")))))))))
+                              "@aws-sdk/client-s3"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-token-types-6.1.2 node-debug-4.4.3))
     (home-page
@@ -5710,7 +6029,12 @@
                               "get-stream"
                               "noop-stream"
                               "tsd"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-uint8array-extras-1.5.0
             node-token-types-6.1.2
@@ -6786,7 +7110,12 @@
                               "neostandard"
                               "@arethetypeswrong/cli"
                               "@stylistic/eslint-plugin"
-                              "@stylistic/eslint-plugin-js")))))))))
+                              "@stylistic/eslint-plugin-js"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-safer-buffer-2.1.2))
     (home-page
       "https://github.com/pillarjs/iconv-lite")
@@ -6822,7 +7151,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("mocha" "istanbul" "readable-stream")))))))))
+                            '("mocha" "istanbul" "readable-stream"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/stream-utils/unpipe")
     (synopsis
@@ -7017,7 +7351,12 @@
                               "safe-publish-latest"
                               "semver"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/ljharb/async-generator-function#readme")
     (synopsis
@@ -7060,7 +7399,12 @@
                               "npmignore"
                               "nyc"
                               "safe-publish-latest"
-                              "tape")))))))))
+                              "tape"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/Raynos/function-bind")
     (synopsis
@@ -7107,7 +7451,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/ljharb/es-errors#readme")
     (synopsis
@@ -7162,7 +7511,12 @@
                               "object-inspect"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-function-bind-1.1.2
             node-es-errors-1.3.0))
@@ -7217,7 +7571,12 @@
                               "safe-publish-latest"
                               "semver"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/TimothyGu/generator-function#readme")
     (synopsis
@@ -7266,7 +7625,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/ljharb/es-define-property#readme")
     (synopsis
@@ -7319,7 +7683,12 @@
                               "object-inspect"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/es-shims/math-intrinsics#readme")
     (synopsis
@@ -7367,7 +7736,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-es-errors-1.3.0))
     (home-page
       "https://github.com/ljharb/es-object-atoms#readme")
@@ -7418,7 +7792,12 @@
                               "safe-publish-latest"
                               "semver"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/ljharb/async-function#readme")
     (synopsis
@@ -7468,7 +7847,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/ljharb/has-symbols#readme")
     (synopsis
@@ -7515,7 +7899,12 @@
                               "npmignore"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/ljharb/gopd#readme")
     (synopsis
@@ -7563,7 +7952,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-gopd-1.2.0
             node-es-errors-1.3.0
@@ -7614,7 +8008,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-es-object-atoms-1.1.1
             node-dunder-proto-1.0.1))
@@ -7668,7 +8067,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-function-bind-1.1.2))
     (home-page
       "https://github.com/inspect-js/hasOwn#readme")
@@ -7721,7 +8125,12 @@
                               "safe-publish-latest"
                               "@ljharb/eslint-config"
                               "make-generator-function"
-                              "make-async-generator-function")))))))))
+                              "make-async-generator-function"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-async-generator-function-1.0.0
             node-call-bind-apply-helpers-1.0.2
@@ -7790,7 +8199,12 @@
                               "object-inspect"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-get-intrinsic-1.3.1
             node-call-bind-apply-helpers-1.0.2))
@@ -7844,7 +8258,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-object-inspect-1.13.4
             node-get-intrinsic-1.3.1
@@ -7900,7 +8319,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-side-channel-map-1.0.1
             node-object-inspect-1.13.4
@@ -7956,7 +8380,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-object-inspect-1.13.4
             node-es-errors-1.3.0))
@@ -8008,7 +8437,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-side-channel-weakmap-1.0.2
             node-side-channel-map-1.0.1
@@ -8381,7 +8815,12 @@
                               "recheck"
                               "size-limit"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/pillarjs/path-to-regexp#readme")
     (synopsis "Express style path to RegExp utility")
@@ -8655,7 +9094,12 @@
                               "standard"
                               "standard-version"
                               "tap"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/motdotla/dotenv#readme")
     (synopsis
@@ -8719,7 +9163,12 @@
                               "tsutils"
                               "tsx"
                               "typescript"
-                              "typescript-eslint")))))))))
+                              "typescript-eslint"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://discord-api-types.dev")
     (synopsis
       "Discord API typings that are kept up to date for use in bot library creation.")
@@ -8790,7 +9239,12 @@
                               "@types/node"
                               "typescript-eslint"
                               "eslint-plugin-jest"
-                              "eslint-config-prettier")))))))))
+                              "eslint-config-prettier"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/tj/commander.js#readme")
     (synopsis
@@ -8847,7 +9301,12 @@
                               "@typescript-eslint/parser"
                               "@wessberg/rollup-plugin-ts"
                               "ts-transform-default-export"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/yargs/yargs-parser#readme")
     (synopsis
@@ -8898,7 +9357,12 @@
                               "eslint-plugin-import"
                               "@typescript-eslint/parser"
                               "@wessberg/rollup-plugin-ts"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-string-width-4.2.3
             node-strip-ansi-6.0.1
@@ -8957,7 +9421,12 @@
                               "@types/mocha"
                               "yargs-test-extends"
                               "rollup-plugin-cleanup"
-                              "@wessberg/rollup-plugin-ts")))))))))
+                              "@wessberg/rollup-plugin-ts"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-require-directory-2.1.1
             node-get-caller-file-2.0.5
@@ -9291,7 +9760,12 @@
                               "@rollup/plugin-commonjs"
                               "@typescript-eslint/parser"
                               "@rollup/plugin-node-resolve"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://highlightjs.org/")
     (synopsis
       "Syntax highlighting with language autodetection.")
@@ -9324,7 +9798,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("ava" "tsd" "xo")))))))))
+                          (delete-dependencies '("ava" "tsd" "xo"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/has-flag#readme")
     (synopsis "Check if argv has a specific flag")
@@ -9456,7 +9935,12 @@
                               "semantic-release"
                               "ts-jest"
                               "typedoc"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-yargs-16.2.0
             node-parse5-htmlparser2-tree-adapter-6.0.1
@@ -9503,7 +9987,12 @@
                               "chai"
                               "chai-subset"
                               "prettier"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/paulmillr/readdirp")
     (synopsis
@@ -9543,7 +10032,12 @@
                               "prettier"
                               "tinyspy"
                               "typescript"
-                              "upath")))))))))
+                              "upath"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-readdirp-5.0.0))
     (home-page
       "https://github.com/paulmillr/chokidar")
@@ -9588,7 +10082,12 @@
                               "log-update"
                               "yoctodelay"
                               "@types/node"
-                              "color-convert")))))))))
+                              "color-convert"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/chalk/chalk#readme")
     (synopsis "Terminal string styling done right")
@@ -9697,7 +10196,12 @@
                               "react"
                               "react-test-renderer"
                               "sinon"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/epoberezkin/fast-deep-equal#readme")
     (synopsis "Fast deep equal")
@@ -9736,7 +10240,12 @@
                               "neostandard"
                               "playwright-test"
                               "tape"
-                              "tsd")))))))))
+                              "tsd"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/fastify/fast-uri")
     (synopsis "Dependency-free RFC 3986 URI toolbox")
     (description
@@ -9809,7 +10318,12 @@
                               "@typescript-eslint/parser"
                               "@types/require-from-string"
                               "@rollup/plugin-node-resolve"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-json-schema-traverse-1.0.0
             node-require-from-string-2.0.2
@@ -9845,7 +10359,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("istanbul" "tape")))))))))
+                          (delete-dependencies '("istanbul" "tape"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/dcodeIO/protobuf.js#readme")
     (synopsis "A minimal event emitter.")
@@ -10261,7 +10780,12 @@
                               "gulp-sourcemaps"
                               "bundle-collapser"
                               "reflect-metadata"
-                              "vinyl-source-stream")))))))))
+                              "vinyl-source-stream"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-protobufjs-eventemitter-1.1.0
             node-protobufjs-aspromise-1.1.2
@@ -10356,7 +10880,12 @@
                               "snazzy"
                               "standard"
                               "@types/node"
-                              "thread-stream")))))))))
+                              "thread-stream"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-split2-4.2.0))
     (home-page
       "https://github.com/pinojs/pino-abstract-transport#readme")
@@ -10436,7 +10965,12 @@
                               "json-stringify-safe"
                               "standard"
                               "tap"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/BridgeAR/safe-stable-stringify#readme")
     (synopsis
@@ -10477,7 +11011,12 @@
                               "eslint"
                               "neostandard"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/pinojs/pino-std-serializers#readme")
     (synopsis
@@ -10512,7 +11051,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("snazzy" "standard" "tap")))))))))
+                            '("snazzy" "standard" "tap"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/mcollina/on-exit-or-gc#readme")
     (synopsis
@@ -10593,7 +11137,12 @@
                               "mitata"
                               "neostandard"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/pinojs/redact#readme")
     (synopsis "Redact JS objects")
@@ -10634,7 +11183,12 @@
                               "eslint-plugin-standard"
                               "c8"
                               "prettier"
-                              "tap")))))))))
+                              "tap"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/pinojs/real-require")
     (synopsis
@@ -10681,7 +11235,12 @@
                               "@types/node"
                               "@yao-pkg/pkg"
                               "pino-elasticsearch"
-                              "why-is-node-running")))))))))
+                              "why-is-node-running"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-real-require-0.2.0))
     (home-page
       "https://github.com/mcollina/thread-stream#readme")
@@ -10717,7 +11276,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("standard" "tap" "tape")))))))))
+                            '("standard" "tap" "tape"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/davidmarkclements/atomic-sleep#readme")
     (synopsis
@@ -10760,7 +11324,12 @@
                               "standard"
                               "tap"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-atomic-sleep-1.0.0))
     (home-page
       "https://github.com/pinojs/sonic-boom#readme")
@@ -10837,7 +11406,12 @@
                               "@arethetypeswrong/cli"
                               "eslint-plugin-promise"
                               "eslint-config-standard"
-                              "@types/flush-write-stream")))))))))
+                              "@types/flush-write-stream"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-pino-abstract-transport-2.0.0
             node-quick-format-unescaped-4.0.4
@@ -10977,7 +11551,12 @@
                               "tsd"
                               "tsx"
                               "typescript"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-p-timeout-7.0.1
             node-eventemitter3-5.0.4))
@@ -11021,7 +11600,12 @@
                               "chai"
                               "del-cli"
                               "mocha"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/Borewit/win-guid#readme")
     (synopsis "Windows legacy GUID parser")
@@ -11072,7 +11656,12 @@
                               "@types/content-type"
                               "@types/chai-as-promised"
                               "remark-preset-lint-consistent"
-                              "node-readable-to-web-readable-stream")))))))))
+                              "node-readable-to-web-readable-stream"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-borewit-text-codec-0.2.2
             node-uint8array-extras-1.5.0
@@ -11126,7 +11715,12 @@
                               "prettier"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/node-lru-cache#readme")
     (synopsis
@@ -11201,7 +11795,12 @@
                               "prettier-plugin-import-sort"
                               "rollup"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/DirtyHairy/async-mutex#readme")
@@ -11239,7 +11838,12 @@
                             '("@hapi/lab"
                               "@hapi/code"
                               "typescript"
-                              "@hapi/eslint-plugin")))))))))
+                              "@hapi/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/hapijs/hoek#readme")
     (synopsis "General purpose node utilities")
@@ -11272,7 +11876,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@hapi/code" "@hapi/lab" "typescript")))))))))
+                            '("@hapi/code" "@hapi/lab" "typescript"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs (list node-hapi-hoek-9.3.0))
     (home-page
       "https://github.com/hapijs/boom#readme")
@@ -11320,7 +11929,12 @@
                               "eventemitter3"
                               "@biomejs/biome"
                               "@vitest/coverage-v8"
-                              "@monstermann/tinybench-pretty-printer")))))))))
+                              "@monstermann/tinybench-pretty-printer"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/jaredwray/hookified#readme")
     (synopsis "Event Emitting and Middleware Hooks")
@@ -11361,7 +11975,12 @@
                               "typescript"
                               "@biomejs/biome"
                               "@keyv/test-suite"
-                              "@vitest/coverage-v8")))))))))
+                              "@vitest/coverage-v8"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/jaredwray/keyv")
     (synopsis "Serialization for Keyv")
     (description "Serialization for Keyv")
@@ -11408,7 +12027,12 @@
                               "@keyv/compress-lz4"
                               "@keyv/compress-gzip"
                               "@vitest/coverage-v8"
-                              "@keyv/compress-brotli")))))))))
+                              "@keyv/compress-brotli"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-keyv-serialize-1.1.1))
     (home-page "https://github.com/jaredwray/keyv")
     (synopsis
@@ -11456,7 +12080,12 @@
                               "tsup"
                               "tsx"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-hookified-1.15.1))
     (home-page
       "https://github.com/jaredwray/hashery#readme")
@@ -11494,7 +12123,12 @@
                               "@types/node"
                               "rimraf"
                               "tsup"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-keyv-5.6.0 node-hashery-1.5.0))
     (home-page
@@ -11537,7 +12171,12 @@
                               "@biomejs/biome"
                               "@faker-js/faker"
                               "@vitest/coverage-v8"
-                              "keyv")))))))))
+                              "keyv"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-hookified-1.15.1
             node-hashery-1.5.0
@@ -11577,7 +12216,12 @@
                               "@types/node"
                               "rimraf"
                               "tsup"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-cacheable-utils-2.4.0
             node-keyv-5.6.0
@@ -11622,7 +12266,12 @@
                               "vitest"
                               "typescript"
                               "@biomejs/biome"
-                              "@vitest/coverage-v8")))))))))
+                              "@vitest/coverage-v8"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-hookified-1.15.1))
     (home-page
       "https://github.com/jaredwray/qified#readme")
@@ -11666,7 +12315,12 @@
                               "lru-cache"
                               "rimraf"
                               "tsup"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-cacheable-utils-2.4.0
             node-cacheable-memory-2.0.8
@@ -11714,7 +12368,12 @@
                               "@types/node"
                               "@biomejs/biome"
                               "@faker-js/faker"
-                              "@vitest/coverage-v8")))))))))
+                              "@vitest/coverage-v8"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-hookified-1.15.1
             node-cacheable-2.3.3
@@ -11766,7 +12425,12 @@
                               "eslint-plugin-unicorn"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/fb55/entities#readme")
     (synopsis
@@ -11862,7 +12526,12 @@
                               "@types/boolbase"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-domelementtype-2.3.0
             node-domhandler-5.0.3
@@ -11915,7 +12584,12 @@
                               "eslint-plugin-unicorn"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-domelementtype-2.3.0
             node-domhandler-5.0.3
@@ -11976,7 +12650,12 @@
                               "prettier-plugin-jsdoc"
                               "eslint-config-prettier"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-parse5-htmlparser2-tree-adapter-7.1.0
             node-dom-serializer-2.0.0
@@ -12019,7 +12698,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("test" "phantomify" "retape" "tape")))))))))
+                            '("test" "phantomify" "retape" "tape"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://www.npmjs.com/package/node-querystring")
     (synopsis
@@ -12138,7 +12822,12 @@
                               "typescript"
                               "@types/jest"
                               "@types/cheerio"
-                              "@skypack/package-check")))))))))
+                              "@skypack/package-check"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-cheerio-1.0.0-rc.11 node-url-0.11.0))
     (home-page
@@ -12175,7 +12864,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@deno/shim-deno-test")))))))))
+                            '("@deno/shim-deno-test"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/bgrins/TinyColor#readme")
     (synopsis "Fast Color Parsing and Manipulation")
@@ -12241,7 +12935,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-zod-3.25.76))
     (home-page
       "https://www.npmjs.com/package/node-jimp-types")
@@ -12283,7 +12982,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tinycolor2-1.6.0
             node-jimp-types-1.6.0))
@@ -12322,7 +13026,12 @@
                             '("browserify"
                               "punycode"
                               "uglify-js"
-                              "watchify")))))))))
+                              "watchify"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/HarasimowiczKamil/any-base#readme")
     (synopsis
@@ -12365,7 +13074,11 @@
                               "benchmark"
                               "mime-score"
                               "mime-types"
-                              "standard-version")))))))))
+                              "standard-version"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                              ("scripts" "build"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/broofa/mime#readme")
     (synopsis
@@ -12610,7 +13323,12 @@
                               "music-metadata-browser"
                               "karma-jasmine-html-reporter"
                               "istanbul-instrumenter-loader"
-                              "karma-coverage-istanbul-reporter")))))))))
+                              "karma-coverage-istanbul-reporter"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-readable-stream-4.7.0))
     (home-page
       "https://github.com/Borewit/readable-web-to-node-stream#readme")
@@ -12659,7 +13377,12 @@
                               "@types/node"
                               "@types/mocha"
                               "source-map-support"
-                              "remark-preset-lint-recommended")))))))))
+                              "remark-preset-lint-recommended"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tokenizer-token-0.3.0
             node-ieee754-1.2.1))
@@ -12718,7 +13441,12 @@
                               "@typescript-eslint/parser"
                               "remark-preset-lint-recommended"
                               "@typescript-eslint/eslint-plugin"
-                              "eslint-import-resolver-typescript")))))))))
+                              "eslint-import-resolver-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/Borewit/peek-readable#readme")
     (synopsis "Read and peek from a readable stream")
@@ -12775,7 +13503,12 @@
                               "@typescript-eslint/parser"
                               "remark-preset-lint-recommended"
                               "@typescript-eslint/eslint-plugin"
-                              "eslint-import-resolver-typescript")))))))))
+                              "eslint-import-resolver-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tokenizer-token-0.3.0
             node-peek-readable-4.1.0))
@@ -12817,7 +13550,12 @@
                               "tsd"
                               "read-chunk"
                               "@types/node"
-                              "noop-stream")))))))))
+                              "noop-stream"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-readable-web-to-node-stream-3.0.4
             node-token-types-4.2.1
@@ -12916,7 +13654,12 @@
                               "tslint-config-standard"
                               "typedoc"
                               "typescript"
-                              "validate-commit-msg")))))))))
+                              "validate-commit-msg"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/scopsy/await-to-js#readme")
     (synopsis
@@ -12957,7 +13700,12 @@
                               "eslint"
                               "tshy"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://www.npmjs.com/package/node-jimp-file-ops")
     (synopsis "")
@@ -13000,7 +13748,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-mime-3.0.0
             node-file-type-16.5.4
@@ -13051,7 +13804,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-types-1.6.0
@@ -13101,7 +13859,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-tinycolor2-1.6.0
@@ -13174,7 +13937,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-utif2-4.1.0
             node-jimp-types-1.6.0
@@ -13205,6 +13973,12 @@
             (gexp (modify-phases
                     %standard-phases
                     (delete 'build)
+                    (replace 'unpack
+                      (lambda* (#:key source #:allow-other-keys)
+                        ;; Same bad-permissions workaround as pngjs-6.0.0.
+                        (mkdir-p "package/lib")
+                        (invoke "tar" "--no-overwrite-dir" "-xvf" source)
+                        (chdir "package")))
                     (add-after
                       'patch-dependencies
                       'delete-dev-dependencies
@@ -13221,7 +13995,12 @@
                               "puppeteer"
                               "serve-static"
                               "tap-dot"
-                              "tape")))))))))
+                              "tape"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/lukeapage/pngjs")
     (synopsis
       "PNG encoder/decoder in pure JS, supporting any bit size & interlace, async & sync with full test suite.")
@@ -13265,7 +14044,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-pngjs-7.0.0
             node-jimp-types-1.6.0
@@ -13300,7 +14084,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("jest")))))))))
+                        (modify-json (delete-dependencies '("jest"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/eugeneware/jpeg-js#readme")
     (synopsis
@@ -13344,7 +14133,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-jpeg-js-0.4.4
             node-jimp-types-1.6.0
@@ -13386,7 +14180,12 @@
                               "prettier"
                               "tshy"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/hipstersmoothie/bmp-ts#readme")
     (synopsis
@@ -13432,7 +14231,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-bmp-ts-1.0.9
             node-jimp-utils-1.6.0
@@ -13480,7 +14284,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-any-base-1.1.0
             node-jimp-utils-1.6.0
@@ -13534,7 +14343,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-utils-1.6.0
@@ -13584,7 +14398,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-utils-1.6.0
@@ -13633,7 +14452,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-utils-1.6.0
@@ -13748,7 +14572,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76 node-image-q-4.0.0))
     (home-page
@@ -13795,7 +14624,12 @@
                               "jest"
                               "magic-string"
                               "prettier"
-                              "rollup")))))))))
+                              "rollup"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/nirgit/simple-xml-to-json")
     (synopsis "Convert XML to JSON - Fast & Simple")
@@ -14103,7 +14937,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-utils-1.6.0
@@ -14149,7 +14988,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-simple-xml-to-json-1.2.3
@@ -14203,7 +15047,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76 node-jimp-types-1.6.0))
     (home-page
@@ -14249,7 +15098,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76 node-jimp-types-1.6.0))
     (home-page
@@ -14294,7 +15148,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-utils-1.6.0
@@ -14336,7 +15195,12 @@
                               "eslint"
                               "tshy"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-jimp-types-1.6.0))
     (home-page
       "https://www.npmjs.com/package/node-jimp-plugin-dither")
@@ -14375,7 +15239,12 @@
                               "eslint"
                               "tshy"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-utils-1.6.0
@@ -14421,7 +15290,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-types-1.6.0
@@ -14469,7 +15343,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76
             node-jimp-utils-1.6.0
@@ -14519,7 +15398,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-3.25.76 node-jimp-types-1.6.0))
     (home-page
@@ -14565,7 +15449,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-jimp-utils-1.6.0 node-jimp-core-1.6.0))
     (home-page
@@ -14674,7 +15563,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-omggif-1.0.10
             node-gifwrap-0.10.1
@@ -14706,6 +15600,15 @@
             (gexp (modify-phases
                     %standard-phases
                     (delete 'build)
+                    (replace 'unpack
+                      (lambda* (#:key source #:allow-other-keys)
+                        ;; The pngjs tarball stores directories with mode
+                        ;; 0666 (no execute bit).  Pre-create them with
+                        ;; 0755 so tar can write into them, then use
+                        ;; --no-overwrite-dir to preserve those perms.
+                        (mkdir-p "package/lib")
+                        (invoke "tar" "--no-overwrite-dir" "-xvf" source)
+                        (chdir "package")))
                     (add-after
                       'patch-dependencies
                       'delete-dev-dependencies
@@ -14723,7 +15626,12 @@
                               "puppeteer"
                               "serve-static"
                               "tap-dot"
-                              "tape")))))))))
+                              "tape"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/lukeapage/pngjs")
     (synopsis
       "PNG encoder/decoder in pure JS, supporting any bit size & interlace, async & sync with full test suite.")
@@ -14801,7 +15709,12 @@
                               "eslint"
                               "tshy"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-pixelmatch-5.3.0
             node-jimp-utils-1.6.0
@@ -14859,7 +15772,12 @@
                               "tshy"
                               "typescript"
                               "vite-plugin-node-polyfills"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-jimp-utils-1.6.0
             node-jimp-types-1.6.0
@@ -14925,7 +15843,12 @@
                             '("@types/node"
                               "esbuild"
                               "typedoc"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://thi.ng/errors")
     (synopsis
       "Custom error types and error factory functions")
@@ -14959,7 +15882,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("esbuild" "typedoc" "typescript")))))))))
+                            '("esbuild" "typedoc" "typescript"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs (list node-thi-ng-errors-2.6.5))
     (home-page "https://thi.ng/bitstream")
     (synopsis
@@ -14998,7 +15926,12 @@
                               "esbuild"
                               "minimist"
                               "tape"
-                              "wav-decoder")))))))))
+                              "wav-decoder"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-thi-ng-bitstream-2.4.43))
     (home-page
       "https://github.com/mattdesl/qoa-format")
@@ -15118,7 +16051,11 @@
                               "babel-plugin-commonjs-lite"
                               "eslint"
                               "eslint-config-developit"
-                              "eslint-plugin-compat")))))))))
+                              "eslint-plugin-compat"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                              ("scripts" "build"))
+                            #:strict? #f))))))))
     (home-page "https://github.com/eshaz/web-worker")
     (synopsis
       "Consistent Web Workers in browser and Node.")
@@ -15540,7 +16477,14 @@
                               "typedoc-plugin-markdown"
                               "typescript"
                               "sharp"
-                              "audio-decode")))))))))
+                              "audio-decode"
+                              ;; git+ dep - not in npm registry
+                              "libsignal"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-ws-8.19.0
             node-protobufjs-7.5.4
@@ -15589,7 +16533,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("fake" "istanbul" "tape")))))))))
+                            '("fake" "istanbul" "tape"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/tim-kos/node-retry")
     (synopsis
@@ -15810,7 +16759,12 @@
                               "typescript"
                               "@types/node"
                               "@types/benchmark"
-                              "@sindresorhus/tsconfig")))))))))
+                              "@sindresorhus/tsconfig"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-eventemitter3-4.0.7
             node-p-timeout-3.2.0))
@@ -15848,7 +16802,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@types/node" "ava" "tempy" "tsd" "xo")))))))))
+                            '("@types/node" "ava" "tempy" "tsd" "xo"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/is-stream#readme")
     (synopsis
@@ -16021,7 +16980,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-has-symbols-1.1.0))
     (home-page
       "https://github.com/inspect-js/has-tostringtag#readme")
@@ -16072,7 +17036,12 @@
                               "nyc"
                               "safe-publish-latest"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-hasown-2.0.2
             node-has-tostringtag-1.0.2
@@ -16111,7 +17080,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("fake" "far")))))))))
+                          (delete-dependencies '("fake" "far"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/felixge/node-delayed-stream")
     (synopsis
@@ -16421,7 +17395,12 @@
                               "stream-throttle"
                               "string-replace-async"
                               "tar-stream"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-proxy-from-env-1.1.0
             node-form-data-4.0.5
@@ -16457,7 +17436,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("tsd")))))))))
+                        (modify-json (delete-dependencies '("tsd"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://docs.slack.dev/tools/node-slack-sdk/reference/types/")
     (synopsis
@@ -17404,7 +18388,12 @@
                               "@tsconfig/node18"
                               "@types/proxyquire"
                               "source-map-support"
-                              "@types/express")))))))))
+                              "@types/express"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-slack-socket-mode-2.0.6
             node-path-to-regexp-8.3.0
@@ -17534,7 +18523,12 @@
                               "rimraf"
                               "tsx"
                               "typescript"
-                              "zod")))))))))
+                              "zod"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/StefanTerdell/zod-to-json-schema#readme")
     (synopsis "Converts Zod schemas to Json Schemas")
@@ -17589,7 +18583,12 @@
                               "release-it"
                               "source-map-support"
                               "tsx"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/beaugunderson/ip-address#readme")
     (synopsis
@@ -17646,7 +18645,12 @@
                               "supertest"
                               "ts-jest"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-ip-address-10.1.0 node-express-5.2.1))
     (home-page
@@ -17697,7 +18701,12 @@
                               "rollup-plugin-visualizer"
                               "semantic-release"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/rexxars/eventsource-parser#readme")
     (synopsis
@@ -17785,7 +18794,12 @@
                               "vitest"
                               "wrangler"
                               "ws"
-                              "zod")))))))))
+                              "zod"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://hono.dev")
     (synopsis "Web framework built on Web Standards")
     (description
@@ -17832,7 +18846,12 @@
                               "supertest"
                               "ts-jest"
                               "tsup"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/honojs/node-server")
     (synopsis "Node.js Adapter for Hono")
@@ -17870,7 +18889,12 @@
                               "esbuild"
                               "typescript"
                               "@types/jest"
-                              "@types/node")))))))))
+                              "@types/node"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/crouchcd/pkce-challenge#readme")
     (synopsis
@@ -17924,7 +18948,12 @@
                               "rollup-plugin-visualizer"
                               "@typescript-eslint/parser"
                               "@sanity/semantic-release-preset"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-eventsource-parser-3.0.6))
     (home-page
       "https://github.com/EventSource/eventsource#readme")
@@ -17959,7 +18988,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("ava" "tsd" "xo")))))))))
+                          (delete-dependencies '("ava" "tsd" "xo"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/shebang-regex#readme")
     (synopsis
@@ -18144,7 +19178,12 @@
                               "standard-version"
                               "babel-preset-moxy"
                               "eslint-config-moxy"
-                              "@commitlint/config-conventional")))))))))
+                              "@commitlint/config-conventional"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-shebang-command-2.0.0
             node-path-key-3.1.1
@@ -18197,7 +19236,12 @@
                               "lint-staged"
                               "prettier"
                               "ts-jest"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-ajv-8.18.0 node-ajv-8.18.0))
     (home-page
       "https://github.com/ajv-validator/ajv-formats#readme")
@@ -18303,7 +19347,12 @@
                               "esbuild"
                               "mocha"
                               "typescript"
-                              "wrangler")))))))))
+                              "wrangler"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/cfworker/cfworker/tree/master/packages/json-schema/README.md")
     (synopsis
@@ -18361,7 +19410,16 @@
                               "@typescript/native-preview"
                               "@types/express-serve-static-core"
                               "@modelcontextprotocol/conformance"
-                              "zod")))))))))
+                              "zod"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest")
+                                 ;; overrides/resolutions force specific versions
+                                 ;; which npm tries to fetch from registry (offline fails)
+                                 "overrides"
+                                 "resolutions")
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-to-json-schema-3.25.1
             node-express-rate-limit-8.3.1
@@ -18380,8 +19438,7 @@
             node-cors-2.8.6
             node-zod-4.3.6
             node-ajv-8.18.0
-            node-cfworker-json-schema-4.1.1
-            node-zod-4.3.6))
+            node-cfworker-json-schema-4.1.1))
     (home-page "https://modelcontextprotocol.io")
     (synopsis
       "Model Context Protocol implementation for TypeScript")
@@ -18438,7 +19495,12 @@
                               "@semantic-release/github"
                               "esbuild-plugin-umd-wrapper"
                               "@semantic-release/commit-analyzer"
-                              "@semantic-release/release-notes-generator")))))))))
+                              "@semantic-release/release-notes-generator"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://marked.js.org")
     (synopsis "A markdown parser built for speed")
     (description "A markdown parser built for speed")
@@ -18474,7 +19536,12 @@
                               "outdent"
                               "simplify-ranges"
                               "typescript"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/get-east-asian-width#readme")
     (synopsis
@@ -18770,7 +19837,12 @@
                               "rimraf"
                               "stable"
                               "standard-version"
-                              "thread-sleep")))))))))
+                              "thread-sleep"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-signal-exit-3.0.7
             node-retry-0.12.0
@@ -18815,7 +19887,12 @@
                               "prettier"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                              ("scripts" "pretest")
+                              ("scripts" "presnap"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/juliangruber/balanced-match#readme")
     (synopsis
@@ -18856,7 +19933,12 @@
                               "prettier"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                              ("scripts" "pretest")
+                              ("scripts" "presnap"))
+                            #:strict? #f))))))))
     (inputs (list node-balanced-match-4.0.4))
     (home-page
       "https://github.com/juliangruber/brace-expansion#readme")
@@ -18897,7 +19979,12 @@
                               "mkdirp"
                               "typedoc"
                               "prettier"
-                              "@types/node")))))))))
+                              "@types/node"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-brace-expansion-5.0.4))
     (home-page
       "https://github.com/isaacs/minimatch#readme")
@@ -18946,7 +20033,12 @@
                               "tap"
                               "tmp"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/kaelzhang/node-ignore#readme")
     (synopsis
@@ -18983,7 +20075,12 @@
                           (delete-dependencies
                             '("@npmcli/eslint-config"
                               "@npmcli/template-oss"
-                              "tap")))))))))
+                              "tap"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-lru-cache-11.2.7))
     (home-page
       "https://github.com/npm/hosted-git-info")
@@ -19027,7 +20124,12 @@
                               "tap"
                               "ts-node"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-minipass-7.1.3 node-lru-cache-11.2.7))
     (home-page
@@ -19070,7 +20172,12 @@
                               "rimraf"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-path-scurry-2.0.2
             node-minipass-7.1.3
@@ -19323,7 +20430,12 @@
                               "lint-staged"
                               "nyc"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-types-yauzl-2.10.3
             node-yauzl-2.10.0
@@ -19388,7 +20500,12 @@
                               "karma-mocha-reporter"
                               "@arethetypeswrong/cli"
                               "babel-plugin-istanbul"
-                              "karma-sourcemap-loader")))))))))
+                              "karma-sourcemap-loader"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://www.npmjs.com/package/node-diff")
     (synopsis
@@ -19461,7 +20578,12 @@
                               "source-map-support"
                               "ts-node"
                               "tslint"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/JoshGlazebrook/smart-buffer/")
     (synopsis
@@ -19504,7 +20626,12 @@
                               "mocha"
                               "prettier"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-smart-buffer-4.2.0
             node-ip-address-10.1.0))
@@ -19556,7 +20683,12 @@
                               "@types/debug"
                               "async-listen"
                               "cacheable-lookup"
-                              "@types/async-retry")))))))))
+                              "@types/async-retry"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-agent-base-7.1.4
             node-socks-2.8.7
@@ -19603,7 +20735,12 @@
                               "@types/jest"
                               "@types/node"
                               "@types/debug"
-                              "async-listen")))))))))
+                              "async-listen"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-agent-base-7.1.4 node-debug-4.4.3))
     (home-page
@@ -19654,7 +20791,12 @@
                               "typedoc"
                               "typedoc-plugin-inline-sources"
                               "typedoc-plugin-markdown"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/justjake/quickjs-emscripten#readme")
     (synopsis
@@ -19688,7 +20830,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("doctoc" "webpack")))))))))
+                          (delete-dependencies '("doctoc" "webpack"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/mozilla/source-map")
     (synopsis "Generates and consumes source maps")
@@ -19747,7 +20894,12 @@
                               "typescript"
                               "typescript-formatter"
                               "unicode-8.0.0"
-                              "webpack")))))))))
+                              "webpack"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "http://esprima.org")
     (synopsis
       "ECMAScript parsing infrastructure for multipurpose analysis")
@@ -19786,7 +20938,12 @@
                               "jshint"
                               "mocha"
                               "regenerate"
-                              "unicode-9.0.0")))))))))
+                              "unicode-9.0.0"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/estools/esutils")
     (synopsis
       "utility box for ECMAScript language tools")
@@ -19930,7 +21087,12 @@
                               "ts-add-module-exports"
                               "ts-emit-clean"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page "http://github.com/benjamn/ast-types")
     (synopsis
@@ -19973,7 +21135,12 @@
                               "@types/node"
                               "@types/esprima"
                               "@types/escodegen"
-                              "@tootallnate/quickjs-emscripten")))))))))
+                              "@tootallnate/quickjs-emscripten"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-escodegen-2.1.0
             node-ast-types-0.13.4
@@ -20012,7 +21179,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("coffee-script" "mocha" "vows")))))))))
+                            '("coffee-script" "mocha" "vows"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page "https://github.com/rs/node-netmask")
     (synopsis "Parse and lookup IP network blocks")
     (description
@@ -20052,7 +21224,12 @@
                               "@types/jest"
                               "@types/node"
                               "@types/netmask"
-                              "@tootallnate/quickjs-emscripten")))))))))
+                              "@tootallnate/quickjs-emscripten"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-degenerator-5.0.1 node-netmask-2.0.2))
     (home-page
@@ -20094,7 +21271,12 @@
                               "tsconfig"
                               "typescript"
                               "@types/jest"
-                              "@types/node")))))))))
+                              "@types/node"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/TooTallNate/proxy-agents#readme")
     (synopsis
@@ -20138,7 +21320,12 @@
                               "@types/mocha"
                               "@eslint/eslintrc"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/patrickjuchli/basic-ftp#readme")
     (synopsis
@@ -20183,7 +21370,12 @@
                               "@types/jest"
                               "@types/node"
                               "@types/debug"
-                              "async-listen")))))))))
+                              "async-listen"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-data-uri-to-buffer-6.0.2
             node-basic-ftp-5.2.0
@@ -20231,7 +21423,12 @@
                               "@types/jest"
                               "@types/node"
                               "@types/debug"
-                              "async-listen")))))))))
+                              "async-listen"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tootallnate-quickjs-emscripten-0.23.0
             node-socks-proxy-agent-8.0.5
@@ -20288,7 +21485,12 @@
                               "typescript"
                               "@types/node"
                               "eslint-config-prettier"
-                              "@size-limit/preset-small-lib")))))))))
+                              "@size-limit/preset-small-lib"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/node-lru-cache#readme")
     (synopsis
@@ -20336,7 +21538,12 @@
                               "@types/debug"
                               "async-listen"
                               "@types/agent-base"
-                              "@types/proxy-from-env")))))))))
+                              "@types/proxy-from-env"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-socks-proxy-agent-8.0.5
             node-https-proxy-agent-7.0.6
@@ -20383,7 +21590,12 @@
                             '("@vitest/coverage-istanbul"
                               "@vitest/ui"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://promplate.dev/partial-json-parser")
     (synopsis "Parse partial JSON generated by LLM")
@@ -20415,7 +21627,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("ws" "zod")))))))))
+                        (modify-json (delete-dependencies '("ws" "zod"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://www.npmjs.com/package/node-openai")
     (synopsis
@@ -20456,7 +21673,12 @@
                               "@eslint/js"
                               "typescript"
                               "@types/node"
-                              "typescript-eslint")))))))))
+                              "typescript-eslint"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-zod-to-json-schema-3.25.1
             node-zod-4.3.6
@@ -20502,7 +21724,12 @@
                               "gts"
                               "mocha"
                               "sinon"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/googleapis/google-cloud-node-core/tree/main/dev-packages/logging-utils")
     (synopsis
@@ -20562,7 +21789,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("chai" "mocha")))))))))
+                          (delete-dependencies '("chai" "mocha"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (inputs (list node-bignumber-js-9.3.1))
     (home-page
       "https://github.com/sidorares/json-bigint#readme")
@@ -20617,7 +21849,12 @@
                               "@rollup/plugin-typescript"
                               "@typescript-eslint/parser"
                               "@ungap/promise-all-settled"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/MattiasBuelens/web-streams-polyfill#readme")
     (synopsis
@@ -20678,7 +21915,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@types/node" "c8" "typescript")))))))))
+                            '("@types/node" "c8" "typescript"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs
       (list node-web-streams-polyfill-3.3.3
             node-node-domexception-1.0.0))
@@ -20718,7 +21960,12 @@
                           (delete-dependencies
                             '("@types/google-closure-compiler"
                               "@types/node"
-                              "google-closure-compiler")))))))))
+                              "google-closure-compiler"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-fetch-blob-3.2.0))
     (home-page
       "https://github.com/jimmywarting/FormData#readme")
@@ -20758,7 +22005,12 @@
                               "ts-jest"
                               "typescript"
                               "@types/jest"
-                              "@types/node")))))))))
+                              "@types/node"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/TooTallNate/node-data-uri-to-buffer")
     (synopsis
@@ -20808,7 +22060,12 @@
                               "p-timeout"
                               "stream-consumers"
                               "tsd"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-formdata-polyfill-4.0.10
             node-fetch-blob-3.2.0
@@ -20930,7 +22187,12 @@
                               "ts-loader"
                               "typescript"
                               "webpack"
-                              "webpack-cli")))))))))
+                              "webpack-cli"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-node-fetch-3.3.2
             node-https-proxy-agent-7.0.6
@@ -20990,7 +22252,12 @@
                               "nock"
                               "sinon"
                               "tmp"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-json-bigint-1.0.0
             node-google-logging-utils-1.1.3
@@ -21034,7 +22301,12 @@
                               "tap"
                               "typedoc"
                               "typescript"
-                              "tshy")))))))))
+                              "tshy"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/package-json-from-dist#readme")
     (synopsis
@@ -21078,7 +22350,12 @@
                               "tap"
                               "ts-node"
                               "typedoc"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/tapjs/signal-exit#readme")
     (synopsis
@@ -21120,7 +22397,12 @@
                               "@types/tap"
                               "typescript"
                               "@types/node"
-                              "@types/cross-spawn")))))))))
+                              "@types/cross-spawn"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-signal-exit-4.1.0
             node-cross-spawn-7.0.6))
@@ -21170,7 +22452,12 @@
                               "@types/tap"
                               "typescript"
                               "@types/node"
-                              "eslint-config-prettier")))))))))
+                              "eslint-config-prettier"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/node-lru-cache#readme")
     (synopsis
@@ -21216,7 +22503,12 @@
                               "typescript"
                               "@types/node"
                               "@nodelib/fs.walk"
-                              "eslint-config-prettier")))))))))
+                              "eslint-config-prettier"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-lru-cache-10.4.3 node-minipass-7.1.3))
     (home-page
@@ -21250,7 +22542,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("tape" "matcha")))))))))
+                          (delete-dependencies '("tape" "matcha"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/juliangruber/balanced-match")
     (synopsis
@@ -21327,7 +22624,12 @@
                               "prettier"
                               "tap"
                               "tshy"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-brace-expansion-2.0.2))
     (home-page
       "https://github.com/isaacs/minimatch#readme")
@@ -21359,7 +22661,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("mocha")))))))))
+                        (modify-json (delete-dependencies '("mocha"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/komagata/eastasianwidth#readme")
     (synopsis
@@ -21568,7 +22875,16 @@
                               "eslint-plugin-node"
                               "eslint-plugin-import"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"
+                              ;; npm: alias deps — cannot resolve offline
+                              "string-width-cjs"
+                              "strip-ansi-cjs"
+                              "wrap-ansi-cjs"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-string-width-5.1.2
             node-strip-ansi-7.2.0
@@ -21613,7 +22929,12 @@
                               "prettier"
                               "typescript"
                               "@types/node"
-                              "@types/pkgjs__parseargs")))))))))
+                              "@types/pkgjs__parseargs"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-isaacs-cliui-8.0.2))
     (home-page
       "https://github.com/isaacs/jackspeak#readme")
@@ -21657,7 +22978,12 @@
                               "typedoc"
                               "prettier"
                               "@types/node"
-                              "sync-content")))))))))
+                              "sync-content"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-package-json-from-dist-1.0.1
             node-foreground-child-3.3.1
@@ -21705,7 +23031,12 @@
                               "typedoc"
                               "prettier"
                               "typescript"
-                              "@types/node")))))))))
+                              "@types/node"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-glob-10.5.0))
     (home-page
       "https://github.com/isaacs/rimraf#readme")
@@ -21785,7 +23116,12 @@
                               "karma-chrome-launcher"
                               "karma-firefox-launcher"
                               "karma-sourcemap-loader"
-                              "@babel/plugin-proposal-private-methods")))))))))
+                              "@babel/plugin-proposal-private-methods"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-https-proxy-agent-7.0.6
             node-node-fetch-3.3.2
@@ -21858,7 +23194,12 @@
                               "ts-loader"
                               "typescript"
                               "webpack"
-                              "webpack-cli")))))))))
+                              "webpack-cli"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-jws-4.0.1
             node-google-logging-utils-1.1.3
@@ -21933,7 +23274,12 @@
                               "undici"
                               "undici-types"
                               "zod"
-                              "zod-to-json-schema")))))))))
+                              "zod-to-json-schema"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-ws-8.19.0
             node-protobufjs-7.5.4
@@ -21977,7 +23323,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/is-array-buffer")
@@ -23756,7 +25107,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -24067,7 +25423,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-endpoints-3.3.3
@@ -24112,7 +25473,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -24167,7 +25533,12 @@
                               "prettier"
                               "typescript"
                               "webpack"
-                              "webpack-cli")))))))))
+                              "webpack-cli"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/NaturalIntelligence/path-expression-matcher#readme")
     (synopsis
@@ -24217,7 +25588,12 @@
                               "publish-please"
                               "typescript"
                               "webpack"
-                              "webpack-cli")))))))))
+                              "webpack-cli"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-path-expression-matcher-1.1.3))
     (home-page
@@ -24252,7 +25628,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("jasmine")))))))))
+                        (modify-json (delete-dependencies '("jasmine"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/NaturalIntelligence/strnum#readme")
     (synopsis
@@ -24301,7 +25682,12 @@
                               "publish-please"
                               "@babel/register"
                               "@babel/preset-env"
-                              "@babel/plugin-transform-runtime")))))))))
+                              "@babel/plugin-transform-runtime"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-fast-xml-builder-1.1.3
             node-strnum-2.2.0))
@@ -24343,7 +25729,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-fast-xml-parser-5.4.1
@@ -24384,7 +25775,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -24437,7 +25833,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-retry-4.2.12
@@ -24553,7 +25954,12 @@
                               "ttypescript"
                               "typedoc"
                               "typedoc-plugin-missing-exports"
-                              "typescript")))))))))
+                              "typescript"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                              ("scripts" "prebuild")
+                              ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page "https://js-sdsl.org/")
     (synopsis
       "javascript standard data structure library which benchmark against C++ STL")
@@ -24605,7 +26011,12 @@
                               "tslint"
                               "tslint-config-standard"
                               "typescript"
-                              "uglify-es")))))))))
+                              "uglify-es"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-js-sdsl-4.3.0 node-debug-4.4.3))
     (home-page
@@ -24640,7 +26051,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("tape")))))))))
+                        (modify-json (delete-dependencies '("tape"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/substack/typedarray")
     (synopsis "TypedArray polyfill for old browsers")
@@ -25541,7 +26957,12 @@
                               "@types/node"
                               "@types/tape"
                               "end-of-stream"
-                              "mqtt-connection")))))))))
+                              "mqtt-connection"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-number-allocator-1.0.14
             node-readable-stream-3.6.2
@@ -25695,7 +27116,12 @@
                               "browserify"
                               "concat-stream"
                               "tape"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-xtend-4.0.2
             node-ws-8.19.0
@@ -25744,7 +27170,12 @@
                               "typescript"
                               "concurrently"
                               "downlevel-dts"
-                              "@tsconfig/recommended")))))))))
+                              "@tsconfig/recommended"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-utf8-browser")
@@ -25774,6 +27205,7 @@
             (gexp (modify-phases
                     %standard-phases
                     (delete 'build)
+                    (delete 'validate-runpath)
                     (add-after
                       'patch-dependencies
                       'delete-dev-dependencies
@@ -25800,7 +27232,13 @@
                               "typedoc-plugin-merge-modules"
                               "typescript"
                               "uuid"
-                              "yargs")))))))))
+                              "yargs"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest")
+                                 "overrides")
+                              #:strict? #f))))))))
     (inputs
       (list node-process-0.11.10
             node-mqtt-4.3.8
@@ -25849,7 +27287,12 @@
                               "downlevel-dts"
                               "premove"
                               "typescript"
-                              "aws-crt")))))))))
+                              "aws-crt"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-config-provider-4.2.2
@@ -25953,7 +27396,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-bowser-2.14.1
@@ -25997,7 +27445,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26046,7 +27499,12 @@
                               "rollup"
                               "tslib"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/awslabs/aws-lambda-invoke-store")
     (synopsis
@@ -26085,7 +27543,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26131,7 +27594,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26174,7 +27642,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26274,7 +27747,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-locate-window")
@@ -26347,7 +27825,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -26425,7 +27908,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26470,7 +27958,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26516,7 +28009,12 @@
                               "mock-socket"
                               "premove"
                               "typescript"
-                              "vitest-websocket-mock")))))))))
+                              "vitest-websocket-mock"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -26568,7 +28066,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26614,7 +28117,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26659,7 +28167,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26707,7 +28220,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26756,7 +28274,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26803,7 +28326,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26852,7 +28380,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-stream-4.5.19
@@ -26903,7 +28436,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26949,7 +28487,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -27004,7 +28547,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -27059,7 +28607,12 @@
                               "downlevel-dts"
                               "premove"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -27163,7 +28716,12 @@
                               "ts-toolbelt"
                               "ts-unused-exports"
                               "ttypescript"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/ThomasAribart/ts-algebra#readme")
     (synopsis "Types on steroids ð\x9f\x92\x8a")
@@ -27255,7 +28813,12 @@
                               "ts-toolbelt"
                               "ts-unused-exports"
                               "tsc-alias"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-ts-algebra-2.0.0
             node-babel-runtime-7.28.6))
@@ -27291,7 +28854,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("zod")))))))))
+                        (modify-json (delete-dependencies '("zod"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (inputs
       (list node-json-schema-to-ts-3.1.1
             node-zod-4.3.6))
@@ -27378,7 +28946,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@types/node" "typescript" "vitest")))))))))
+                            '("@types/node" "typescript" "vitest"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs (list node-mariozechner-pi-ai-0.58.0))
     (home-page
       "https://github.com/badlogic/pi-mono#readme")
@@ -27424,7 +28997,12 @@
                               "nanocolors"
                               "picocolors"
                               "tsd"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/yoctocolors#readme")
     (synopsis
@@ -27469,7 +29047,12 @@
                               "@types/node"
                               "changelogen"
                               "eslint-config-unjs"
-                              "@vitest/coverage-v8")))))))))
+                              "@vitest/coverage-v8"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/unjs/std-env#readme")
     (synopsis "Runtime agnostic JS utils")
@@ -27536,7 +29119,12 @@
                               "terser-webpack-plugin"
                               "yoctocolors"
                               "ts-loader"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-yoctocolors-2.1.2 node-std-env-3.10.0))
     (home-page
@@ -27580,7 +29168,13 @@
                               "@types/proper-lockfile"
                               "shx"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest")
+                                 "overrides")
+                              #:strict? #f))))))))
     (inputs
       (list node-yaml-2.8.2
             node-undici-7.24.2
@@ -27721,7 +29315,12 @@
                               "typedoc-plugin-markdown"
                               "typescript"
                               "vitepress"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-types-node-24.12.0))
     (home-page
       "https://github.com/line/line-bot-sdk-nodejs")
@@ -27857,7 +29456,12 @@
                               "ts-node"
                               "tsconfig-paths"
                               "tslib"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-ws-8.19.0
             node-qs-6.15.0
@@ -27902,7 +29506,12 @@
                               "coffeescript"
                               "http-server"
                               "mocha"
-                              "webpack")))))))))
+                              "webpack"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-source-map-0.6.1
             node-buffer-from-1.1.2))
@@ -27952,7 +29561,12 @@
                               "@types/debug"
                               "@types/source-map-support"
                               "@typescript-eslint/parser"
-                              "@typescript-eslint/eslint-plugin")))))))))
+                              "@typescript-eslint/eslint-plugin"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-source-map-support-0.5.21
             node-fast-deep-equal-3.1.3
@@ -28007,7 +29621,12 @@
                               "rollup-plugin-commonjs"
                               "rollup-plugin-json"
                               "rollup-plugin-node-resolve"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/SGrondin/bottleneck#readme")
     (synopsis
@@ -28046,7 +29665,13 @@
                               "deno2node"
                               "@types/debug"
                               "@tsconfig/node12"
-                              "@types/node-fetch")))))))))
+                              "@types/node-fetch"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "build")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-bottleneck-2.19.5 node-grammy-1.41.1))
     (home-page
@@ -28081,7 +29706,11 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("deno2node" "@types/node" "grammy")))))))))
+                            '("deno2node" "@types/node" "grammy"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "build"))
+                              #:strict? #f))))))))
     (inputs
       (list node-abort-controller-3.0.0
             node-grammy-1.41.1))
@@ -28135,7 +29764,12 @@
                               "npm-run-all2"
                               "oxlint"
                               "prettier"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/Snazzah/davey#readme")
     (synopsis "DAVE protocol implementation")
@@ -28240,7 +29874,12 @@
                               "mocha"
                               "eslint"
                               "expect.js"
-                              "lint-staged")))))))))
+                              "lint-staged"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/zeit/ms#readme")
     (synopsis "Tiny milisecond conversion utility")
     (description
@@ -28386,7 +30025,12 @@
                               "jade"
                               "marked"
                               "mocha"
-                              "weak")))))))))
+                              "weak"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-nan-2.25.0
             node-debug-2.6.9
@@ -28425,7 +30069,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("bindings" "nan" "mocha" "ref-array")))))))))
+                            '("bindings" "nan" "mocha" "ref-array"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs (list node-ref-1.3.5 node-debug-2.6.9))
     (home-page
       "https://github.com/TooTallNate/ref-struct#readme")
@@ -28494,7 +30143,12 @@
                               "ts-node"
                               "standard"
                               "typescript"
-                              "@types/node")))))))))
+                              "@types/node"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/tj/commander.js#readme")
     (synopsis
@@ -28637,7 +30291,12 @@
                               "eslint-plugin-jsx-a11y"
                               "@typescript-eslint/parser"
                               "@typescript-eslint/eslint-plugin"
-                              "eslint-import-resolver-typescript")))))))))
+                              "eslint-import-resolver-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-debug-4.4.3))
     (home-page
       "https://github.com/TooTallNate/node-agent-base#readme")
@@ -28687,7 +30346,12 @@
                               "eslint-plugin-jsx-a11y"
                               "@typescript-eslint/parser"
                               "@typescript-eslint/eslint-plugin"
-                              "eslint-import-resolver-typescript")))))))))
+                              "eslint-import-resolver-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-agent-base-6.0.2 node-debug-4.4.3))
     (home-page
@@ -28723,7 +30387,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("xo" "ava" "tsd")))))))))
+                          (delete-dependencies '("xo" "ava" "tsd"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/env-paths#readme")
     (synopsis
@@ -28814,7 +30483,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("flowgen2" "typescript")))))))))
+                            '("flowgen2" "typescript"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs (list node-types-node-10.17.60))
     (home-page
       "https://github.com/ForbesLindesay/http-response-object#readme")
@@ -28848,7 +30522,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("tape")))))))))
+                        (modify-json (delete-dependencies '("tape"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/mikeal/caseless#readme")
     (synopsis
@@ -28888,7 +30567,12 @@
                               "flowgen2"
                               "rimraf"
                               "serve-static"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-parse-cache-control-1.0.1
             node-http-response-object-3.0.2
@@ -28927,7 +30611,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("any-shell-escape")))))))))
+                          (delete-dependencies '("any-shell-escape"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (inputs
       (list node-progress-2.0.3
             node-https-proxy-agent-5.0.1
@@ -29013,7 +30702,12 @@
                               "through2"
                               "typescript"
                               "@types/node"
-                              "end-of-stream")))))))))
+                              "end-of-stream"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-yallist-4.0.0))
     (home-page
       "https://github.com/isaacs/minipass#readme")
@@ -29048,7 +30742,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("mutate-fs" "tap")))))))))
+                          (delete-dependencies '("mutate-fs" "tap"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (inputs (list node-minipass-3.3.6))
     (home-page
       "https://github.com/npm/fs-minipass#readme")
@@ -29127,7 +30826,12 @@
                               "typescript"
                               "@types/node"
                               "end-of-stream"
-                              "node-abort-controller")))))))))
+                              "node-abort-controller"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/minipass#readme")
     (synopsis
@@ -29162,7 +30866,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("require-inject" "tap")))))))))
+                            '("require-inject" "tap"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/node-mkdirp#readme")
     (synopsis "Recursively mkdir, like `mkdir -p`")
@@ -29881,7 +31590,12 @@
                               "node-gyp"
                               "prettier"
                               "prism-media"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-node-addon-api-8.6.0
             node-discordjs-node-pre-gyp-0.4.5))
@@ -29923,7 +31637,12 @@
                               "opusscript"
                               "node-opus"
                               "ffmpeg-static"
-                              "@discordjs/opus")))))))))
+                              "@discordjs/opus"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/hydrabolt/prism-media#readme")
     (synopsis
@@ -29976,7 +31695,12 @@
                               "eslint-formatter-pretty"
                               "@discordjs/api-extractor"
                               "eslint-formatter-compact"
-                              "esbuild-plugin-version-injector")))))))))
+                              "esbuild-plugin-version-injector"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-discord-api-types-0.38.42
             node-snazzah-davey-0.1.10
@@ -30016,7 +31740,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("tap-spec" "tape")))))))))
+                          (delete-dependencies '("tap-spec" "tape"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/terkelg/sisteransi#readme")
     (synopsis
@@ -30159,7 +31888,12 @@
                               "@commitlint/config-angular"
                               "conventional-recommended-bump"
                               "conventional-changelog-angular"
-                              "eslint-import-resolver-typescript")))))))))
+                              "eslint-import-resolver-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://discord-api-types.dev")
     (synopsis
       "Discord API typings that are kept up to date for use in bot library creation.")
@@ -30227,7 +31961,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -30319,7 +32058,12 @@
                               "typedoc-github-theme"
                               "typescript"
                               "vitest"
-                              "zod")))))))))
+                              "zod"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/agentclientprotocol/typescript-sdk#readme")
     (synopsis
@@ -30355,7 +32099,12 @@
                         (modify-json
                           (delete-dependencies
                             '("@npmcli/eslint-config"
-                              "@npmcli/template-oss")))))))))
+                              "@npmcli/template-oss"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/npm/validate-npm-package-name")
     (synopsis
@@ -30426,7 +32175,12 @@
                           (delete-dependencies
                             '("@huggingface/transformers"
                               "typescript"
-                              "@huggingface/hub")))))))))
+                              "@huggingface/hub"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/huggingface/huggingface.js#readme")
     (synopsis
@@ -30480,7 +32234,12 @@
                               "typedoc-plugin-mdn-links"
                               "typescript"
                               "typescript-eslint"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://giladgd.github.io/lifecycle-utils/")
     (synopsis
@@ -30517,7 +32276,12 @@
                           (delete-dependencies
                             '("@unicode/unicode-17.0.0"
                               "emoji-test-regex-pattern"
-                              "mocha")))))))))
+                              "mocha"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://mths.be/emoji-regex")
     (synopsis
       "A regular expression to match all Emoji-only symbols as per the Unicode Standard.")
@@ -30715,7 +32479,12 @@
                               "eslint-config-airbnb"
                               "eslint-plugin-import"
                               "eslint-config-prettier"
-                              "eslint-plugin-jsx-a11y")))))))))
+                              "eslint-plugin-jsx-a11y"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-retry-0.13.1))
     (home-page
       "https://github.com/vercel/async-retry#readme")
@@ -30749,7 +32518,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("ava" "tsd" "xo")))))))))
+                          (delete-dependencies '("ava" "tsd" "xo"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (inputs (list node-get-east-asian-width-1.5.0))
     (home-page
       "https://github.com/sindresorhus/is-fullwidth-code-point#readme")
@@ -30789,7 +32563,12 @@
                               "chalk"
                               "random-item"
                               "strip-ansi"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-is-fullwidth-code-point-5.1.0
             node-ansi-styles-6.2.3))
@@ -30836,7 +32615,12 @@
                               "babel-preset-env"
                               "jest"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/kwsites/promise-deferred#readme")
     (synopsis
@@ -30881,7 +32665,12 @@
                               "jest"
                               "rimraf"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-debug-4.4.3))
     (home-page
       "https://github.com/kwsites/file-exists#readme")
@@ -30926,7 +32715,12 @@
                               "esbuild-node-externals"
                               "jest"
                               "ts-node"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-debug-4.4.3
             node-kwsites-promise-deferred-1.1.1
@@ -30961,7 +32755,12 @@
                       'patch-dependencies
                       'delete-dev-dependencies
                       (lambda _
-                        (modify-json (delete-dependencies '("xo" "ava")))))))))
+                        (modify-json (delete-dependencies '("xo" "ava"))
+                        (delete-fields
+                          '(("scripts" "prepare")
+                           ("scripts" "prebuild")
+                           ("scripts" "pretest"))
+                        #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/filename-reserved-regex#readme")
     (synopsis
@@ -31223,7 +33022,12 @@
                               "prettier"
                               "tap"
                               "tshy"
-                              "typedoc")))))))))
+                              "typedoc"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/isexe#readme")
     (synopsis
@@ -31260,7 +33064,12 @@
                           (delete-dependencies
                             '("@npmcli/eslint-config"
                               "@npmcli/template-oss"
-                              "tap")))))))))
+                              "tap"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-isexe-4.0.0))
     (home-page
       "https://github.com/npm/node-which#readme")
@@ -31422,7 +33231,12 @@
                               "puppeteer"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/octokit/webhooks-methods.js#readme")
     (synopsis
@@ -31492,7 +33306,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "sort-keys"
                               "typedoc"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-octokit-openapi-types-27.0.0))
     (home-page
       "https://github.com/octokit/types.ts#readme")
@@ -31536,7 +33355,12 @@
                               "prettier"
                               "tinybench"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-octokit-types-16.0.0))
     (home-page
       "https://github.com/octokit/request-error.js#readme")
@@ -31610,7 +33434,12 @@
                               "prettier-plugin-packagejson"
                               "tsx"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-octokit-webhooks-methods-6.0.0
             node-octokit-request-error-7.1.0
@@ -31648,7 +33477,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("prettier" "tsd")))))))))
+                          (delete-dependencies '("prettier" "tsd"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/gr2m/universal-user-agent#readme")
     (synopsis
@@ -31687,7 +33521,12 @@
                               "c8"
                               "prettier"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/gr2m/before-after-hook#readme")
     (synopsis
@@ -31798,7 +33637,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-octokit-types-16.0.0))
@@ -31847,7 +33691,12 @@
                               "tinyglobby"
                               "typescript"
                               "undici"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-json-with-bigint-3.5.7
@@ -31898,7 +33747,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-octokit-types-16.0.0
@@ -31946,7 +33800,12 @@
                               "glob"
                               "prettier"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/octokit/auth-token.js#readme")
     (synopsis
@@ -31997,7 +33856,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
                               "undici"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-before-after-hook-4.0.0
@@ -32053,7 +33917,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-bottleneck-2.19.5
             node-octokit-types-16.0.0
@@ -32102,7 +33971,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "tinyglobby"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-bottleneck-2.19.5
             node-octokit-types-16.0.0
@@ -32156,7 +34030,12 @@
                               "sort-keys"
                               "string-to-jsdoc-comment"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-octokit-types-16.0.0
             node-octokit-core-7.0.6))
@@ -32207,7 +34086,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-octokit-types-16.0.0
             node-octokit-core-7.0.6))
@@ -32257,7 +34141,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "ts-jest"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/octokit/plugin-paginate-graphql.js#readme")
     (synopsis
@@ -32324,7 +34213,12 @@
                               "glob"
                               "prettier"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/octokit/oauth-authorization-url.js#readme")
     (synopsis
@@ -32368,7 +34262,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-octokit-types-16.0.0
             node-octokit-request-error-7.1.0
@@ -32418,7 +34317,12 @@
                               "prettier"
                               "tinyglobby"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-octokit-types-16.0.0
             node-octokit-request-error-7.1.0))
@@ -32465,7 +34369,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-octokit-types-16.0.0
@@ -32516,7 +34425,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-octokit-types-16.0.0
@@ -32567,7 +34481,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "tinyglobby"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-octokit-types-16.0.0
@@ -32619,7 +34538,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "tinyglobby"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-types-aws-lambda-8.10.161
@@ -32668,7 +34592,12 @@
                               "open-cli"
                               "prettier"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/gr2m/universal-github-app-jwt#readme")
     (synopsis
@@ -32715,7 +34644,12 @@
                               "rollup"
                               "vitest"
                               "tsd"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/kibertoad/toad-cache")
     (synopsis
@@ -32760,7 +34694,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "tinyglobby"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-universal-user-agent-7.0.3
             node-universal-github-app-jwt-2.2.2
@@ -32815,7 +34754,12 @@
                               "semantic-release-plugin-update-version-in-files"
                               "tinyglobby"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-octokit-webhooks-14.2.0
             node-octokit-types-16.0.0
@@ -32866,7 +34810,12 @@
                               "prettier"
                               "semantic-release-plugin-update-version-in-files"
                               "typescript"
-                              "vitest")))))))))
+                              "vitest"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-octokit-webhooks-14.2.0
             node-octokit-types-16.0.0
@@ -32925,7 +34874,12 @@
                               "mocha-lcov-reporter"
                               "nyc"
                               "standard"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/evanshortiss/env-var")
     (synopsis
@@ -32960,7 +34914,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("desm" "execa" "vitest" "lion-system")))))))))
+                            '("desm" "execa" "vitest" "lion-system"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (home-page
       "https://github.com/leonzalion/chmodrp#readme")
     (synopsis "`chmod -R` with the Promise API")
@@ -33083,7 +35042,12 @@
                               "rollup-plugin-node-resolve"
                               "rollup-plugin-terser"
                               "semantic-release"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/brummelte/sleep-promise")
     (synopsis
@@ -33117,7 +35081,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("ava" "tsd" "xo")))))))))
+                          (delete-dependencies '("ava" "tsd" "xo"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/parse-ms#readme")
     (synopsis "Parse milliseconds into an object")
@@ -33229,7 +35198,12 @@
                               "del-cli"
                               "husky"
                               "tsx"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/typicode/steno")
     (synopsis "Specialized fast async file writer")
     (description
@@ -33278,7 +35252,12 @@
                               "@commitlint/prompt-cli"
                               "@sindresorhus/tsconfig"
                               "@typicode/eslint-config"
-                              "@commitlint/config-conventional")))))))))
+                              "@commitlint/config-conventional"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs (list node-steno-4.0.2))
     (home-page
       "https://github.com/typicode/lowdb#readme")
@@ -33358,7 +35337,12 @@
                               "@stylistic/eslint-plugin"
                               "typedoc-plugin-mdn-links"
                               "@commitlint/config-conventional"
-                              "eslint-import-resolver-typescript")))))))))
+                              "eslint-import-resolver-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://giladgd.github.io/lifecycle-utils/")
     (synopsis
@@ -33407,7 +35391,12 @@
                               "eslint-config-standard"
                               "@typescript-eslint/parser"
                               "@typescript-eslint/eslint-plugin"
-                              "eslint-config-standard-with-typescript")))))))))
+                              "eslint-config-standard-with-typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/tj/commander.js#readme")
     (synopsis
@@ -33447,7 +35436,12 @@
                               "tsd"
                               "log-update"
                               "@types/node"
-                              "string-length")))))))))
+                              "string-length"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/cli-spinners#readme")
     (synopsis "Spinners for use in the terminal")
@@ -33484,7 +35478,12 @@
                               "husky"
                               "publint"
                               "standard"
-                              "tape")))))))))
+                              "tape"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://github.com/watson/ci-info")
     (synopsis
       "Get details about the current Continuous Integration environment")
@@ -33569,7 +35568,12 @@
                               "typedoc-plugin-missing-exports"
                               "typescript"
                               "vitest"
-                              "xmlhttprequest-ssl")))))))))
+                              "xmlhttprequest-ssl"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-strip-ansi-7.2.0
             node-stdout-update-4.0.1
@@ -33623,7 +35627,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("ava" "tsd" "xo")))))))))
+                          (delete-dependencies '("ava" "tsd" "xo"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (inputs
       (list node-strip-ansi-7.2.0
             node-get-east-asian-width-1.5.0))
@@ -33734,7 +35743,12 @@
                               "log-update"
                               "string-length"
                               "typescript"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/cli-spinners#readme")
     (synopsis "Spinners for use in the terminal")
@@ -33766,7 +35780,12 @@
                       'delete-dev-dependencies
                       (lambda _
                         (modify-json
-                          (delete-dependencies '("ava" "tsd" "xo")))))))))
+                          (delete-dependencies '("ava" "tsd" "xo"))
+                          (delete-fields
+                            '(("scripts" "prepare")
+                             ("scripts" "prebuild")
+                             ("scripts" "pretest"))
+                          #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/mimic-function#readme")
     (synopsis "Make a function mimic another one")
@@ -33869,7 +35888,12 @@
                       (lambda _
                         (modify-json
                           (delete-dependencies
-                            '("@types/node" "ava" "typescript" "xo")))))))))
+                            '("@types/node" "ava" "typescript" "xo"))
+                            (delete-fields
+                              '(("scripts" "prepare")
+                               ("scripts" "prebuild")
+                               ("scripts" "pretest"))
+                            #:strict? #f))))))))
     (inputs (list node-restore-cursor-5.1.0))
     (home-page
       "https://github.com/sindresorhus/cli-cursor#readme")
@@ -33908,7 +35932,12 @@
                               "get-stream"
                               "transform-tty"
                               "tsd"
-                              "xo")))))))))
+                              "xo"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-string-width-8.2.0
             node-stdin-discarder-0.3.1
@@ -33993,7 +36022,12 @@
                               "@typescript-eslint/type-utils"
                               "@typescript-eslint/rule-tester"
                               "mocha-fivemat-progress-reporter"
-                              "eslint-formatter-autolinkable-stylish")))))))))
+                              "eslint-formatter-autolinkable-stylish"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page "https://www.typescriptlang.org/")
     (synopsis
       "TypeScript is a language for application scale JavaScript development")
@@ -34074,7 +36108,12 @@
                               "@types/validate-npm-package-name"
                               "eslint-import-resolver-typescript"
                               "@nolebase/vitepress-plugin-og-image"
-                              "@nolebase/vitepress-plugin-git-changelog")))))))))
+                              "@nolebase/vitepress-plugin-git-changelog"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (inputs
       (list node-validate-npm-package-name-7.0.2
             node-is-unicode-supported-2.1.0
@@ -34174,7 +36213,12 @@
                               "skia-canvas"
                               "table"
                               "tinybench"
-                              "typescript")))))))))
+                              "typescript"))
+                              (delete-fields
+                                '(("scripts" "prepare")
+                                 ("scripts" "prebuild")
+                                 ("scripts" "pretest"))
+                              #:strict? #f))))))))
     (home-page
       "https://github.com/Brooooooklyn/canvas#readme")
     (synopsis "Canvas for Node.js with skia backend")

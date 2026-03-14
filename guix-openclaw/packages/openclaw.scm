@@ -10,10 +10,12 @@
 
 (define-module (guix-openclaw packages openclaw)
   #:use-module (guix-openclaw packages node-openclaw-deps)
+  #:use-module (guix-openclaw packages node-runtime)
   #:use-module (gnu packages node)
   #:use-module (gnu packages node-xyz)
   #:use-module (guix build-system node)
   #:use-module (guix download)
+  #:use-module (guix gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
@@ -32,6 +34,7 @@
     (build-system node-build-system)
     (arguments
      (list
+      #:node node-22.16.0
       #:tests? #f
       #:phases
       #~(modify-phases %standard-phases
@@ -63,7 +66,24 @@
                   "vitest"
                   ;; Optional peer deps — openclaw degrades gracefully without them
                   "node-llama-cpp"
-                  "@napi-rs/canvas"))))))))
+                  "@napi-rs/canvas")))))
+          ;; node-edge-tts requires https-proxy-agent@7 (CJS) but openclaw
+          ;; hoists v8 (ESM-only) to the top-level node_modules.  The install
+          ;; phase re-runs npm which overwrites node_modules, so fix after it.
+          (add-after 'avoid-node-gyp-rebuild 'fix-edge-tts-nested-deps
+            (lambda* (#:key outputs #:allow-other-keys)
+              (use-modules (guix build utils))
+              (let* ((out (assoc-ref outputs "out"))
+                     (nested (string-append
+                               out
+                               "/lib/node_modules/openclaw"
+                               "/node_modules/node-edge-tts/node_modules"))
+                     (hpa-v7 #$(file-append
+                                node-https-proxy-agent-7.0.6
+                                "/lib/node_modules/https-proxy-agent")))
+                (mkdir-p nested)
+                (symlink hpa-v7
+                         (string-append nested "/https-proxy-agent"))))))))
     (inputs
      (list node-zod-4.3.6
            node-yaml-2.8.2
