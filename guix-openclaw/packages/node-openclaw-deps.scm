@@ -42658,6 +42658,141 @@
     "Terminal User Interface library with differential rendering for efficient text-based applications")
    (license license:expat)))
 
+(define-public node-earendil-works-pi-ai-0.78.0
+  (package
+   (name "node-earendil-works-pi-ai")
+   (version "0.78.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@earendil-works/pi-ai/-/pi-ai-0.78.0.tgz")
+     (sha256 (base32 "13yrds5yrfcy0z7jj4f9qlpi8jl80lfph7r14isd79c4v2f5chb4"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("canvas" "vitest" "@types/node")))))))))
+   (inputs
+    (list node-aws-sdk-client-bedrock-runtime-3.1061.0
+          node-smithy-node-http-handler-4.7.6
+          node-mistralai-mistralai-2.2.5
+          node-anthropic-ai-sdk-0.91.1
+          node-google-genai-1.52.0
+          node-https-proxy-agent-7.0.6
+          node-http-proxy-agent-7.0.2
+          node-partial-json-0.1.7
+          node-typebox-1.1.39
+          node-openai-6.26.0))
+   (home-page "https://github.com/earendil-works/pi#readme")
+   (synopsis
+    "Unified LLM API with automatic model discovery and provider configuration")
+   (description
+    "Unified LLM API with automatic model discovery and provider configuration")
+   (license license:expat)))
+
+(define-public node-earendil-works-pi-agent-core-0.78.0
+  (package
+   (name "node-earendil-works-pi-agent-core")
+   (version "0.78.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@earendil-works/pi-agent-core/-/pi-agent-core-0.78.0.tgz")
+     (sha256 (base32 "18qw5bx8m4rhzpijklsivhhsy49n1zlwyjwswnlzvq6770hwhyxw"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("vitest" "typescript" "@types/node" "@vitest/coverage-v8")))))))))
+   (inputs
+    (list node-earendil-works-pi-ai-0.78.0
+          node-typebox-1.1.39
+          node-ignore-7.0.5
+          node-yaml-2.9.0))
+   (home-page "https://github.com/earendil-works/pi#readme")
+   (synopsis
+    "General-purpose agent with transport abstraction, state management, and attachment support")
+   (description
+    "General-purpose agent with transport abstraction, state management, and attachment support")
+   (license license:expat)))
+
+(define-public node-earendil-works-pi-coding-agent-0.78.0
+  (package
+   (name "node-earendil-works-pi-coding-agent")
+   (version "0.78.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.78.0.tgz")
+     (sha256 (base32 "1vnhxlgdwv9ns4pvh6l012vnljyas031swd4d3ikb48xh1sxlix0"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("shx"
+                        "vitest"
+                        "@types/ms"
+                        "typescript"
+                        "@types/diff"
+                        "@types/node"
+                        "@types/cross-spawn"
+                        "@mariozechner/clipboard"
+                        "@types/hosted-git-info"
+                        "@types/proper-lockfile")))))))))
+   (inputs
+    (list node-earendil-works-pi-agent-core-0.78.0
+          node-silvia-odwyer-photon-node-0.3.4
+          node-earendil-works-pi-tui-0.78.0
+          node-earendil-works-pi-ai-0.78.0
+          node-proper-lockfile-4.1.2
+          node-hosted-git-info-9.0.3
+          node-highlight-js-10.7.3
+          node-cross-spawn-7.0.6
+          node-minimatch-10.2.5
+          node-typebox-1.1.39
+          node-undici-8.3.0
+          node-ignore-7.0.5
+          node-chalk-5.6.2
+          node-yaml-2.9.0
+          node-jiti-2.7.0
+          node-glob-13.0.6
+          node-diff-8.0.4))
+   (home-page "https://github.com/earendil-works/pi#readme")
+   (synopsis
+    "Coding agent CLI with read, bash, edit, write tools and session management")
+   (description
+    "Coding agent CLI with read, bash, edit, write tools and session management")
+   (license license:expat)))
+
 (define-public node-agentclientprotocol-sdk-0.22.1
   (package
    (name "node-agentclientprotocol-sdk")
