@@ -184,7 +184,12 @@
                             '("mocha"
                               "node-gyp"
                               "prebuildify"
-                              "prebuildify-cross")))))))))
+                              "prebuildify-cross"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-node-gyp-build-4.8.4))
     (home-page
       "https://github.com/websockets/utf-8-validate")
@@ -263,7 +268,12 @@
                               "mocha"
                               "nyc"
                               "prettier"
-                              "utf-8-validate")))))))))
+                              "utf-8-validate"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "https://github.com/websockets/ws")
     (synopsis
       "Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js")
@@ -777,7 +787,12 @@
                             '("sqlite-vec-darwin-arm64"
                               "sqlite-vec-darwin-x64"
                               "sqlite-vec-windows-x64"
-                              "sqlite-vec-linux-arm64")))))))))
+                              "sqlite-vec-linux-arm64"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-sqlite-vec-linux-x64-0.1.7-alpha.2))
     (home-page
@@ -818,7 +833,12 @@
                               "eslint-config-standard"
                               "nyc"
                               "proxyquire"
-                              "semistandard")))))))))
+                              "semistandard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/lovell/detect-libc#readme")
     (synopsis
@@ -858,7 +878,12 @@
                               "color-name"
                               "color-string"
                               "dts-bundle-generator"
-                              "esbuild")))))))))
+                              "esbuild"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/lovell/colour#readme")
     (synopsis
@@ -896,7 +921,12 @@
                             '("@npmcli/eslint-config"
                               "@npmcli/template-oss"
                               "benchmark"
-                              "tap")))))))))
+                              "tap"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/npm/node-semver#readme")
     (synopsis
@@ -948,7 +978,12 @@
                               "@img/sharp-libvips-win32-x64"
                               "@img/sharp-libvips-dev-wasm32"
                               "@img/sharp-libvips-win32-ia32"
-                              "@img/sharp-libvips-win32-arm64")))))))))
+                              "@img/sharp-libvips-win32-arm64"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-detect-libc-2.1.2
             node-img-colour-1.1.0
@@ -1328,7 +1363,12 @@
                               "@babel/core"
                               "unicode-12.0.0"
                               "@babel/preset-env"
-                              "@babel/plugin-proposal-unicode-property-regex")))))))))
+                              "@babel/plugin-proposal-unicode-property-regex"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "https://mths.be/emoji-regex")
     (synopsis
       "A regular expression to match all Emoji-only symbols as per the Unicode Standard.")
@@ -1565,7 +1605,12 @@
                               "ava"
                               "tsd"
                               "svg-term-cli"
-                              "@types/color-convert")))))))))
+                              "@types/color-convert"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-color-convert-2.0.1))
     (home-page
       "https://github.com/chalk/ansi-styles#readme")
@@ -1606,7 +1651,12 @@
                               "nyc"
                               "chalk"
                               "has-ansi"
-                              "coveralls")))))))))
+                              "coveralls"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-string-width-4.2.3
             node-ansi-styles-4.3.0
@@ -1926,7 +1976,12 @@
                               "mocha"
                               "mocha-lcov-reporter"
                               "sinon"
-                              "xo")))))))))
+                              "xo"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-ms-2.1.3))
     (home-page
       "https://github.com/debug-js/debug#readme")
@@ -2139,7 +2194,12 @@
                               "eslint"
                               "eslint-config-standard"
                               "mocha"
-                              "rollup")))))))))
+                              "rollup"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/markdown-it/mdurl#readme")
     (synopsis "URL utilities for markdown-it")
@@ -2185,7 +2245,12 @@
                               "rollup"
                               "shelljs"
                               "shx"
-                              "tlds")))))))))
+                              "tlds"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-uc-micro-2.1.0))
     (home-page
       "https://github.com/markdown-it/linkify-it#readme")
@@ -2346,7 +2411,12 @@
                               "needle"
                               "rollup"
                               "shelljs"
-                              "supertest")))))))))
+                              "supertest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-uc-micro-2.1.0
             node-punycode-js-2.3.1
@@ -3086,7 +3156,12 @@
                             '("chai"
                               "jsdoc-to-markdown"
                               "mocha"
-                              "standard")))))))))
+                              "standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/inspiredware/napi-build-utils#readme")
     (synopsis
@@ -3340,7 +3415,12 @@
                               "p-event"
                               "pify"
                               "tsd"
-                              "xo")))))))))
+                              "xo"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/mimic-response#readme")
     (synopsis "Mimic a Node.js HTTP response stream")
@@ -3379,7 +3459,12 @@
                               "tsd"
                               "pify"
                               "get-stream"
-                              "@types/node")))))))))
+                              "@types/node"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-mimic-response-3.1.0))
     (home-page
       "https://github.com/sindresorhus/decompress-response#readme")
@@ -3417,7 +3502,12 @@
                             '("self-signed-https"
                               "standard"
                               "string-to-stream"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-simple-concat-1.0.1
             node-once-1.4.0
@@ -3458,7 +3548,12 @@
                           (delete-dependencies
                             '("@semantic-release/npm"
                               "semantic-release"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-semver-7.7.4))
     (home-page
       "https://github.com/electron/node-abi#readme")
@@ -3502,7 +3597,12 @@
                               "in-publish"
                               "auto-changelog"
                               "safe-publish-latest"
-                              "@ljharb/eslint-config")))))))))
+                              "@ljharb/eslint-config"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/minimistjs/minimist")
     (synopsis "parse argument options")
@@ -3564,7 +3664,12 @@
                             '("babel-polyfill"
                               "core-util-is"
                               "inherits"
-                              "tap")))))))))
+                              "tap"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-safe-buffer-5.2.1))
     (home-page
       "https://github.com/nodejs/string_decoder")
@@ -3652,7 +3757,12 @@
                               "util-promisify"
                               "@babel/polyfill"
                               "@babel/preset-env"
-                              "deep-strict-equal")))))))))
+                              "deep-strict-equal"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-util-deprecate-1.0.2
             node-string-decoder-1.3.0
@@ -3790,7 +3900,12 @@
                               "benchmark"
                               "browserify"
                               "standard"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/beatgammit/base64-js")
     (synopsis "Base64 encoding/decoding in pure JS")
@@ -3835,7 +3950,12 @@
                               "standard"
                               "tape"
                               "through2"
-                              "uglify-js")))))))))
+                              "uglify-js"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-ieee754-1.2.1 node-base64-js-1.5.1))
     (home-page "https://github.com/feross/buffer")
@@ -4118,7 +4238,12 @@
                               "eslint-plugin-node"
                               "eslint-plugin-import"
                               "eslint-plugin-promise"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/isaacs/ini#readme")
     (synopsis "An ini encoder/decoder for node")
@@ -4186,7 +4311,12 @@
                               "rimraf"
                               "hallmark"
                               "standard"
-                              "a-native-module")))))))))
+                              "a-native-module"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-github-from-package-0.0.0
             node-napi-build-utils-2.0.0
@@ -4246,7 +4376,12 @@
                               "eslint-plugin-import"
                               "eslint-plugin-promise"
                               "eslint-config-standard"
-                              "eslint-config-semistandard")))))))))
+                              "eslint-config-semistandard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/nodejs/node-addon-api")
     (synopsis "Node.js API (Node-API)")
@@ -4456,7 +4591,12 @@
                             '("babel-polyfill"
                               "core-util-is"
                               "inherits"
-                              "tap")))))))))
+                              "tap"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-safe-buffer-5.1.2))
     (home-page
       "https://github.com/nodejs/string_decoder")
@@ -4562,7 +4702,12 @@
                               "lolex"
                               "assert"
                               "buffer"
-                              "babel-polyfill")))))))))
+                              "babel-polyfill"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-process-nextick-args-2.0.1
             node-util-deprecate-1.0.2
@@ -4609,7 +4754,12 @@
                               "mocha"
                               "http-server"
                               "opener"
-                              "zuul")))))))))
+                              "zuul"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/yuzujs/setImmediate#readme")
     (synopsis
@@ -4654,7 +4804,12 @@
                               "multiparty"
                               "ndoc"
                               "uglify-js"
-                              "zlibjs")))))))))
+                              "zlibjs"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "https://github.com/nodeca/pako")
     (synopsis
       "zlib port to javascript - fast, modularized, with browser support")
@@ -4695,7 +4850,12 @@
                               "jshint"
                               "tape"
                               "uglify-js"
-                              "unreachable-branch-transform")))))))))
+                              "unreachable-branch-transform"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://www.npmjs.com/package/node-immediate")
     (synopsis "A cross browser microtask library")
@@ -4860,7 +5020,12 @@
                               "rollup-plugin-terser"
                               "sinon"
                               "tap"
-                              "unicode-10.0.0")))))))))
+                              "unicode-10.0.0"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "http://json5.org/")
     (synopsis "JSON for Humans")
     (description "JSON for Humans")
@@ -5290,7 +5455,12 @@
                               "recast"
                               "request"
                               "istanbul"
-                              "webidl2js")))))))))
+                              "webidl2js"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-webidl-conversions-3.0.1
             node-tr46-0.0.3))
@@ -5369,7 +5539,12 @@
                               "mocha"
                               "unorm"
                               "semver"
-                              "request")))))))))
+                              "request"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-safer-buffer-2.1.2))
     (home-page
       "https://github.com/ashtuchkin/iconv-lite")
@@ -6081,7 +6256,12 @@
                               "eslint-plugin-markdown"
                               "eslint-plugin-node"
                               "eslint-plugin-promise"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/content-disposition#readme")
     (synopsis
@@ -6192,7 +6372,12 @@
                               "mocha"
                               "nyc"
                               "raw-body"
-                              "stream-to-array")))))))))
+                              "stream-to-array"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/statuses#readme")
     (synopsis "HTTP status utility")
@@ -6234,7 +6419,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/range-parser#readme")
     (synopsis "Range header field string parser")
@@ -6309,7 +6499,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-ee-first-1.1.1))
     (home-page
       "https://github.com/jshttp/on-finished#readme")
@@ -6357,7 +6552,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/mime-db#readme")
     (synopsis "Media Type Database")
@@ -6398,7 +6598,12 @@
                               "eslint-plugin-promise"
                               "eslint-plugin-standard"
                               "mocha"
-                              "nyc")))))))))
+                              "nyc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-mime-db-1.54.0))
     (home-page
       "https://github.com/jshttp/mime-types#readme")
@@ -6442,7 +6647,12 @@
                               "eslint-plugin-promise"
                               "eslint-plugin-standard"
                               "mocha"
-                              "nyc")))))))))
+                              "nyc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/component/toidentifier#readme")
     (synopsis
@@ -6523,7 +6733,12 @@
                               "istanbul"
                               "mocha"
                               "safe-buffer"
-                              "uid-safe")))))))))
+                              "uid-safe"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/dougwilson/nodejs-depd#readme")
     (synopsis "Deprecate all the things")
@@ -6564,7 +6779,12 @@
                               "eslint-plugin-promise"
                               "eslint-plugin-standard"
                               "mocha"
-                              "nyc")))))))))
+                              "nyc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-toidentifier-1.0.1
             node-statuses-2.0.2
@@ -6613,7 +6833,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/fresh#readme")
     (synopsis "HTTP response freshness testing")
@@ -6658,7 +6883,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/etag#readme")
     (synopsis "Create simple HTTP ETags")
@@ -6731,7 +6961,12 @@
                               "eslint-plugin-import"
                               "eslint-plugin-promise"
                               "eslint-config-standard"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/pillarjs/encodeurl#readme")
     (synopsis
@@ -6776,7 +7011,12 @@
                               "eslint-plugin-standard"
                               "mocha"
                               "nyc"
-                              "supertest")))))))))
+                              "supertest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-statuses-2.0.2
             node-range-parser-1.2.1
@@ -6833,7 +7073,12 @@
                               "eslint-plugin-import"
                               "eslint-plugin-promise"
                               "eslint-config-standard"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/pillarjs/parseurl#readme")
     (synopsis "parse a url with memoization")
@@ -6875,7 +7120,12 @@
                               "eslint-plugin-standard"
                               "mocha"
                               "nyc"
-                              "supertest")))))))))
+                              "supertest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-send-1.2.1
             node-parseurl-1.3.3
@@ -6922,7 +7172,12 @@
                               "eslint-plugin-standard"
                               "mocha"
                               "nyc"
-                              "supertest")))))))))
+                              "supertest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-statuses-2.0.2
             node-parseurl-1.3.3
@@ -6970,7 +7225,12 @@
                               "eslint-plugin-import"
                               "eslint-plugin-promise"
                               "eslint-config-standard"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/content-type#readme")
     (synopsis
@@ -7013,7 +7273,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/media-typer#readme")
     (synopsis
@@ -7056,7 +7321,12 @@
                               "eslint-plugin-promise"
                               "eslint-plugin-standard"
                               "mocha"
-                              "nyc")))))))))
+                              "nyc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-mime-types-3.0.2
             node-media-typer-1.1.0
@@ -7194,7 +7464,12 @@
                             '("eslint"
                               "eslint-plugin-markdown"
                               "mocha"
-                              "nyc")))))))))
+                              "nyc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/visionmedia/bytes.js#readme")
     (synopsis
@@ -7237,7 +7512,12 @@
                               "safe-buffer"
                               "readable-stream"
                               "@stylistic/eslint-plugin"
-                              "@stylistic/eslint-plugin-js")))))))))
+                              "@stylistic/eslint-plugin-js"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-http-errors-2.0.1
             node-iconv-lite-0.7.2
@@ -7300,7 +7580,12 @@
                               "safer-buffer"
                               "semver"
                               "string.prototype.repeat"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/inspect-js/object-inspect")
     (synopsis
@@ -8514,7 +8799,12 @@
                               "safe-publish-latest"
                               "safer-buffer"
                               "tape"
-                              "unassertify")))))))))
+                              "unassertify"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-side-channel-1.1.0))
     (home-page "https://github.com/ljharb/qs")
     (synopsis
@@ -8558,7 +8848,12 @@
                               "eslint-plugin-standard"
                               "mocha"
                               "nyc"
-                              "supertest")))))))))
+                              "supertest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-type-is-2.0.1
             node-raw-body-3.0.2
@@ -8646,7 +8941,12 @@
                               "eslint-plugin-import"
                               "eslint-plugin-promise"
                               "eslint-config-standard"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/forwarded#readme")
     (synopsis "Parse HTTP X-Forwarded-For header")
@@ -8690,7 +8990,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-ipaddr-js-1.9.1 node-forwarded-0.2.0))
     (home-page
@@ -8729,7 +9034,12 @@
                             '("nyc"
                               "mocha"
                               "eslint"
-                              "eslint-plugin-markdown")))))))))
+                              "eslint-plugin-markdown"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/negotiator#readme")
     (synopsis "HTTP content negotiation")
@@ -8771,7 +9081,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-negotiator-1.0.0
             node-mime-types-3.0.2))
@@ -8885,7 +9200,12 @@
                               "nyc"
                               "run-series"
                               "standard"
-                              "supertest")))))))))
+                              "supertest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-path-to-regexp-8.3.0
             node-parseurl-1.3.3
@@ -8931,7 +9251,12 @@
                               "top-sites"
                               "safe-buffer"
                               "beautify-benchmark"
-                              "eslint-plugin-markdown")))))))))
+                              "eslint-plugin-markdown"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/cookie#readme")
     (synopsis
@@ -8977,7 +9302,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/vary#readme")
     (synopsis "Manipulate the HTTP Vary header")
@@ -9025,7 +9355,12 @@
                               "cookie-session"
                               "express-session"
                               "method-override"
-                              "pbkdf2-password")))))))))
+                              "pbkdf2-password"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-content-disposition-1.0.1
             node-merge-descriptors-2.0.0
@@ -9553,7 +9888,12 @@
                               "rsvp"
                               "vow"
                               "when"
-                              "zuul")))))))))
+                              "zuul"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "http://github.com/kevinbeaty/any-promise")
     (synopsis
@@ -9880,7 +10220,12 @@
                               "matcha"
                               "coveralls"
                               "import-fresh"
-                              "resolve-from")))))))))
+                              "resolve-from"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-supports-color-7.2.0
             node-ansi-styles-4.3.0))
@@ -10529,7 +10874,12 @@
                               "chalk"
                               "ieee754"
                               "istanbul"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/dcodeIO/protobuf.js#readme")
     (synopsis
@@ -10839,7 +11189,12 @@
                               "nyc"
                               "pre-commit"
                               "standard"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/mcollina/split2#readme")
     (synopsis
@@ -11097,7 +11452,12 @@
                               "eslint"
                               "jest"
                               "neostandard"
-                              "tsd")))))))))
+                              "tsd"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/fastify/fastify-warning#readme")
     (synopsis
@@ -11463,7 +11823,12 @@
                               "sinon"
                               "time-span"
                               "tsd"
-                              "xo")))))))))
+                              "xo"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/p-timeout#readme")
     (synopsis
@@ -11503,7 +11868,12 @@
                               "assume"
                               "c8"
                               "mocha"
-                              "rollup")))))))))
+                              "rollup"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/primus/eventemitter3#readme")
     (synopsis
@@ -12745,7 +13115,12 @@
                               "istanbul"
                               "qunit-extras"
                               "qunitjs"
-                              "requirejs")))))))))
+                              "requirejs"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "https://mths.be/punycode")
     (synopsis
       "A robust Punycode converter that fully complies to RFC 3492 and RFC 5891, and works on nearly all JavaScript platforms.")
@@ -13152,7 +13527,12 @@
                               "has"
                               "has-symbols"
                               "isarray"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/Gozala/events#readme")
     (synopsis
@@ -13198,7 +13578,12 @@
                               "standard"
                               "tape"
                               "through2"
-                              "uglify-js")))))))))
+                              "uglify-js"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-ieee754-1.2.1 node-base64-js-1.5.1))
     (home-page "https://github.com/feross/buffer")
@@ -13260,7 +13645,12 @@
                               "tar"
                               "undici"
                               "webpack"
-                              "webpack-cli")))))))))
+                              "webpack-cli"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-string-decoder-1.3.0
             node-process-0.11.10
@@ -14525,7 +14915,12 @@
                             '("@types/pngjs"
                               "gh-pages"
                               "pngjs"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-types-node-16.9.1))
     (home-page
       "https://github.com/ibezkrovnyi/image-quantization/tree/main/packages/image-q")
@@ -14668,7 +15063,12 @@
                               "coffee-coverage"
                               "istanbul"
                               "coveralls"
-                              "xpath")))))))))
+                              "xpath"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "http://github.com/oozcitak/xmlbuilder-js")
     (synopsis "An XML builder for node.js")
@@ -14740,7 +15140,12 @@
                               "diff"
                               "docco"
                               "coveralls"
-                              "coffee-script")))))))))
+                              "coffee-script"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-xmlbuilder-11.0.1 node-sax-1.5.0))
     (home-page
@@ -14781,7 +15186,12 @@
                               "browserify"
                               "faucet"
                               "tape"
-                              "testling")))))))))
+                              "testling"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/Jam3/xml-parse-from-string")
     (synopsis
@@ -14821,7 +15231,12 @@
                               "faucet"
                               "tape"
                               "testling"
-                              "xhr")))))))))
+                              "xhr"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-xml2js-0.5.0
             node-xml-parse-from-string-1.0.1))
@@ -16007,7 +16422,12 @@
                               "jest"
                               "prettier"
                               "rollup"
-                              "simple-yenc")))))))))
+                              "simple-yenc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/eshaz/simple-yenc#readme")
     (synopsis
@@ -16176,7 +16596,12 @@
                               "terser-webpack-plugin"
                               "webpack"
                               "webpack-bundle-analyzer"
-                              "webpack-cli")))))))))
+                              "webpack-cli"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-codec-parser-2.5.0
             node-opus-decoder-0.7.11
@@ -16641,7 +17066,12 @@
                               "browserify"
                               "pre-commit"
                               "sauce-test"
-                              "sauce-browsers")))))))))
+                              "sauce-browsers"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/primus/eventemitter3#readme")
     (synopsis
@@ -16890,7 +17320,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jshttp/mime-db#readme")
     (synopsis "Media Type Database")
@@ -16931,7 +17366,12 @@
                               "eslint-plugin-promise"
                               "eslint-config-standard"
                               "eslint-plugin-markdown"
-                              "eslint-plugin-standard")))))))))
+                              "eslint-plugin-standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-mime-db-1.52.0))
     (home-page
       "https://github.com/jshttp/mime-types#readme")
@@ -17166,7 +17606,12 @@
                               "pre-commit"
                               "size-table"
                               "phantomjs-prebuilt"
-                              "browserify-istanbul")))))))))
+                              "browserify-istanbul"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/alexindigo/asynckit#readme")
     (synopsis
@@ -17222,7 +17667,12 @@
                               "request"
                               "rimraf"
                               "semver"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-mime-types-2.1.35
             node-hasown-2.0.2
@@ -17303,7 +17753,12 @@
                               "express"
                               "lolex"
                               "mocha"
-                              "nyc")))))))))
+                              "nyc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/follow-redirects/follow-redirects")
     (synopsis
@@ -17508,7 +17963,12 @@
                               "busboy"
                               "nock"
                               "sinon"
-                              "tsd")))))))))
+                              "tsd"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-retry-0.13.1
             node-p-retry-4.6.2
@@ -17585,7 +18045,12 @@
                               "@types/sinon"
                               "nodemon"
                               "proxyquire"
-                              "sinon")))))))))
+                              "sinon"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-ws-8.19.0
             node-eventemitter3-5.0.4
@@ -17842,7 +18307,12 @@
                               "istanbul"
                               "jwk-to-pem"
                               "mocha"
-                              "native-crypto")))))))))
+                              "native-crypto"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-safe-buffer-5.2.1))
     (home-page
       "https://github.com/Brightspace/node-ecdsa-sig-formatter#readme")
@@ -17960,7 +18430,12 @@
                               "mocha"
                               "sinon"
                               "eslint"
-                              "conventional-changelog")))))))))
+                              "conventional-changelog"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-lodash-isplainobject-4.0.6
             node-lodash-isinteger-4.0.4
@@ -18478,7 +18953,12 @@
                               "prettier"
                               "release-it"
                               "sinon"
-                              "xml-name-validator")))))))))
+                              "xml-name-validator"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/mozilla/readability")
     (synopsis
@@ -19305,7 +19785,12 @@
                               "express"
                               "mocha"
                               "nyc"
-                              "supertest")))))))))
+                              "supertest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-vary-1.1.2 node-object-assign-4.1.1))
     (home-page
@@ -19717,7 +20202,12 @@
                               "coveralls"
                               "nyc"
                               "standard-version"
-                              "tap")))))))))
+                              "tap"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/tapjs/signal-exit")
     (synopsis
@@ -20302,7 +20792,12 @@
                             '("istanbul"
                               "mocha"
                               "stream-equal"
-                              "streamsink")))))))))
+                              "streamsink"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-pend-1.2.0))
     (home-page
       "https://github.com/andrewrk/node-fd-slicer#readme")
@@ -20379,7 +20874,12 @@
                               "ava"
                               "into-stream"
                               "tsd"
-                              "xo")))))))))
+                              "xo"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-pump-3.0.4))
     (home-page
       "https://github.com/sindresorhus/get-stream#readme")
@@ -20987,7 +21487,12 @@
                               "gulp-git"
                               "gulp-tag-version"
                               "jshint"
-                              "mocha")))))))))
+                              "mocha"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/estools/estraverse")
     (synopsis
@@ -21033,7 +21538,12 @@
                               "gulp-mocha"
                               "minimist"
                               "optionator"
-                              "semver")))))))))
+                              "semver"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-source-map-0.6.1
             node-esprima-4.0.1
@@ -22108,7 +22618,12 @@
                               "covert"
                               "eslint"
                               "jscs"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/justmoon/node-extend#readme")
     (synopsis
@@ -22707,7 +23222,12 @@
                               "@babel/core"
                               "@babel/preset-env"
                               "@unicode/unicode-13.0.0"
-                              "@babel/plugin-proposal-unicode-property-regex")))))))))
+                              "@babel/plugin-proposal-unicode-property-regex"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "https://mths.be/emoji-regex")
     (synopsis
       "A regular expression to match all Emoji-only symbols as per the Unicode Standard.")
@@ -22820,7 +23340,12 @@
                               "tsd"
                               "chalk"
                               "has-ansi"
-                              "coveralls")))))))))
+                              "coveralls"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-string-width-5.1.2
             node-ansi-styles-6.2.3
@@ -23368,7 +23893,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-is-array-buffer-4.2.2))
@@ -23409,7 +23939,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-buffer-from-4.2.2))
@@ -23450,7 +23985,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/util-hex-encoding")
@@ -23490,7 +24030,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -23530,7 +24075,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/types")
@@ -23569,7 +24119,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/util-uri-escape")
@@ -23608,7 +24163,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-uri-escape-4.2.2
@@ -23650,7 +24210,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -23690,7 +24255,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -23729,7 +24299,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -23772,7 +24347,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-base64-4.3.2
@@ -23816,7 +24396,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -23863,7 +24448,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-smithy-types-4.13.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/service-error-classification")
@@ -23903,7 +24493,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -23946,7 +24541,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -23987,7 +24587,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -24027,7 +24632,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -24068,7 +24678,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -24112,7 +24727,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -24154,7 +24774,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -24194,7 +24819,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -24234,7 +24864,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -24277,7 +24912,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/uuid")
@@ -24314,7 +24954,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/util-body-length-browser")
@@ -24356,7 +25001,12 @@
                               "downlevel-dts"
                               "json-bigint"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-uuid-1.1.2
@@ -24406,7 +25056,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -24449,7 +25104,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-middleware-4.2.12
@@ -24497,7 +25157,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-stream-4.5.19
@@ -24544,7 +25209,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-url-parser-4.2.12
@@ -24589,7 +25259,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/util-config-provider")
@@ -24628,7 +25303,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-middleware-4.2.12
@@ -24674,7 +25354,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -24721,7 +25406,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -24765,7 +25455,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/util-body-length-node")
@@ -24805,7 +25500,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-uuid-1.1.2
@@ -24854,7 +25554,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -24896,7 +25601,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -24938,7 +25648,12 @@
                               "downlevel-dts"
                               "hash-test-vectors"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-utf8-4.2.2
@@ -24982,7 +25697,12 @@
                               "typedoc"
                               "concurrently"
                               "downlevel-dts"
-                              "@tsconfig/recommended")))))))))
+                              "@tsconfig/recommended"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-tslib-2.8.1))
     (home-page
       "https://github.com/awslabs/smithy-typescript/tree/main/packages/is-array-buffer")
@@ -25023,7 +25743,12 @@
                               "@types/node"
                               "concurrently"
                               "downlevel-dts"
-                              "@tsconfig/recommended")))))))))
+                              "@tsconfig/recommended"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-smithy-is-array-buffer-2.2.0
             node-tslib-2.8.1))
@@ -25065,7 +25790,12 @@
                               "typedoc"
                               "concurrently"
                               "downlevel-dts"
-                              "@tsconfig/recommended")))))))))
+                              "@tsconfig/recommended"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-smithy-util-buffer-from-2.2.0
             node-tslib-2.8.1))
@@ -25210,7 +25940,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-util-hex-encoding-4.2.2
@@ -25255,7 +25990,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -25298,7 +26038,12 @@
                               "concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -25340,7 +26085,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1 node-smithy-types-4.13.1))
     (home-page
@@ -25380,7 +26130,12 @@
                             '("concurrently"
                               "downlevel-dts"
                               "premove"
-                              "typedoc")))))))))
+                              "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tslib-2.8.1
             node-smithy-types-4.13.1
@@ -26165,7 +26920,12 @@
                               "standard"
                               "tap-spec"
                               "pre-commit"
-                              "readable-stream")))))))))
+                              "readable-stream"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-process-nextick-args-2.0.1
             node-debug-4.4.3
@@ -26207,7 +26967,12 @@
                             '("mocha"
                               "chai"
                               "chai-as-promised"
-                              "es6-shim")))))))))
+                              "es6-shim"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/4rzael/reInterval")
     (synopsis
@@ -26620,7 +27385,12 @@
                               "pre-commit"
                               "standard"
                               "tap-spec"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-readable-stream-3.6.2 node-glob-7.2.3))
     (home-page "https://github.com/mcollina/help-me")
@@ -26666,7 +27436,12 @@
                               "levenshtein"
                               "fast-levenshtein"
                               "levenshtein-component"
-                              "levenshtein-edit-distance")))))))))
+                              "levenshtein-edit-distance"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/sindresorhus/leven#readme")
     (synopsis
@@ -26704,7 +27479,12 @@
                             '("minimist"
                               "pre-commit"
                               "standard"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-minimist-1.2.8 node-leven-2.1.0))
     (home-page "https://github.com/mcollina/commist")
@@ -26745,7 +27525,12 @@
                               "pre-commit"
                               "safe-buffer"
                               "standard"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-readable-stream-3.6.2))
     (home-page
       "https://github.com/mcollina/split2#readme")
@@ -26823,7 +27608,12 @@
                               "ramda"
                               "standard"
                               "tap"
-                              "tsd")))))))))
+                              "tsd"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/davidmarkclements/rfdc#readme")
     (synopsis "Really Fast Deep Clone")
@@ -26900,7 +27690,12 @@
                               "bufferutil"
                               "utf-8-validate"
                               "eslint-config-prettier"
-                              "eslint-plugin-prettier")))))))))
+                              "eslint-plugin-prettier"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "https://github.com/websockets/ws")
     (synopsis
       "Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js")
@@ -27360,7 +28155,12 @@
                               "webpack"
                               "webpack-bundle-analyzer"
                               "webpack-cli"
-                              "yamljs")))))))))
+                              "yamljs"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page "https://github.com/bowser-js/bowser")
     (synopsis "Lightweight browser detector")
     (description "Lightweight browser detector")
@@ -29835,7 +30635,12 @@
                               "node-gyp"
                               "readable-stream"
                               "tap"
-                              "xtend")))))))))
+                              "xtend"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/nodejs/nan#readme")
     (synopsis
@@ -29927,7 +30732,12 @@
                               "karma-sinon"
                               "concurrently"
                               "mocha-lcov-reporter"
-                              "karma-phantomjs-launcher")))))))))
+                              "karma-phantomjs-launcher"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-ms-2.0.0))
     (home-page
       "https://github.com/visionmedia/debug#readme")
@@ -30663,7 +31473,12 @@
                               "fs-extra"
                               "neostandard"
                               "pre-commit"
-                              "semver")))))))))
+                              "semver"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/nodejs/node-addon-api")
     (synopsis "Node.js API (Node-API)")
@@ -30946,7 +31761,12 @@
                               "end-of-stream"
                               "events-to-array"
                               "@npmcli/template-oss"
-                              "@npmcli/eslint-config")))))))))
+                              "@npmcli/eslint-config"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-fs-minipass-2.1.0
             node-minizlib-2.1.2
@@ -31093,7 +31913,12 @@
                               "eslint"
                               "eslint-plugin-node"
                               "@npmcli/template-oss"
-                              "@npmcli/eslint-config")))))))))
+                              "@npmcli/eslint-config"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-readable-stream-3.6.2
             node-delegates-1.0.0))
@@ -31136,7 +31961,12 @@
                               "mocha"
                               "nyc"
                               "standard"
-                              "standard-version")))))))))
+                              "standard-version"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/yargs/set-blocking#readme")
     (synopsis
@@ -31310,7 +32140,12 @@
                               "standard"
                               "through2"
                               "require-inject"
-                              "readable-stream")))))))))
+                              "readable-stream"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-console-control-strings-1.1.0
             node-object-assign-4.1.1
@@ -31498,7 +32333,12 @@
                               "path-type"
                               "@types/node"
                               "graceful-fs"
-                              "@types/graceful-fs")))))))))
+                              "@types/graceful-fs"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs (list node-semver-6.3.1))
     (home-page
       "https://github.com/sindresorhus/make-dir#readme")
@@ -31538,7 +32378,12 @@
                               "eslint-config-aqua"
                               "eslint-config-prettier"
                               "eslint-plugin-prettier"
-                              "prettier")))))))))
+                              "prettier"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-tar-6.2.1
             node-semver-7.7.4
@@ -31821,7 +32666,12 @@
                               "is-unicode-supported"
                               "memfs"
                               "vitest"
-                              "vitest-ansi-serializer")))))))))
+                              "vitest-ansi-serializer"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-clack-core-1.1.0
             node-sisteransi-1.0.5))
@@ -32390,7 +33240,12 @@
                           (delete-dependencies
                             '("@tagproject/ts-package-shared-config"
                               "@types/ansi-styles"
-                              "ts-node")))))))))
+                              "ts-node"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-strip-ansi-7.2.0
             node-string-width-7.2.0
@@ -32902,7 +33757,12 @@
                               "coveralls"
                               "nyc"
                               "standard"
-                              "tape")))))))))
+                              "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/RyanZim/universalify#readme")
     (synopsis
@@ -32978,7 +33838,12 @@
                               "nyc"
                               "proxyquire"
                               "read-dir-files"
-                              "standard")))))))))
+                              "standard"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-universalify-2.0.1
             node-jsonfile-6.2.0
@@ -33107,7 +33972,12 @@
                           (delete-dependencies
                             '("conventional-changelog"
                               "mocha"
-                              "should")))))))))
+                              "should"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/jfromaniello/url-join#readme")
     (synopsis
@@ -33178,7 +34048,12 @@
                               "mocha"
                               "nan"
                               "node-addon-api"
-                              "prettier")))))))))
+                              "prettier"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-yargs-17.7.2
             node-which-6.0.1
@@ -33594,7 +34469,12 @@
                               "content-type"
                               "eslint"
                               "neostandard"
-                              "tsd")))))))))
+                              "tsd"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (home-page
       "https://github.com/fastify/fast-content-type-parse#readme")
     (synopsis
@@ -34981,7 +35861,12 @@
                               "ava"
                               "chalk"
                               "strip-ansi"
-                              "random-item")))))))))
+                              "random-item"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
     (inputs
       (list node-is-fullwidth-code-point-5.1.0
             node-ansi-styles-6.2.3))
@@ -36226,4 +37111,5602 @@
       "Canvas for Node.js with skia backend")
     (license license:expat)))
 
+
+
+;;; --- Appended 131 packages: pi-coding-agent 0.73.1 + openclaw 2026.6.1 ---
+
+(define-public node-diff-8.0.4
+  (package
+   (name "node-diff")
+   (version "8.0.4")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/diff/-/diff-8.0.4.tgz")
+     (sha256 (base32 "1mlkjmimccf2yw8wrbqgpn0940m5p9g9y8966d9wyhw2smx34lgg"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("nyc"
+                        "tsd"
+                        "chai"
+                        "karma"
+                        "mocha"
+                        "eslint"
+                        "rollup"
+                        "globals"
+                        "webpack"
+                        "cross-env"
+                        "uglify-js"
+                        "@eslint/js"
+                        "typescript"
+                        "@babel/core"
+                        "karma-mocha"
+                        "babel-loader"
+                        "karma-webpack"
+                        "@colors/colors"
+                        "@babel/register"
+                        "@babel/preset-env"
+                        "typescript-eslint"
+                        "webpack-dev-server"
+                        "karma-mocha-reporter"
+                        "@arethetypeswrong/cli"
+                        "babel-plugin-istanbul"
+                        "karma-sourcemap-loader"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://www.npmjs.com/package/node-diff")
+   (synopsis "A JavaScript text diff implementation.")
+   (description "A JavaScript text diff implementation.")
+   (license license:bsd-3)))
+
+(define-public node-jiti-2.7.0
+  (package
+   (name "node-jiti")
+   (version "2.7.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/jiti/-/jiti-2.7.0.tgz")
+     (sha256 (base32 "1ji8rzdyqd7w8r1hk4j4q9phba9dzgv0v86n8b6fgh29zdjx7l4d"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@babel/core"
+                        "@babel/helper-module-imports"
+                        "@babel/helper-module-transforms"
+                        "@babel/helper-plugin-utils"
+                        "@babel/helper-simple-access"
+                        "@babel/plugin-proposal-decorators"
+                        "@babel/plugin-syntax-class-properties"
+                        "@babel/plugin-syntax-import-assertions"
+                        "@babel/plugin-syntax-jsx"
+                        "@babel/plugin-transform-explicit-resource-management"
+                        "@babel/plugin-transform-export-namespace-from"
+                        "@babel/plugin-transform-react-jsx"
+                        "@babel/plugin-transform-typescript"
+                        "@babel/preset-typescript"
+                        "@babel/template"
+                        "@babel/traverse"
+                        "@babel/types"
+                        "@rspack/cli"
+                        "@rspack/core"
+                        "@types/babel__core"
+                        "@types/babel__helper-module-imports"
+                        "@types/babel__helper-plugin-utils"
+                        "@types/babel__template"
+                        "@types/babel__traverse"
+                        "@types/node"
+                        "@typescript/native-preview"
+                        "@vitest/coverage-v8"
+                        "acorn"
+                        "babel-plugin-parameter-decorator"
+                        "changelogen"
+                        "config"
+                        "consola"
+                        "defu"
+                        "destr"
+                        "escape-string-regexp"
+                        "eslint"
+                        "eslint-config-unjs"
+                        "estree-walker"
+                        "etag"
+                        "fast-glob"
+                        "get-tsconfig"
+                        "is-installed-globally"
+                        "mime"
+                        "mitata"
+                        "mlly"
+                        "moment-timezone"
+                        "nano-jsx"
+                        "pathe"
+                        "pkg-types"
+                        "preact"
+                        "preact-render-to-string"
+                        "prettier"
+                        "react"
+                        "react-dom"
+                        "reflect-metadata"
+                        "rolldown"
+                        "solid-js"
+                        "std-env"
+                        "terser-webpack-plugin"
+                        "tinyexec"
+                        "ts-loader"
+                        "typescript"
+                        "vitest"
+                        "vue"
+                        "yoctocolors"
+                        "zod"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/unjs/jiti#readme")
+   (synopsis "Runtime typescript and ESM support for Node.js")
+   (description "Runtime typescript and ESM support for Node.js")
+   (license license:expat)))
+
+(define-public node-uuid-14.0.0
+  (package
+   (name "node-uuid")
+   (version "14.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/uuid/-/uuid-14.0.0.tgz")
+     (sha256 (base32 "0w4qz9p7r8dc3i65pzz0w1krxcj36ja1w14qd8gh5wn7iqb8qina"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("jest"
+                        "husky"
+                        "runmd"
+                        "globals"
+                        "commander"
+                        "typescript"
+                        "bundlewatch"
+                        "lint-staged"
+                        "neostandard"
+                        "npm-run-all2"
+                        "@biomejs/biome"
+                        "release-please"
+                        "@commitlint/cli"
+                        "standard-version"
+                        "@commitlint/config-conventional"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/uuidjs/uuid#readme")
+   (synopsis "RFC9562 UUIDs")
+   (description "RFC9562 UUIDs")
+   (license license:expat)))
+
+(define-public node-yaml-2.9.0
+  (package
+   (name "node-yaml")
+   (version "2.9.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/yaml/-/yaml-2.9.0.tgz")
+     (sha256 (base32 "14ggs4m6rb3wm5mi9s2n6kkgz9h9pymlb81b4zh019qvrc2a53q0"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@babel/core"
+                        "@babel/plugin-transform-typescript"
+                        "@babel/preset-env"
+                        "@eslint/js"
+                        "@rollup/plugin-babel"
+                        "@rollup/plugin-replace"
+                        "@rollup/plugin-typescript"
+                        "@types/jest"
+                        "@types/node"
+                        "babel-jest"
+                        "eslint"
+                        "eslint-config-prettier"
+                        "fast-check"
+                        "jest"
+                        "jest-resolve"
+                        "jest-ts-webcompat-resolver"
+                        "prettier"
+                        "rollup"
+                        "tslib"
+                        "typescript"
+                        "typescript-eslint"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://eemeli.org/yaml/")
+   (synopsis "JavaScript parser and stringifier for YAML")
+   (description "JavaScript parser and stringifier for YAML")
+   (license license:isc)))
+
+(define-public node-strtok3-10.3.5
+  (package
+   (name "node-strtok3")
+   (version "10.3.5")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/strtok3/-/strtok3-10.3.5.tgz")
+     (sha256 (base32 "15kwz94dlifpxqwcqq6hqi4m13jdpkiblkf7l5752h13bgk5ynaq"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@biomejs/biome"
+                        "@types/chai"
+                        "@types/chai-as-promised"
+                        "@types/debug"
+                        "@types/mocha"
+                        "@types/node"
+                        "c8"
+                        "chai"
+                        "chai-as-promised"
+                        "del-cli"
+                        "mocha"
+                        "node-readable-to-web-readable-stream"
+                        "remark-cli"
+                        "remark-preset-lint-recommended"
+                        "token-types"
+                        "ts-node"
+                        "typescript"
+                        "uint8array-extras"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-tokenizer-token-0.3.0))
+   (home-page "https://github.com/Borewit/strtok3#readme")
+   (synopsis "A promise based streaming tokenizer")
+   (description "A promise based streaming tokenizer")
+   (license license:expat)))
+
+(define-public node-file-type-21.3.4
+  (package
+   (name "node-file-type")
+   (version "21.3.4")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/file-type/-/file-type-21.3.4.tgz")
+     (sha256 (base32 "1j82c0h80r2i35cr9wa4lv5grlm16z192y0bc1a1iypvillkxghz"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("xo"
+                        "ava"
+                        "tsd"
+                        "commonmark"
+                        "get-stream"
+                        "@types/node"
+                        "noop-stream"
+                        "@tokenizer/token"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tokenizer-inflate-0.4.1
+          node-uint8array-extras-1.5.0
+          node-token-types-6.1.2
+          node-strtok3-10.3.5))
+   (home-page "https://github.com/sindresorhus/file-type#readme")
+   (synopsis "Detect the file type of a file, stream, or data")
+   (description "Detect the file type of a file, stream, or data")
+   (license license:expat)))
+
+(define-public node-brace-expansion-5.0.6
+  (package
+   (name "node-brace-expansion")
+   (version "5.0.6")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.6.tgz")
+     (sha256 (base32 "000692q8z98k7l1xj8na27bm1pv9gvvsjpwi5crss9kcbgswg9gw"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("tap"
+                        "tshy"
+                        "mkdirp"
+                        "typedoc"
+                        "prettier"
+                        "@types/node"
+                        "@types/brace-expansion"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-balanced-match-4.0.4))
+   (home-page "https://github.com/juliangruber/brace-expansion#readme")
+   (synopsis "Brace expansion as known from sh/bash")
+   (description "Brace expansion as known from sh/bash")
+   (license license:expat)))
+
+(define-public node-minimatch-10.2.5
+  (package
+   (name "node-minimatch")
+   (version "10.2.5")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/minimatch/-/minimatch-10.2.5.tgz")
+     (sha256 (base32 "1rd99j1d6x4lfb5ajnda6d16m7agx81x16qgwvxc7imz2mls9km6"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node"
+                        "mkdirp"
+                        "oxlint"
+                        "oxlint-tsgolint"
+                        "prettier"
+                        "tap"
+                        "tshy"
+                        "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-brace-expansion-5.0.6))
+   (home-page "https://github.com/isaacs/minimatch#readme")
+   (synopsis "a glob matcher in javascript")
+   (description "a glob matcher in javascript")
+   (license license:blue-oak1.0.0)))
+
+(define-public node-lru-cache-11.5.1
+  (package
+   (name "node-lru-cache")
+   (version "11.5.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/lru-cache/-/lru-cache-11.5.1.tgz")
+     (sha256 (base32 "1r99gchpky1j521glva1pdkc69fwgpm0f61gmhrlm2mri4rccprh"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("benchmark"
+                        "esbuild"
+                        "marked"
+                        "mkdirp"
+                        "oxlint"
+                        "oxlint-tsgolint"
+                        "prettier"
+                        "tap"
+                        "tshy"
+                        "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/isaacs/node-lru-cache#readme")
+   (synopsis "A cache object that deletes the least-recently-used items.")
+   (description "A cache object that deletes the least-recently-used items.")
+   (license license:blue-oak1.0.0)))
+
+(define-public node-hosted-git-info-9.0.3
+  (package
+   (name "node-hosted-git-info")
+   (version "9.0.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-9.0.3.tgz")
+     (sha256 (base32 "0wxnrvdfn0sm0kfg3ama55xii7rsf3ak9jy2hb264qizb7x1rfmm"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@npmcli/template-oss" "@npmcli/eslint-config")))))))))
+   (inputs (list node-lru-cache-11.5.1))
+   (home-page "https://github.com/npm/hosted-git-info")
+   (synopsis
+    "Provides metadata and conversions from repository urls for GitHub, Bitbucket and GitLab")
+   (description
+    "Provides metadata and conversions from repository urls for GitHub, Bitbucket and GitLab")
+   (license license:isc)))
+
+(define-public node-get-east-asian-width-1.6.0
+  (package
+   (name "node-get-east-asian-width")
+   (version "1.6.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/get-east-asian-width/-/get-east-asian-width-1.6.0.tgz")
+     (sha256 (base32 "1mz6xqcd840s6aj191nw2f23lzg99fv2bfmlx1xg4kjs5y7gala4"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("ava" "outdent" "simplify-ranges" "typescript" "xo")))))))))
+   (home-page "https://github.com/sindresorhus/get-east-asian-width#readme")
+   (synopsis "Determine the East Asian Width of a Unicode character")
+   (description "Determine the East Asian Width of a Unicode character")
+   (license license:expat)))
+
+(define-public node-mariozechner-pi-tui-0.73.1
+  (package
+   (name "node-mariozechner-pi-tui")
+   (version "0.73.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@mariozechner/pi-tui/-/pi-tui-0.73.1.tgz")
+     (sha256 (base32 "0hfm9328d5kysn2ny6rcnfz89f4mdlv14as8m4zr5sqsc4wk4qgh"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("@xterm/xterm" "@xterm/headless")))))))))
+   (inputs
+    (list node-get-east-asian-width-1.6.0
+          node-types-mime-types-2.1.4
+          node-mime-types-3.0.2
+          node-marked-15.0.12
+          node-chalk-5.6.2))
+   (home-page "https://github.com/badlogic/pi-mono#readme")
+   (synopsis
+    "Terminal User Interface library with differential rendering for efficient text-based applications")
+   (description
+    "Terminal User Interface library with differential rendering for efficient text-based applications")
+   (license license:expat)))
+
+(define-public node-undici-7.27.1
+  (package
+   (name "node-undici")
+   (version "7.27.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/undici/-/undici-7.27.1.tgz")
+     (sha256 (base32 "13v7s0hy0iqn27q4x69f6gh5zbkpi3p4h71rdbjf751ggw8y58vb"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@fastify/busboy"
+                        "@matteo.collina/tspl"
+                        "@metcoder95/https-pem"
+                        "@sinonjs/fake-timers"
+                        "@types/node"
+                        "abort-controller"
+                        "borp"
+                        "c8"
+                        "cross-env"
+                        "dns-packet"
+                        "esbuild"
+                        "eslint"
+                        "fast-check"
+                        "husky"
+                        "jest"
+                        "jsondiffpatch"
+                        "neostandard"
+                        "node-forge"
+                        "proxy"
+                        "tsd"
+                        "typescript"
+                        "ws"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://undici.nodejs.org")
+   (synopsis "An HTTP/1.1 client, written from scratch for Node.js")
+   (description "An HTTP/1.1 client, written from scratch for Node.js")
+   (license license:expat)))
+
+(define-public node-typebox-1.1.39
+  (package
+   (name "node-typebox")
+   (version "1.1.39")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/typebox/-/typebox-1.1.39.tgz")
+     (sha256 (base32 "1nwc5ik6i6wzsmhdyy9cq1xk98n0aszvxwrszvlhh9fm0i28rlzy"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://github.com/sinclairzx81/typebox#readme")
+   (synopsis
+    "Json Schema Type Builder with Static Type Resolution for TypeScript")
+   (description
+    "Json Schema Type Builder with Static Type Resolution for TypeScript")
+   (license license:expat)))
+
+(define-public node-hono-node-server-1.19.14
+  (package
+   (name "node-hono-node-server")
+   (version "1.19.14")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@hono/node-server/-/node-server-1.19.14.tgz")
+     (sha256 (base32 "1bdrlpbjymv8n1zbjgrryivkhbbs4rp5hkpf0ffvin4ndws6z58b"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("np"
+                        "hono"
+                        "jest"
+                        "tsup"
+                        "eslint"
+                        "publint"
+                        "ts-jest"
+                        "prettier"
+                        "supertest"
+                        "typescript"
+                        "@types/jest"
+                        "@types/node"
+                        "@types/supertest"
+                        "@whatwg-node/fetch"
+                        "@hono/eslint-config"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/honojs/node-server")
+   (synopsis "Node.js Adapter for Hono")
+   (description "Node.js Adapter for Hono")
+   (license license:expat)))
+
+(define-public node-fast-uri-3.1.2
+  (package
+   (name "node-fast-uri")
+   (version "3.1.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.2.tgz")
+     (sha256 (base32 "0hy16g7i9f5yw6spsl90fh2gygl7h17kr9hvg28sp3gz07ly7zlk"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("ajv"
+                        "eslint"
+                        "neostandard"
+                        "playwright-test"
+                        "tape"
+                        "tsd"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/fastify/fast-uri")
+   (synopsis "Dependency-free RFC 3986 URI toolbox")
+   (description "Dependency-free RFC 3986 URI toolbox")
+   (license license:bsd-3)))
+
+(define-public node-ajv-8.20.0
+  (package
+   (name "node-ajv")
+   (version "8.20.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz")
+     (sha256 (base32 "1cz7yr42yf4kb0znhwyxslqrxqcr2j5z0538zdgcrf5vjflb7w5j"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@ajv-validator/config"
+                        "@rollup/plugin-commonjs"
+                        "@rollup/plugin-json"
+                        "@rollup/plugin-node-resolve"
+                        "@rollup/plugin-typescript"
+                        "@types/chai"
+                        "@types/mocha"
+                        "@types/node"
+                        "@types/require-from-string"
+                        "@typescript-eslint/eslint-plugin"
+                        "@typescript-eslint/parser"
+                        "ajv-formats"
+                        "browserify"
+                        "chai"
+                        "cross-env"
+                        "dayjs"
+                        "dayjs-plugin-utc"
+                        "eslint"
+                        "eslint-config-prettier"
+                        "glob"
+                        "husky"
+                        "jimp"
+                        "js-beautify"
+                        "json-schema-test"
+                        "karma"
+                        "karma-chrome-launcher"
+                        "karma-mocha"
+                        "lint-staged"
+                        "mocha"
+                        "module-from-string"
+                        "node-fetch"
+                        "nyc"
+                        "prettier"
+                        "re2"
+                        "rollup"
+                        "rollup-plugin-terser"
+                        "ts-node"
+                        "tsify"
+                        "typescript"
+                        "uri-js"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-require-from-string-2.0.2
+          node-json-schema-traverse-1.0.0
+          node-fast-uri-3.1.2
+          node-fast-deep-equal-3.1.3))
+   (home-page "https://ajv.js.org")
+   (synopsis "Another JSON Schema Validator")
+   (description "Another JSON Schema Validator")
+   (license license:expat)))
+
+(define-public node-eventsource-parser-3.1.0
+  (package
+   (name "node-eventsource-parser")
+   (version "3.1.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.1.0.tgz")
+     (sha256 (base32 "0fh5qpdgyxd28yrna59999dwq5h3xpgvpj5w2zm7ch1ix7h4ra7c"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@sanity/pkg-utils"
+                        "@sanity/semantic-release-preset"
+                        "@sanity/tsconfig"
+                        "@types/node"
+                        "eventsource-encoder"
+                        "knip"
+                        "mitata"
+                        "oxfmt"
+                        "oxlint"
+                        "rimraf"
+                        "rollup-plugin-visualizer"
+                        "semantic-release"
+                        "terser"
+                        "typescript"
+                        "vitest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/rexxars/eventsource-parser#readme")
+   (synopsis
+    "Streaming, source-agnostic EventSource/Server-Sent Events parser")
+   (description
+    "Streaming, source-agnostic EventSource/Server-Sent Events parser")
+   (license license:expat)))
+
+(define-public node-ip-address-10.2.0
+  (package
+   (name "node-ip-address")
+   (version "10.2.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/ip-address/-/ip-address-10.2.0.tgz")
+     (sha256 (base32 "1fn0lzwpagd0dslpzw272g7wvnqwqhib01a43g0pc5ad7z0dvq1p"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/chai"
+                        "@types/mocha"
+                        "@typescript-eslint/eslint-plugin"
+                        "@typescript-eslint/parser"
+                        "c8"
+                        "chai"
+                        "eslint"
+                        "eslint_d"
+                        "eslint-config-airbnb"
+                        "eslint-config-prettier"
+                        "eslint-plugin-filenames"
+                        "eslint-plugin-import"
+                        "eslint-plugin-jsx-a11y"
+                        "eslint-plugin-prettier"
+                        "eslint-plugin-sort-imports-es6-autofix"
+                        "mocha"
+                        "monocart-coverage-reports"
+                        "prettier"
+                        "source-map-support"
+                        "tsx"
+                        "typedoc"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/beaugunderson/ip-address#readme")
+   (synopsis
+    "A library for parsing IPv4 and IPv6 IP addresses in node and the browser.")
+   (description
+    "A library for parsing IPv4 and IPv6 IP addresses in node and the browser.")
+   (license license:expat)))
+
+(define-public node-express-rate-limit-8.5.2
+  (package
+   (name "node-express-rate-limit")
+   (version "8.5.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-8.5.2.tgz")
+     (sha256 (base32 "14rs37ck9n7j3kzafp63jz512k3agcvpz3rarg08y4wcg588qdxm"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@biomejs/biome"
+                        "@express-rate-limit/prettier"
+                        "@express-rate-limit/tsconfig"
+                        "@jest/globals"
+                        "@types/express"
+                        "@types/jest"
+                        "@types/node"
+                        "@types/supertest"
+                        "del-cli"
+                        "dts-bundle-generator"
+                        "esbuild"
+                        "express"
+                        "husky"
+                        "jest"
+                        "lint-staged"
+                        "mintlify"
+                        "npm-run-all"
+                        "prettier"
+                        "ratelimit-header-parser"
+                        "supertest"
+                        "ts-jest"
+                        "ts-node"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-ip-address-10.2.0 node-express-5.2.1))
+   (home-page "https://github.com/express-rate-limit/express-rate-limit")
+   (synopsis
+    "Basic IP rate-limiting middleware for Express. Use to limit repeated requests to public APIs and/or endpoints such as password reset.")
+   (description
+    "Basic IP rate-limiting middleware for Express. Use to limit repeated requests to public APIs and/or endpoints such as password reset.")
+   (license license:expat)))
+
+(define-public node-hono-4.12.23
+  (package
+   (name "node-hono")
+   (version "4.12.23")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/hono/-/hono-4.12.23.tgz")
+     (sha256 (base32 "0xfw293rjjpk4p5maagm000yxw50rybmssn4w5y21vjqn51s87ls"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@hono/eslint-config"
+                        "@hono/node-server"
+                        "@types/glob"
+                        "@types/jsdom"
+                        "@types/node"
+                        "@types/ws"
+                        "@typescript/native-preview"
+                        "@vitest/coverage-v8"
+                        "arg"
+                        "bun-types"
+                        "editorconfig-checker"
+                        "esbuild"
+                        "eslint"
+                        "glob"
+                        "jsdom"
+                        "msw"
+                        "np"
+                        "oxc-parser"
+                        "pkg-pr-new"
+                        "prettier"
+                        "publint"
+                        "typescript"
+                        "undici"
+                        "vite-plugin-fastly-js-compute"
+                        "vitest"
+                        "wrangler"
+                        "ws"
+                        "zod"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://hono.dev")
+   (synopsis "Web framework built on Web Standards")
+   (description "Web framework built on Web Standards")
+   (license license:expat)))
+
+(define-public node-jose-6.2.3
+  (package
+   (name "node-jose")
+   (version "6.2.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/jose/-/jose-6.2.3.tgz")
+     (sha256 (base32 "19amggxlhcyffqqakbkq1f1yc2617smjjshv75jhciqqkzh8ni64"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://github.com/panva/jose")
+   (synopsis
+    "JWA, JWS, JWE, JWT, JWK, JWKS for Node.js, Browser, Cloudflare Workers, Deno, Bun, and other Web-interoperable runtimes")
+   (description
+    "JWA, JWS, JWE, JWT, JWK, JWKS for Node.js, Browser, Cloudflare Workers, Deno, Bun, and other Web-interoperable runtimes")
+   (license license:expat)))
+
+(define-public node-modelcontextprotocol-sdk-1.29.0
+  (package
+   (name "node-modelcontextprotocol-sdk")
+   (version "1.29.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.29.0.tgz")
+     (sha256 (base32 "0v09ddnk77y2gxcazjxjks3bbsnk2zi4ifyqlm2fg2i8r874fl8w"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@cfworker/json-schema"
+                        "@eslint/js"
+                        "@modelcontextprotocol/conformance"
+                        "@types/content-type"
+                        "@types/cors"
+                        "@types/cross-spawn"
+                        "@types/eventsource"
+                        "@types/express"
+                        "@types/express-serve-static-core"
+                        "@types/node"
+                        "@types/supertest"
+                        "@types/ws"
+                        "@typescript/native-preview"
+                        "eslint"
+                        "eslint-config-prettier"
+                        "eslint-plugin-n"
+                        "prettier"
+                        "supertest"
+                        "tsx"
+                        "typescript"
+                        "typescript-eslint"
+                        "vitest"
+                        "ws"
+                        "zod"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest")
+                        ;; overrides/resolutions force specific versions
+                        ;; which npm tries to fetch from registry (offline fails)
+                        "overrides"
+                        "resolutions")
+                      #:strict? #f))))))))
+   (inputs
+    (list node-zod-to-json-schema-3.25.2
+          node-zod-4.4.3
+          node-raw-body-3.0.2
+          node-pkce-challenge-5.0.1
+          node-json-schema-typed-8.0.2
+          node-jose-6.2.3
+          node-hono-4.12.23
+          node-express-rate-limit-8.5.2
+          node-express-5.2.1
+          node-eventsource-parser-3.1.0
+          node-eventsource-3.0.7
+          node-cross-spawn-7.0.6
+          node-cors-2.8.6
+          node-content-type-1.0.5
+          node-ajv-formats-3.0.1
+          node-ajv-8.20.0
+          node-hono-node-server-1.19.14
+          node-zod-4.4.3
+          node-cfworker-json-schema-4.1.1))
+   (home-page "https://modelcontextprotocol.io")
+   (synopsis "Model Context Protocol implementation for TypeScript")
+   (description "Model Context Protocol implementation for TypeScript")
+   (license license:expat)))
+
+(define-public node-protobufjs-codegen-2.0.5
+  (package
+   (name "node-protobufjs-codegen")
+   (version "2.0.5")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.5.tgz")
+     (sha256 (base32 "009sl5cds5r1ikixc091pib9mvysiscl3a2h4hxa5jqv4b8zxfi0"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://github.com/dcodeIO/protobuf.js#readme")
+   (synopsis "A minimalistic code generation utility.")
+   (description "A minimalistic code generation utility.")
+   (license license:bsd-3)))
+
+(define-public node-protobufjs-eventemitter-1.1.1
+  (package
+   (name "node-protobufjs-eventemitter")
+   (version "1.1.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.1.1.tgz")
+     (sha256 (base32 "0z3r58vyqxn745pq700l9w1l1gif6n785ldd3lf7fbh6ny6bjdjm"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("istanbul" "tape")))))))))
+   (home-page "https://github.com/dcodeIO/protobuf.js#readme")
+   (synopsis "A minimal event emitter.")
+   (description "A minimal event emitter.")
+   (license license:bsd-3)))
+
+(define-public node-protobufjs-fetch-1.1.1
+  (package
+   (name "node-protobufjs-fetch")
+   (version "1.1.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.1.1.tgz")
+     (sha256 (base32 "0s3jicdxhgqjsrdi18qvpgvp6fzbiqsz4f82ig1y3g6ycaf1sj2l"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("istanbul" "tape")))))))))
+   (inputs (list node-protobufjs-aspromise-1.1.2))
+   (home-page "https://github.com/dcodeIO/protobuf.js#readme")
+   (synopsis "Fetches the contents of a file accross node and browsers.")
+   (description "Fetches the contents of a file accross node and browsers.")
+   (license license:bsd-3)))
+
+(define-public node-protobufjs-inquire-1.1.2
+  (package
+   (name "node-protobufjs-inquire")
+   (version "1.1.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.1.2.tgz")
+     (sha256 (base32 "1am7m1ikj4b0yi0w7hhiivixrqxjji0h802d89ql51qrw6s85lra"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("istanbul" "tape")))))))))
+   (home-page "https://github.com/dcodeIO/protobuf.js#readme")
+   (synopsis
+    "Requires a module only if available and hides the require call from bundlers.")
+   (description
+    "Requires a module only if available and hides the require call from bundlers.")
+   (license license:bsd-3)))
+
+(define-public node-protobufjs-utf8-1.1.1
+  (package
+   (name "node-protobufjs-utf8")
+   (version "1.1.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.1.tgz")
+     (sha256 (base32 "1vvk8s39nfi6sjhaf2fwsqkrh5q33qvv965fl7hak5ar09nlxsj6"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("istanbul" "tape")))))))))
+   (home-page "https://github.com/dcodeIO/protobuf.js#readme")
+   (synopsis "A minimal UTF8 implementation for number arrays.")
+   (description "A minimal UTF8 implementation for number arrays.")
+   (license license:bsd-3)))
+
+(define-public node-undici-types-7.24.6
+  (package
+   (name "node-undici-types")
+   (version "7.24.6")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/undici-types/-/undici-types-7.24.6.tgz")
+     (sha256 (base32 "1x50j292z2sbq1np2mp6n26h376q9bn4i211a4lx4zdqhrd5kgra"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://undici.nodejs.org")
+   (synopsis "A stand-alone types package for Undici")
+   (description "A stand-alone types package for Undici")
+   (license license:expat)))
+
+(define-public node-types-node-25.9.1
+  (package
+   (name "node-types-node")
+   (version "25.9.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@types/node/-/node-25.9.1.tgz")
+     (sha256 (base32 "0m2710wz6dz6kdr7wbiv8d3ppm5qfrm2cl0xiqhzhg6wbmgvshhh"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (inputs (list node-undici-types-7.24.6))
+   (home-page
+    "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node")
+   (synopsis "TypeScript definitions for node")
+   (description "TypeScript definitions for node")
+   (license license:expat)))
+
+(define-public node-protobufjs-7.6.2
+  (package
+   (name "node-protobufjs")
+   (version "7.6.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/protobufjs/-/protobufjs-7.6.2.tgz")
+     (sha256 (base32 "06i0ssfs4by95qwjjmqbilri76b84larm6lw6qdpsn9zcgjwhmzv"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("benchmark"
+                        "browserify"
+                        "browserify-wrap"
+                        "bundle-collapser"
+                        "chalk"
+                        "escodegen"
+                        "eslint"
+                        "espree"
+                        "estraverse"
+                        "gh-pages"
+                        "git-raw-commits"
+                        "git-semver-tags"
+                        "google-protobuf"
+                        "gulp"
+                        "gulp-header"
+                        "gulp-if"
+                        "gulp-sourcemaps"
+                        "gulp-uglify"
+                        "jaguarjs-jsdoc"
+                        "jsdoc"
+                        "minimist"
+                        "nyc"
+                        "reflect-metadata"
+                        "tape"
+                        "tslint"
+                        "typescript"
+                        "uglify-js"
+                        "vinyl-buffer"
+                        "vinyl-fs"
+                        "vinyl-source-stream"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-long-5.3.2
+          node-types-node-25.9.1
+          node-protobufjs-utf8-1.1.1
+          node-protobufjs-pool-1.1.0
+          node-protobufjs-path-1.1.2
+          node-protobufjs-inquire-1.1.2
+          node-protobufjs-float-1.0.2
+          node-protobufjs-fetch-1.1.1
+          node-protobufjs-eventemitter-1.1.1
+          node-protobufjs-codegen-2.0.5
+          node-protobufjs-base64-1.1.2
+          node-protobufjs-aspromise-1.1.2))
+   (home-page "https://protobufjs.github.io/protobuf.js/")
+   (synopsis "Protocol Buffers for JavaScript (& TypeScript).")
+   (description "Protocol Buffers for JavaScript (& TypeScript).")
+   (license license:bsd-3)))
+
+(define-public node-google-auth-library-10.6.2
+  (package
+   (name "node-google-auth-library")
+   (version "10.6.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/google-auth-library/-/google-auth-library-10.6.2.tgz")
+     (sha256 (base32 "198vxvsblk58fqx68lgnd4lr9as5hzgbhn1p1apaa5z6vbijcykh"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/base64-js"
+                        "@types/jws"
+                        "@types/mocha"
+                        "@types/mv"
+                        "@types/ncp"
+                        "@types/node"
+                        "@types/sinon"
+                        "assert-rejects"
+                        "c8"
+                        "codecov"
+                        "gts"
+                        "is-docker"
+                        "jsdoc"
+                        "jsdoc-fresh"
+                        "jsdoc-region-tag"
+                        "karma"
+                        "karma-chrome-launcher"
+                        "karma-coverage"
+                        "karma-firefox-launcher"
+                        "karma-mocha"
+                        "karma-sourcemap-loader"
+                        "karma-webpack"
+                        "keypair"
+                        "mocha"
+                        "mv"
+                        "ncp"
+                        "nock"
+                        "null-loader"
+                        "puppeteer"
+                        "sinon"
+                        "ts-loader"
+                        "typescript"
+                        "webpack"
+                        "webpack-cli"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-jws-4.0.1
+          node-google-logging-utils-1.1.3
+          node-gcp-metadata-8.1.2
+          node-gaxios-7.1.4
+          node-ecdsa-sig-formatter-1.0.11
+          node-base64-js-1.5.1))
+   (home-page
+    "https://github.com/googleapis/google-cloud-node-core/tree/main/packages/google-auth-library-nodejs")
+   (synopsis "Google APIs Authentication Client Library for Node.js")
+   (description "Google APIs Authentication Client Library for Node.js")
+   (license license:asl2.0)))
+
+(define-public node-google-genai-1.52.0
+  (package
+   (name "node-google-genai")
+   (version "1.52.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@google/genai/-/genai-1.52.0.tgz")
+     (sha256 (base32 "108rbj4inq67nxc61vlrwdsb3z033k16fsvp853qw46ynb1g8285"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("c8"
+                        "gts"
+                        "nyc"
+                        "tsx"
+                        "zod"
+                        "tslib"
+                        "eslint"
+                        "undici"
+                        "jasmine"
+                        "ts-node"
+                        "typedoc"
+                        "prettier"
+                        "@types/ws"
+                        "@eslint/js"
+                        "node-fetch"
+                        "typescript"
+                        "@types/node"
+                        "npm-run-all"
+                        "@types/unist"
+                        "undici-types"
+                        "patch-package"
+                        "@types/jasmine"
+                        "protobufjs-cli"
+                        "test-server-sdk"
+                        "@types/node-fetch"
+                        "jasmine-reporters"
+                        "typescript-eslint"
+                        "zod-to-json-schema"
+                        "@rollup/plugin-json"
+                        "@cfworker/json-schema"
+                        "@microsoft/api-extractor"
+                        "@modelcontextprotocol/sdk"
+                        "rollup-plugin-typescript2"
+                        "prettier-plugin-organize-imports"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-google-auth-library-10.6.2
+          node-protobufjs-7.6.2
+          node-p-retry-4.6.2
+          node-ws-8.21.0
+          node-modelcontextprotocol-sdk-1.29.0))
+   (home-page "https://github.com/googleapis/js-genai#readme")
+   (synopsis
+    "[![NPM Downloads](https://img.shields.io/npm/dw/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai) [![Node Current](https://img.shields.io/node/v/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai)")
+   (description
+    "[![NPM Downloads](https://img.shields.io/npm/dw/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai) [![Node Current](https://img.shields.io/node/v/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai)")
+   (license license:asl2.0)))
+
+(define-public node-anthropic-ai-sdk-0.91.1
+  (package
+   (name "node-anthropic-ai-sdk")
+   (version "0.91.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@anthropic-ai/sdk/-/sdk-0.91.1.tgz")
+     (sha256 (base32 "1hpv308b2yvcn35abq8nsb5zc30bcmxdxshgr3xhv60py86dj75w"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("zod")))))))))
+   (inputs (list node-json-schema-to-ts-3.1.1 node-zod-4.4.3))
+   (home-page "https://www.npmjs.com/package/node-anthropic-ai-sdk")
+   (synopsis "The official TypeScript library for the Anthropic API")
+   (description "The official TypeScript library for the Anthropic API")
+   (license license:expat)))
+
+(define-public node-ws-8.21.0
+  (package
+   (name "node-ws")
+   (version "8.21.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/ws/-/ws-8.21.0.tgz")
+     (sha256 (base32 "1kxl9vlkizjmvdqr4fj5mpa7b3dcnajdk80qabnhyfmf79mp52yh"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@eslint/js"
+                        "benchmark"
+                        "bufferutil"
+                        "eslint"
+                        "eslint-config-prettier"
+                        "eslint-plugin-prettier"
+                        "globals"
+                        "mocha"
+                        "nyc"
+                        "prettier"
+                        "utf-8-validate"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/websockets/ws")
+   (synopsis
+    "Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js")
+   (description
+    "Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js")
+   (license license:expat)))
+
+(define-public node-zod-4.4.3
+  (package
+   (name "node-zod")
+   (version "4.4.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/zod/-/zod-4.4.3.tgz")
+     (sha256 (base32 "17171zbchqs56621d99kxgs2cg215yp879450rhh1m9zadzz2f7f"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://zod.dev")
+   (synopsis
+    "TypeScript-first schema declaration and validation library with static type inference")
+   (description
+    "TypeScript-first schema declaration and validation library with static type inference")
+   (license license:expat)))
+
+(define-public node-zod-to-json-schema-3.25.2
+  (package
+   (name "node-zod-to-json-schema")
+   (version "3.25.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.2.tgz")
+     (sha256 (base32 "1x4kiprzcpvwmzyw9i1h1m4lqjyxy23z3j8rq7b4zzralfsrm4d4"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/json-schema"
+                        "@types/node"
+                        "ajv"
+                        "ajv-errors"
+                        "ajv-formats"
+                        "fast-diff"
+                        "local-ref-resolver"
+                        "rimraf"
+                        "tsx"
+                        "typescript"
+                        "zod"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/StefanTerdell/zod-to-json-schema#readme")
+   (synopsis "Converts Zod schemas to Json Schemas")
+   (description "Converts Zod schemas to Json Schemas")
+   (license license:isc)))
+
+(define-public node-mistralai-mistralai-2.2.5
+  (package
+   (name "node-mistralai-mistralai")
+   (version "2.2.5")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@mistralai/mistralai/-/mistralai-2.2.5.tgz")
+     (sha256 (base32 "0f44d218icrjj1ygn5xnp6iplfp43jdg5xibp6a0b02in7bra8d7"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("oxlint"
+                        "@types/ws"
+                        "typescript"
+                        "@types/node"
+                        "@typescript/native-preview"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-zod-to-json-schema-3.25.2 node-zod-4.4.3 node-ws-8.21.0))
+   (home-page "https://github.com/mistralai/client-ts#readme")
+   (synopsis "TypeScript client library for the Mistral AI API")
+   (description "TypeScript client library for the Mistral AI API")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-env-3.972.43
+  (package
+   (name "node-aws-sdk-credential-provider-env")
+   (version "3.972.43")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-env/-/credential-provider-env-3.972.43.tgz")
+     (sha256 (base32 "0s1412v2i8bnv82h8hnskgbi9v19rcyiwzwdirjhvs9k2na9ljvd"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-env")
+   (synopsis
+    "AWS credential provider that sources credentials from known environment variables")
+   (description
+    "AWS credential provider that sources credentials from known environment variables")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-http-3.972.45
+  (package
+   (name "node-aws-sdk-credential-provider-http")
+   (version "3.972.45")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-http/-/credential-provider-http-3.972.45.tgz")
+     (sha256 (base32 "1ihdxn6qlj2jxv410sshacrjh7mfvchfc9rl0vksvk6a0p7i66cl"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-node-http-handler-4.7.6
+          node-smithy-fetch-http-handler-5.4.6
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-http")
+   (synopsis "AWS credential provider for containers and HTTP sources")
+   (description "AWS credential provider for containers and HTTP sources")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-login-3.972.47
+  (package
+   (name "node-aws-sdk-credential-provider-login")
+   (version "3.972.47")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-login/-/credential-provider-login-3.972.47.tgz")
+     (sha256 (base32 "1f7904a55xcjkkwrflzx255hr4hqh9j8bwghvsdhm109d31bmzfh"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-nested-clients-3.997.15
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-login")
+   (synopsis
+    "AWS credential provider that sources credentials from aws login cached tokens")
+   (description
+    "AWS credential provider that sources credentials from aws login cached tokens")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-ini-3.972.48
+  (package
+   (name "node-aws-sdk-credential-provider-ini")
+   (version "3.972.48")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-ini/-/credential-provider-ini-3.972.48.tgz")
+     (sha256 (base32 "1qp8ahni1mac8748yjbf2zkd4k76wxbab0cl02brxw2z4md7r95y"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-credential-provider-imds-4.3.7
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-nested-clients-3.997.15
+          node-aws-sdk-credential-provider-web-identity-3.972.47
+          node-aws-sdk-credential-provider-sso-3.972.47
+          node-aws-sdk-credential-provider-process-3.972.43
+          node-aws-sdk-credential-provider-login-3.972.47
+          node-aws-sdk-credential-provider-http-3.972.45
+          node-aws-sdk-credential-provider-env-3.972.43
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-ini")
+   (synopsis
+    "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config")
+   (description
+    "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-process-3.972.43
+  (package
+   (name "node-aws-sdk-credential-provider-process")
+   (version "3.972.43")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-process/-/credential-provider-process-3.972.43.tgz")
+     (sha256 (base32 "03344qvxnnvwcdb2yqn9q50p0ha4qk1l2xaffnixz7d7d9p9q20x"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-process")
+   (synopsis
+    "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config")
+   (description
+    "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-token-providers-3.1060.0
+  (package
+   (name "node-aws-sdk-token-providers")
+   (version "3.1060.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/token-providers/-/token-providers-3.1060.0.tgz")
+     (sha256 (base32 "1m50rx5yyprs15mhv3jw228s7d331x0m3mdkdjbp50bcfvkcbik5"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("premove"
+                        "typescript"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "@tsconfig/recommended"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-aws-sdk-nested-clients-3.997.15
+          node-aws-sdk-types-3.973.10
+          node-smithy-types-4.14.3
+          node-aws-sdk-core-3.974.17
+          node-smithy-core-3.24.6
+          node-tslib-2.8.1))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/token-providers")
+   (synopsis "A collection of token providers")
+   (description "A collection of token providers")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-sso-3.972.47
+  (package
+   (name "node-aws-sdk-credential-provider-sso")
+   (version "3.972.47")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-sso/-/credential-provider-sso-3.972.47.tgz")
+     (sha256 (base32 "1020887lfy7rg6rjsi7dz3jv4w2ls1lgkw6k6mhx5wlww6p40jyb"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-token-providers-3.1060.0
+          node-aws-sdk-nested-clients-3.997.15
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-sso")
+   (synopsis
+    "AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials")
+   (description
+    "AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-web-identity-3.972.47
+  (package
+   (name "node-aws-sdk-credential-provider-web-identity")
+   (version "3.972.47")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-web-identity/-/credential-provider-web-identity-3.972.47.tgz")
+     (sha256 (base32 "0g6sx11l4w3plvn1fg506fy7p5j42cpnjvdpc4jl4gg23zxnsnxi"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-nested-clients-3.997.15
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-web-identity")
+   (synopsis
+    "AWS credential provider that calls STS assumeRole for temporary AWS credentials")
+   (description
+    "AWS credential provider that calls STS assumeRole for temporary AWS credentials")
+   (license license:asl2.0)))
+
+(define-public node-smithy-credential-provider-imds-4.3.7
+  (package
+   (name "node-smithy-credential-provider-imds")
+   (version "4.3.7")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@smithy/credential-provider-imds/-/credential-provider-imds-4.3.7.tgz")
+     (sha256 (base32 "1i16mv7pnl8hrbv7q70kj6wnvfgwdlspfay82vxhi3lqngl1ll5n"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1 node-smithy-types-4.14.3 node-smithy-core-3.24.6))
+   (home-page
+    "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/credential-provider-imds")
+   (synopsis
+    "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service")
+   (description
+    "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-credential-provider-node-3.972.50
+  (package
+   (name "node-aws-sdk-credential-provider-node")
+   (version "3.972.50")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-node/-/credential-provider-node-3.972.50.tgz")
+     (sha256 (base32 "0wdifqyrfx6f2vmwk153vhrdd49mibw08yq3nwfwwdn77xczjm3x"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-credential-provider-imds-4.3.7
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-credential-provider-web-identity-3.972.47
+          node-aws-sdk-credential-provider-sso-3.972.47
+          node-aws-sdk-credential-provider-process-3.972.43
+          node-aws-sdk-credential-provider-ini-3.972.48
+          node-aws-sdk-credential-provider-http-3.972.45
+          node-aws-sdk-credential-provider-env-3.972.43))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-node")
+   (synopsis
+    "AWS credential provider that sources credentials from a Node.JS environment. ")
+   (description
+    "AWS credential provider that sources credentials from a Node.JS environment. ")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-eventstream-handler-node-3.972.19
+  (package
+   (name "node-aws-sdk-eventstream-handler-node")
+   (version "3.972.19")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/eventstream-handler-node/-/eventstream-handler-node-3.972.19.tgz")
+     (sha256 (base32 "1pbb36727fa2ji3ia60lgd9sd7yvrswn1xmfxmqy085dqfbzm29d"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/eventstream-handler-node")
+   (synopsis
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/eventstream-handler-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/eventstream-handler-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/eventstream-handler-node.svg)](https://ww")
+   (description
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/eventstream-handler-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/eventstream-handler-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/eventstream-handler-node.svg)](https://ww")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-middleware-eventstream-3.972.15
+  (package
+   (name "node-aws-sdk-middleware-eventstream")
+   (version "3.972.15")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/middleware-eventstream/-/middleware-eventstream-3.972.15.tgz")
+     (sha256 (base32 "0v594ic5s7a52dvfmm7sjd8dq2wglwg2f13dzv2kwv2b8m9rdx86"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-eventstream")
+   (synopsis
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-eventstream/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-eventstream) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-eventstream.svg)](https://www.npmj")
+   (description
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-eventstream/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-eventstream) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-eventstream.svg)](https://www.npmj")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-middleware-websocket-3.972.25
+  (package
+   (name "node-aws-sdk-middleware-websocket")
+   (version "3.972.25")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/middleware-websocket/-/middleware-websocket-3.972.25.tgz")
+     (sha256 (base32 "12kx0x8a6afc3kg77hgi8cdl75k98vw90xcfa1hfsk8y5i20nh0x"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "concurrently"
+                        "downlevel-dts"
+                        "mock-socket"
+                        "premove"
+                        "typescript"
+                        "vitest-websocket-mock"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-signature-v4-5.4.6
+          node-smithy-fetch-http-handler-5.4.6
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-websocket")
+   (synopsis
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-websocket/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-websocket) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-websocket.svg)](https://www.npmjs.com/")
+   (description
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-websocket/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-websocket) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-websocket.svg)](https://www.npmjs.com/")
+   (license license:asl2.0)))
+
+(define-public node-strnum-2.3.0
+  (package
+   (name "node-strnum")
+   (version "2.3.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/strnum/-/strnum-2.3.0.tgz")
+     (sha256 (base32 "0lvsrf8p7dnkmg2g5p2nky8x66rfim1kk5bddi15smmxbkgzcb4y"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("@byspec/numbers" "jasmine")))))))))
+   (home-page "https://github.com/NaturalIntelligence/strnum#readme")
+   (synopsis "Parse String to Number based on configuration")
+   (description "Parse String to Number based on configuration")
+   (license license:expat)))
+
+(define-public node-xml-naming-0.1.0
+  (package
+   (name "node-xml-naming")
+   (version "0.1.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/xml-naming/-/xml-naming-0.1.0.tgz")
+     (sha256 (base32 "0msggwgl9w627xkvaccird3hmqzgk1clxki70hj9z7j2pay7qd0r"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("jasmine")))))))))
+   (home-page "https://github.com/NaturalIntelligence/xml-naming#readme")
+   (synopsis
+    "Validates XML name productions â\x80\x94 Name, NCName, QName, NMToken, NMTokens â\x80\x94 for XML 1.0 and 1.1")
+   (description
+    "Validates XML name productions â\x80\x94 Name, NCName, QName, NMToken, NMTokens â\x80\x94 for XML 1.0 and 1.1")
+   (license license:expat)))
+
+(define-public node-fast-xml-builder-1.2.0
+  (package
+   (name "node-fast-xml-builder")
+   (version "1.2.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/fast-xml-builder/-/fast-xml-builder-1.2.0.tgz")
+     (sha256 (base32 "11zliaf1pf2ngssk4zk0p5nx71453jcq6j31sk9v42mqf6k4wd5r"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@babel/core"
+                        "@babel/plugin-transform-runtime"
+                        "@babel/preset-env"
+                        "@babel/register"
+                        "@types/node"
+                        "babel-loader"
+                        "c8"
+                        "eslint"
+                        "fast-xml-parser"
+                        "he"
+                        "jasmine"
+                        "prettier"
+                        "publish-please"
+                        "typescript"
+                        "webpack"
+                        "webpack-cli"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-xml-naming-0.1.0 node-path-expression-matcher-1.5.0))
+   (home-page "https://github.com/NaturalIntelligence/fast-xml-builder#readme")
+   (synopsis "Build XML from JSON without C/C++ based libraries")
+   (description "Build XML from JSON without C/C++ based libraries")
+   (license license:expat)))
+
+(define-public node-nodable-entities-2.1.1
+  (package
+   (name "node-nodable-entities")
+   (version "2.1.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@nodable/entities/-/entities-2.1.1.tgz")
+     (sha256 (base32 "0dcfi4yfrv13a45a2v8ffrf1k7klg8zmj8p7x31cpzssn4qzfaf7"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("jest")))))))))
+   (home-page "https://github.com/nodable/val-parsers#readme")
+   (synopsis
+    "Entity parser for XML, HTML, External entites with security and NCR control")
+   (description
+    "Entity parser for XML, HTML, External entites with security and NCR control")
+   (license license:expat)))
+
+(define-public node-path-expression-matcher-1.5.0
+  (package
+   (name "node-path-expression-matcher")
+   (version "1.5.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/path-expression-matcher/-/path-expression-matcher-1.5.0.tgz")
+     (sha256 (base32 "0wxix71mpn0wk4nam7wqxbd4024z216bfvyg4w46dr6s6dzzyl8k"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@babel/core"
+                        "@babel/plugin-transform-runtime"
+                        "@babel/preset-env"
+                        "@babel/register"
+                        "@types/node"
+                        "babel-loader"
+                        "c8"
+                        "eslint"
+                        "prettier"
+                        "typescript"
+                        "webpack"
+                        "webpack-cli"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page
+    "https://github.com/NaturalIntelligence/path-expression-matcher#readme")
+   (synopsis
+    "Efficient path tracking and pattern matching for XML/JSON parsers")
+   (description
+    "Efficient path tracking and pattern matching for XML/JSON parsers")
+   (license license:expat)))
+
+(define-public node-fast-xml-parser-5.7.3
+  (package
+   (name "node-fast-xml-parser")
+   (version "5.7.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/fast-xml-parser/-/fast-xml-parser-5.7.3.tgz")
+     (sha256 (base32 "1d34x6rlfra3m91c6h7ln0m7ddijdz5wcwcnca377h8glszpzg8c"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("c8"
+                        "eslint"
+                        "jasmine"
+                        "webpack"
+                        "prettier"
+                        "typescript"
+                        "@babel/core"
+                        "@types/node"
+                        "webpack-cli"
+                        "babel-loader"
+                        "publish-please"
+                        "@babel/register"
+                        "@babel/preset-env"
+                        "@babel/plugin-transform-runtime"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-path-expression-matcher-1.5.0
+          node-nodable-entities-2.1.1
+          node-fast-xml-builder-1.2.0
+          node-strnum-2.3.0))
+   (home-page "https://github.com/NaturalIntelligence/fast-xml-parser#readme")
+   (synopsis
+    "Validate XML, Parse XML, Build XML without C/C++ based libraries")
+   (description
+    "Validate XML, Parse XML, Build XML without C/C++ based libraries")
+   (license license:expat)))
+
+(define-public node-aws-sdk-xml-builder-3.972.27
+  (package
+   (name "node-aws-sdk-xml-builder")
+   (version "3.972.27")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/xml-builder/-/xml-builder-3.972.27.tgz")
+     (sha256 (base32 "1srs2l7i416xxyz08m7y7fawdfxd5a8fjvnd1vpdmpdng98ym7rl"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@nodable/entities"
+                        "@tsconfig/recommended"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1 node-fast-xml-parser-5.7.3 node-smithy-types-4.14.3))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/xml-builder")
+   (synopsis "XML utilities for the AWS SDK")
+   (description "XML utilities for the AWS SDK")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-core-3.974.17
+  (package
+   (name "node-aws-sdk-core")
+   (version "3.974.17")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/core/-/core-3.974.17.tgz")
+     (sha256 (base32 "1fc1rs381b66f5gg4qrqsxr1yb3ps0gi2z1qfmgdx3whdgkdp1hz"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-bowser-2.14.1
+          node-smithy-types-4.14.3
+          node-smithy-signature-v4-5.4.6
+          node-smithy-core-3.24.6
+          node-aws-lambda-invoke-store-0.2.4
+          node-aws-sdk-xml-builder-3.972.27
+          node-aws-sdk-types-3.973.10))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/core")
+   (synopsis "Core functions & classes shared by multiple AWS SDK clients.")
+   (description "Core functions & classes shared by multiple AWS SDK clients.")
+   (license license:asl2.0)))
+
+(define-public node-smithy-signature-v4-5.4.6
+  (package
+   (name "node-smithy-signature-v4")
+   (version "5.4.6")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@smithy/signature-v4/-/signature-v4-5.4.6.tgz")
+     (sha256 (base32 "0c1kq021hh3zjb565zlgq8cb14q68n587lhva71xrgryvfcdzyv8"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@aws-crypto/sha256-js"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1 node-smithy-types-4.14.3 node-smithy-core-3.24.6))
+   (home-page
+    "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/signature-v4")
+   (synopsis
+    "A standalone implementation of the AWS Signature V4 request signing algorithm")
+   (description
+    "A standalone implementation of the AWS Signature V4 request signing algorithm")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-signature-v4-multi-region-3.996.31
+  (package
+   (name "node-aws-sdk-signature-v4-multi-region")
+   (version "3.996.31")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/signature-v4-multi-region/-/signature-v4-multi-region-3.996.31.tgz")
+     (sha256 (base32 "1wffkrz6n702h4l238jdj4a9s367vi70ab32pgl8y24576xqmm27"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-signature-v4-5.4.6
+          node-aws-sdk-types-3.973.10))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/signature-v4-multi-region")
+   (synopsis
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/signature-v4-multi-region/latest.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-multi-region) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/signature-v4-multi-region.svg)](https:/")
+   (description
+    "[![NPM version](https://img.shields.io/npm/v/@aws-sdk/signature-v4-multi-region/latest.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-multi-region) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/signature-v4-multi-region.svg)](https:/")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-nested-clients-3.997.15
+  (package
+   (name "node-aws-sdk-nested-clients")
+   (version "3.997.15")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/nested-clients/-/nested-clients-3.997.15.tgz")
+     (sha256 (base32 "075v2gs4p8nm9wvd1xp414sv8by8141g2xi4a2knzfrjkfg3hl0q"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("concurrently" "downlevel-dts" "premove" "typescript")))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-node-http-handler-4.7.6
+          node-smithy-fetch-http-handler-5.4.6
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-signature-v4-multi-region-3.996.31
+          node-aws-sdk-core-3.974.17
+          node-aws-crypto-sha256-js-5.2.0
+          node-aws-crypto-sha256-browser-5.2.0))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/nested-clients")
+   (synopsis "Nested clients for AWS SDK packages.")
+   (description "Nested clients for AWS SDK packages.")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-token-providers-3.1061.0
+  (package
+   (name "node-aws-sdk-token-providers")
+   (version "3.1061.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/token-providers/-/token-providers-3.1061.0.tgz")
+     (sha256 (base32 "0ds9b3i4s1jqw9wcdgy3fsgkaald07cyyn1vr2ws99jg1hfiaf27"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-nested-clients-3.997.15
+          node-aws-sdk-core-3.974.17))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/token-providers")
+   (synopsis "A collection of token providers")
+   (description "A collection of token providers")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-types-3.973.10
+  (package
+   (name "node-aws-sdk-types")
+   (version "3.973.10")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/types/-/types-3.973.10.tgz")
+     (sha256 (base32 "0kwf6y1w2f4v2cfmhmz705g1424x21bcwrmrb8im72apjm2hcrps"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tsconfig/recommended"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-tslib-2.8.1 node-smithy-types-4.14.3))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/types")
+   (synopsis "Types for the AWS SDK")
+   (description "Types for the AWS SDK")
+   (license license:asl2.0)))
+
+(define-public node-smithy-fetch-http-handler-5.4.6
+  (package
+   (name "node-smithy-fetch-http-handler")
+   (version "5.4.6")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-5.4.6.tgz")
+     (sha256 (base32 "1d2ckrhr01dp0y2b7ff5r7icxzrmp8wb0vxywj7ad5yqfd4drihd"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@smithy/abort-controller"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1 node-smithy-types-4.14.3 node-smithy-core-3.24.6))
+   (home-page
+    "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/fetch-http-handler")
+   (synopsis "Provides a way to make requests")
+   (description "Provides a way to make requests")
+   (license license:asl2.0)))
+
+(define-public node-smithy-core-3.24.6
+  (package
+   (name "node-smithy-core")
+   (version "3.24.6")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@smithy/core/-/core-3.24.6.tgz")
+     (sha256 (base32 "1cs8arbzinvdqvcrb4si81rd8f7akh1ydm2sifjqvhl8mv4azxxj"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "hash-test-vectors"
+                        "json-bigint"
+                        "premove"
+                        "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-aws-crypto-crc32-5.2.0))
+   (home-page
+    "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/core")
+   (synopsis
+    "[![NPM version](https://img.shields.io/npm/v/@smithy/core/latest.svg)](https://www.npmjs.com/package/@smithy/core) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/core.svg)](https://www.npmjs.com/package/@smithy/core)")
+   (description
+    "[![NPM version](https://img.shields.io/npm/v/@smithy/core/latest.svg)](https://www.npmjs.com/package/@smithy/core) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/core.svg)](https://www.npmjs.com/package/@smithy/core)")
+   (license license:asl2.0)))
+
+(define-public node-smithy-node-http-handler-4.7.6
+  (package
+   (name "node-smithy-node-http-handler")
+   (version "4.7.6")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@smithy/node-http-handler/-/node-http-handler-4.7.6.tgz")
+     (sha256 (base32 "1c5v56a89l8cdbh8mhzk98njar5m7749j7yfv5axzqnfqx4nnl1f"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@smithy/abort-controller"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typedoc"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1 node-smithy-types-4.14.3 node-smithy-core-3.24.6))
+   (home-page
+    "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/node-http-handler")
+   (synopsis "Provides a way to make requests")
+   (description "Provides a way to make requests")
+   (license license:asl2.0)))
+
+(define-public node-smithy-types-4.14.3
+  (package
+   (name "node-smithy-types")
+   (version "4.14.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@smithy/types/-/types-4.14.3.tgz")
+     (sha256 (base32 "1x3zbz1zlmrnaq0gq59dy7qrdkf231m1v7gwzmain847igsqkh8f"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("concurrently" "downlevel-dts" "premove" "typedoc")))))))))
+   (inputs (list node-tslib-2.8.1))
+   (home-page
+    "https://github.com/smithy-lang/smithy-typescript/tree/main/packages/types")
+   (synopsis
+    "[![NPM version](https://img.shields.io/npm/v/@smithy/types/latest.svg)](https://www.npmjs.com/package/@smithy/types) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/types.svg)](https://www.npmjs.com/package/@smithy/types)")
+   (description
+    "[![NPM version](https://img.shields.io/npm/v/@smithy/types/latest.svg)](https://www.npmjs.com/package/@smithy/types) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/types.svg)](https://www.npmjs.com/package/@smithy/types)")
+   (license license:asl2.0)))
+
+(define-public node-aws-sdk-client-bedrock-runtime-3.1061.0
+  (package
+   (name "node-aws-sdk-client-bedrock-runtime")
+   (version "3.1061.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@aws-sdk/client-bedrock-runtime/-/client-bedrock-runtime-3.1061.0.tgz")
+     (sha256 (base32 "0l8z7pgczhrf1d9i0v1ri8kkhqs6y5w3nxw5gc7rbd1284zf9m6r"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@smithy/snapshot-testing"
+                        "@tsconfig/node20"
+                        "@types/node"
+                        "concurrently"
+                        "downlevel-dts"
+                        "premove"
+                        "typescript"
+                        "vitest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-smithy-types-4.14.3
+          node-smithy-node-http-handler-4.7.6
+          node-smithy-fetch-http-handler-5.4.6
+          node-smithy-core-3.24.6
+          node-aws-sdk-types-3.973.10
+          node-aws-sdk-token-providers-3.1061.0
+          node-aws-sdk-middleware-websocket-3.972.25
+          node-aws-sdk-middleware-eventstream-3.972.15
+          node-aws-sdk-eventstream-handler-node-3.972.19
+          node-aws-sdk-credential-provider-node-3.972.50
+          node-aws-sdk-core-3.974.17
+          node-aws-crypto-sha256-js-5.2.0
+          node-aws-crypto-sha256-browser-5.2.0))
+   (home-page
+    "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-bedrock-runtime")
+   (synopsis
+    "AWS SDK for JavaScript Bedrock Runtime Client for Node.js, Browser and React Native")
+   (description
+    "AWS SDK for JavaScript Bedrock Runtime Client for Node.js, Browser and React Native")
+   (license license:asl2.0)))
+
+(define-public node-mariozechner-pi-ai-0.73.1
+  (package
+   (name "node-mariozechner-pi-ai")
+   (version "0.73.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@mariozechner/pi-ai/-/pi-ai-0.73.1.tgz")
+     (sha256 (base32 "1g5pm99rmjyvnl7jzdf2abl5c6sxxah3y5acx9wishzn0kq1c6ji"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("canvas" "vitest" "@types/node")))))))))
+   (inputs
+    (list node-aws-sdk-client-bedrock-runtime-3.1061.0
+          node-mistralai-mistralai-2.2.5
+          node-zod-to-json-schema-3.25.2
+          node-anthropic-ai-sdk-0.91.1
+          node-google-genai-1.52.0
+          node-partial-json-0.1.7
+          node-proxy-agent-6.5.0
+          node-typebox-1.1.39
+          node-undici-7.27.1
+          node-openai-6.26.0
+          node-chalk-5.6.2))
+   (home-page "https://github.com/badlogic/pi-mono#readme")
+   (synopsis
+    "Unified LLM API with automatic model discovery and provider configuration")
+   (description
+    "Unified LLM API with automatic model discovery and provider configuration")
+   (license license:expat)))
+
+(define-public node-mariozechner-pi-agent-core-0.73.1
+  (package
+   (name "node-mariozechner-pi-agent-core")
+   (version "0.73.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@mariozechner/pi-agent-core/-/pi-agent-core-0.73.1.tgz")
+     (sha256 (base32 "1283n0kphwrranywndgv3f8fgklrbjl4q0xfhw0dq9ha75r0fhxm"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("vitest" "typescript" "@types/node")))))))))
+   (inputs (list node-mariozechner-pi-ai-0.73.1 node-typebox-1.1.39))
+   (home-page "https://github.com/badlogic/pi-mono#readme")
+   (synopsis
+    "General-purpose agent with transport abstraction, state management, and attachment support")
+   (description
+    "General-purpose agent with transport abstraction, state management, and attachment support")
+   (license license:expat)))
+
+(define-public node-mariozechner-pi-coding-agent-0.73.1
+  (package
+   (name "node-mariozechner-pi-coding-agent")
+   (version "0.73.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.73.1.tgz")
+     (sha256 (base32 "1qd2ywfp9rh7c5v1dlpz98469ydzm9p7xvlxb5ygs10ccy9d9xbv"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("shx"
+                        "vitest"
+                        "@types/ms"
+                        "typescript"
+                        "@types/diff"
+                        "@types/node"
+                        "@types/hosted-git-info"
+                        "@types/proper-lockfile"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-mariozechner-pi-agent-core-0.73.1
+          node-silvia-odwyer-photon-node-0.3.4
+          node-mariozechner-pi-tui-0.73.1
+          node-mariozechner-pi-ai-0.73.1
+          node-proper-lockfile-4.1.2
+          node-hosted-git-info-9.0.3
+          node-cli-highlight-2.1.11
+          node-extract-zip-2.0.1
+          node-strip-ansi-7.2.0
+          node-minimatch-10.2.5
+          node-file-type-21.3.4
+          node-typebox-1.1.39
+          node-undici-7.27.1
+          node-marked-15.0.12
+          node-ignore-7.0.5
+          node-chalk-5.6.2
+          node-yaml-2.9.0
+          node-uuid-14.0.0
+          node-jiti-2.7.0
+          node-glob-13.0.6
+          node-diff-8.0.4))
+   (home-page "https://github.com/badlogic/pi-mono#readme")
+   (synopsis
+    "Coding agent CLI with read, bash, edit, write tools and session management")
+   (description
+    "Coding agent CLI with read, bash, edit, write tools and session management")
+   (license license:expat)))
+
+(define-public node-tar-7.5.15
+  (package
+   (name "node-tar")
+   (version "7.5.15")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/tar/-/tar-7.5.15.tgz")
+     (sha256 (base32 "0748cm6i3yvs6vpv2migqhdq8qgg0qznd1hc3n9nvmackf6b8pl6"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("tap"
+                        "nock"
+                        "tshy"
+                        "chmodr"
+                        "oxlint"
+                        "rimraf"
+                        "esbuild"
+                        "typedoc"
+                        "prettier"
+                        "mutate-fs"
+                        "@types/node"
+                        "end-of-stream"
+                        "events-to-array"
+                        "oxlint-tsgolint"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-isaacs-fs-minipass-4.0.1
+          node-minizlib-3.1.0
+          node-minipass-7.1.3
+          node-yallist-5.0.0
+          node-chownr-3.0.0))
+   (home-page "https://github.com/isaacs/node-tar#readme")
+   (synopsis "tar for node")
+   (description "tar for node")
+   (license license:blue-oak1.0.0)))
+
+(define-public node-diff-9.0.0
+  (package
+   (name "node-diff")
+   (version "9.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/diff/-/diff-9.0.0.tgz")
+     (sha256 (base32 "13xmnf3hr0qm51rz1ak2x381xmgi2d0dspg2frsn152mr4ivz65q"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@arethetypeswrong/cli"
+                        "@babel/core"
+                        "@babel/preset-env"
+                        "@babel/register"
+                        "@colors/colors"
+                        "@eslint/js"
+                        "babel-loader"
+                        "babel-plugin-istanbul"
+                        "chai"
+                        "cross-env"
+                        "eslint"
+                        "globals"
+                        "karma"
+                        "karma-mocha"
+                        "karma-mocha-reporter"
+                        "karma-sourcemap-loader"
+                        "karma-webpack"
+                        "mocha"
+                        "nyc"
+                        "rollup"
+                        "tsd"
+                        "typescript"
+                        "typescript-eslint"
+                        "uglify-js"
+                        "webpack"
+                        "webpack-dev-server"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://www.npmjs.com/package/node-diff")
+   (synopsis "A JavaScript text diff implementation.")
+   (description "A JavaScript text diff implementation.")
+   (license license:bsd-3)))
+
+(define-public node-dotenv-17.4.2
+  (package
+   (name "node-dotenv")
+   (version "17.4.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/dotenv/-/dotenv-17.4.2.tgz")
+     (sha256 (base32 "160kmw4fg071z4gdv3nckyp7zkhjxp1xqxfa9nri1490x0mqaj46"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("tap"
+                        "sinon"
+                        "decache"
+                        "standard"
+                        "typescript"
+                        "@types/node"
+                        "standard-version"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/motdotla/dotenv#readme")
+   (synopsis "Loads environment variables from .env file")
+   (description "Loads environment variables from .env file")
+   (license license:bsd-2)))
+
+(define-public node-grammyjs-types-3.27.3
+  (package
+   (name "node-grammyjs-types")
+   (version "3.27.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@grammyjs/types/-/types-3.27.3.tgz")
+     (sha256 (base32 "1dz0gkxxf6ifwq8x9blkpfq2abafxaylmkp39xsk4q8z595kn7g7"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("deno-bin")))))))))
+   (home-page "https://grammy.dev/")
+   (synopsis "Telegram Bot API type declarations for grammY")
+   (description "Telegram Bot API type declarations for grammY")
+   (license license:expat)))
+
+(define-public node-grammy-1.43.0
+  (package
+   (name "node-grammy")
+   (version "1.43.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/grammy/-/grammy-1.43.0.tgz")
+     (sha256 (base32 "0scw1ccwgcycwy5c1jl2kiq4krm30jb6zp0vl3r7l8f8h6lzdk27"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/debug"
+                        "@types/node"
+                        "@types/node-fetch"
+                        "deno2node"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-node-fetch-2.7.0
+          node-debug-4.4.3
+          node-abort-controller-3.0.0
+          node-grammyjs-types-3.27.3))
+   (home-page "https://grammy.dev/")
+   (synopsis "The Telegram Bot Framework.")
+   (description "The Telegram Bot Framework.")
+   (license license:expat)))
+
+(define-public node-kysely-0.29.2
+  (package
+   (name "node-kysely")
+   (version "0.29.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/kysely/-/kysely-0.29.2.tgz")
+     (sha256 (base32 "017sksnnbdxjh5wv61yszkcn2mjzwczb1f3a45cswwk5qab6djwn"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@arethetypeswrong/cli"
+                        "@ark/attest"
+                        "@electric-sql/pglite"
+                        "@types/better-sqlite3"
+                        "@types/chai"
+                        "@types/chai-as-promised"
+                        "@types/mocha"
+                        "@types/node"
+                        "@types/pg"
+                        "@types/pg-cursor"
+                        "@types/prototype-pollution-vulnerable-lodash.merge-dont-upgrade"
+                        "@types/semver"
+                        "@types/sinon"
+                        "better-sqlite3"
+                        "chai"
+                        "chai-as-promised"
+                        "esbuild"
+                        "jsr"
+                        "mocha"
+                        "mysql2"
+                        "pathe"
+                        "pg"
+                        "pg-cursor"
+                        "playwright"
+                        "prettier"
+                        "prototype-pollution-vulnerable-lodash.merge-dont-upgrade"
+                        "remeda"
+                        "semver"
+                        "sinon"
+                        "std-env"
+                        "tarn"
+                        "tedious"
+                        "tsd"
+                        "tsx"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://kysely.dev")
+   (synopsis "Type safe SQL query builder")
+   (description "Type safe SQL query builder")
+   (license license:expat)))
+
+(define-public node-openai-6.39.1
+  (package
+   (name "node-openai")
+   (version "6.39.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/openai/-/openai-6.39.1.tgz")
+     (sha256 (base32 "0gqfx9vs3dvvskxhgh611r35k2ds0a2fcd1i776jilx4ipps1zi6"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("ws" "zod")))))))))
+   (home-page "https://github.com/openai/openai-node#readme")
+   (synopsis "The official TypeScript library for the OpenAI API")
+   (description "The official TypeScript library for the OpenAI API")
+   (license license:asl2.0)))
+
+(define-public node-pngjs-5.0.0
+  (package
+   (name "node-pngjs")
+   (version "5.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/pngjs/-/pngjs-5.0.0.tgz")
+     (sha256 (base32 "083gydxgqw4xsq1kc7qiml743iw4z1s2hbl26rx2s0kqw2xhp5jd"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("browserify"
+                        "buffer-equal"
+                        "codecov"
+                        "connect"
+                        "eslint"
+                        "eslint-config-prettier"
+                        "nyc"
+                        "prettier"
+                        "puppeteer"
+                        "serve-static"
+                        "tap-dot"
+                        "tape"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/lukeapage/pngjs")
+   (synopsis
+    "PNG encoder/decoder in pure JS, supporting any bit size & interlace, async & sync with full test suite.")
+   (description
+    "PNG encoder/decoder in pure JS, supporting any bit size & interlace, async & sync with full test suite.")
+   (license license:expat)))
+
+(define-public node-y18n-4.0.3
+  (package
+   (name "node-y18n")
+   (version "4.0.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/y18n/-/y18n-4.0.3.tgz")
+     (sha256 (base32 "1kqfcsvcf3va9nsfs4c1x6jyk9svw01nz8i8fakrnhh1k1270jdw"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("chai"
+                        "coveralls"
+                        "mocha"
+                        "nyc"
+                        "rimraf"
+                        "standard"
+                        "standard-version"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/yargs/y18n")
+   (synopsis "the bare-bones internationalization library used by yargs")
+   (description "the bare-bones internationalization library used by yargs")
+   (license license:isc)))
+
+(define-public node-wrap-ansi-6.2.0
+  (package
+   (name "node-wrap-ansi")
+   (version "6.2.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-6.2.0.tgz")
+     (sha256 (base32 "1y3qsslrq9zlxgpmr0p1g5wnq39csj39dg2pll03g1sdy09c8vyl"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("xo" "ava" "nyc" "chalk" "has-ansi" "coveralls")))))))))
+   (inputs
+    (list node-string-width-4.2.3 node-ansi-styles-4.3.0 node-strip-ansi-6.0.1))
+   (home-page "https://github.com/chalk/wrap-ansi#readme")
+   (synopsis "Wordwrap a string with ANSI escape codes")
+   (description "Wordwrap a string with ANSI escape codes")
+   (license license:expat)))
+
+(define-public node-cliui-6.0.0
+  (package
+   (name "node-cliui")
+   (version "6.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/cliui/-/cliui-6.0.0.tgz")
+     (sha256 (base32 "1n6b3bqgzapskhabby3c8hcdmfiv3da7wvn42sw8x3rkafbzr2sk"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("nyc" "chai" "chalk" "mocha" "standard" "coveralls")))))))))
+   (inputs
+    (list node-string-width-4.2.3 node-strip-ansi-6.0.1 node-wrap-ansi-6.2.0))
+   (home-page "https://github.com/yargs/cliui#readme")
+   (synopsis "easily create complex multi-column command-line-interfaces")
+   (description "easily create complex multi-column command-line-interfaces")
+   (license license:isc)))
+
+(define-public node-p-try-2.2.0
+  (package
+   (name "node-p-try")
+   (version "2.2.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/p-try/-/p-try-2.2.0.tgz")
+     (sha256 (base32 "141pf5z1f3xmm5c0fdrfddsf7xfigjxfl103zh59bpwrk2wb5453"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("ava" "tsd" "xo")))))))))
+   (home-page "https://github.com/sindresorhus/p-try#readme")
+   (synopsis "`Start a promise chain")
+   (description "`Start a promise chain")
+   (license license:expat)))
+
+(define-public node-p-limit-2.3.0
+  (package
+   (name "node-p-limit")
+   (version "2.3.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/p-limit/-/p-limit-2.3.0.tgz")
+     (sha256 (base32 "15djin88kfxjdvzd7f2gnwblgclqljzqxiidm1pmrsyg14j4ajrq"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("xo"
+                        "ava"
+                        "delay"
+                        "in-range"
+                        "time-span"
+                        "tsd-check"
+                        "random-int"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-p-try-2.2.0))
+   (home-page "https://github.com/sindresorhus/p-limit#readme")
+   (synopsis
+    "Run multiple promise-returning & async functions with limited concurrency")
+   (description
+    "Run multiple promise-returning & async functions with limited concurrency")
+   (license license:expat)))
+
+(define-public node-p-locate-4.1.0
+  (package
+   (name "node-p-locate")
+   (version "4.1.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/p-locate/-/p-locate-4.1.0.tgz")
+     (sha256 (base32 "1w55dykp8ysc41xx4cl8ln3gxsxvqfhvsl62n3g6gng3cbj6lnnr"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("xo" "ava" "tsd" "delay" "in-range" "time-span")))))))))
+   (inputs (list node-p-limit-2.3.0))
+   (home-page "https://github.com/sindresorhus/p-locate#readme")
+   (synopsis
+    "Get the first fulfilled promise that satisfies the provided testing function")
+   (description
+    "Get the first fulfilled promise that satisfies the provided testing function")
+   (license license:expat)))
+
+(define-public node-locate-path-5.0.0
+  (package
+   (name "node-locate-path")
+   (version "5.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/locate-path/-/locate-path-5.0.0.tgz")
+     (sha256 (base32 "1dsk824x6gzp2n7s0f9z7iwxsc4nyllxmix8h4588dd4c29ingdf"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("xo" "ava" "tsd")))))))))
+   (inputs (list node-p-locate-4.1.0))
+   (home-page "https://github.com/sindresorhus/locate-path#readme")
+   (synopsis "Get the first path that exists on disk of multiple paths")
+   (description "Get the first path that exists on disk of multiple paths")
+   (license license:expat)))
+
+(define-public node-path-exists-4.0.0
+  (package
+   (name "node-path-exists")
+   (version "4.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/path-exists/-/path-exists-4.0.0.tgz")
+     (sha256 (base32 "0p3pzdvfy2il8p0dvpp1l688in68bh2zzqzcfzvv7s9c634kbdfv"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("xo" "ava" "tsd")))))))))
+   (home-page "https://github.com/sindresorhus/path-exists#readme")
+   (synopsis "Check if a path exists")
+   (description "Check if a path exists")
+   (license license:expat)))
+
+(define-public node-find-up-4.1.0
+  (package
+   (name "node-find-up")
+   (version "4.1.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/find-up/-/find-up-4.1.0.tgz")
+     (sha256 (base32 "1sr6b86slwxig85zcvjpgmvaqljb6il8n21719gf1lh6ad9v1a9k"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("xo" "ava" "tsd" "tempy" "is-path-inside")))))))))
+   (inputs (list node-path-exists-4.0.0 node-locate-path-5.0.0))
+   (home-page "https://github.com/sindresorhus/find-up#readme")
+   (synopsis "Find a file or directory by walking up parent directories")
+   (description "Find a file or directory by walking up parent directories")
+   (license license:expat)))
+
+(define-public node-which-module-2.0.1
+  (package
+   (name "node-which-module")
+   (version "2.0.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/which-module/-/which-module-2.0.1.tgz")
+     (sha256 (base32 "0ws98arh0dxzsxijq17b6hk4qyh2277kmifn6d56qa49z4ifz3pz"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("ava" "coveralls" "nyc" "standard" "standard-version")))))))))
+   (home-page "https://github.com/nexdrew/which-module#readme")
+   (synopsis "Find the module object for something that was require()d")
+   (description "Find the module object for something that was require()d")
+   (license license:isc)))
+
+(define-public node-camelcase-5.3.1
+  (package
+   (name "node-camelcase")
+   (version "5.3.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/camelcase/-/camelcase-5.3.1.tgz")
+     (sha256 (base32 "15l68n2iq0ys0cf49h9adyvwk030kcqwrpalfcpmylc9p15342f6"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("xo" "ava" "tsd")))))))))
+   (home-page "https://github.com/sindresorhus/camelcase#readme")
+   (synopsis
+    "Convert a dash/dot/underscore/space separated string to camelCase or PascalCase: `foo-bar` â\x86\x92 `fooBar`")
+   (description
+    "Convert a dash/dot/underscore/space separated string to camelCase or PascalCase: `foo-bar` â\x86\x92 `fooBar`")
+   (license license:expat)))
+
+(define-public node-decamelize-1.2.0
+  (package
+   (name "node-decamelize")
+   (version "1.2.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/decamelize/-/decamelize-1.2.0.tgz")
+     (sha256 (base32 "0r187qd80plv8mm8riqk3xcmpip3zcpsgjrvf013m37323syzbdl"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("xo" "ava")))))))))
+   (home-page "https://github.com/sindresorhus/decamelize#readme")
+   (synopsis
+    "Convert a camelized string into a lowercased one with a custom separator: unicornRainbow â\x86\x92 unicorn_rainbow")
+   (description
+    "Convert a camelized string into a lowercased one with a custom separator: unicornRainbow â\x86\x92 unicorn_rainbow")
+   (license license:expat)))
+
+(define-public node-yargs-parser-18.1.3
+  (package
+   (name "node-yargs-parser")
+   (version "18.1.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/yargs-parser/-/yargs-parser-18.1.3.tgz")
+     (sha256 (base32 "0n5yxf9hcd2in09hrx6xv1fjyabvka6iplgy37f9rz9h4gp3b48c"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("c8" "chai" "mocha" "standard")))))))))
+   (inputs (list node-decamelize-1.2.0 node-camelcase-5.3.1))
+   (home-page "https://github.com/yargs/yargs-parser#readme")
+   (synopsis "the mighty option parser used by yargs")
+   (description "the mighty option parser used by yargs")
+   (license license:isc)))
+
+(define-public node-require-main-filename-2.0.0
+  (package
+   (name "node-require-main-filename")
+   (version "2.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/require-main-filename/-/require-main-filename-2.0.0.tgz")
+     (sha256 (base32 "004f896jmh9di8kd5ypszhpk6yzbdsx0lz5cqb3r2q7v31imdfy5"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("chai" "standard" "standard-version" "tap")))))))))
+   (home-page "https://github.com/yargs/require-main-filename#readme")
+   (synopsis
+    "shim for require.main.filename() that works in as many environments as possible")
+   (description
+    "shim for require.main.filename() that works in as many environments as possible")
+   (license license:isc)))
+
+(define-public node-yargs-15.4.1
+  (package
+   (name "node-yargs")
+   (version "15.4.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/yargs/-/yargs-15.4.1.tgz")
+     (sha256 (base32 "0dg5bmc7rx648h9b16s35fdnm86zcyw36amg62ilzysclz3gxas1"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("c8"
+                        "cpr"
+                        "gts"
+                        "chai"
+                        "chalk"
+                        "mocha"
+                        "which"
+                        "eslint"
+                        "rimraf"
+                        "hashish"
+                        "coveralls"
+                        "standardx"
+                        "typescript"
+                        "@types/chai"
+                        "@types/node"
+                        "cross-spawn"
+                        "es6-promise"
+                        "@types/mocha"
+                        "@types/decamelize"
+                        "eslint-plugin-node"
+                        "yargs-test-extends"
+                        "eslint-plugin-import"
+                        "@typescript-eslint/parser"
+                        "@typescript-eslint/eslint-plugin"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-require-main-filename-2.0.0
+          node-require-directory-2.1.1
+          node-get-caller-file-2.0.5
+          node-yargs-parser-18.1.3
+          node-which-module-2.0.1
+          node-string-width-4.2.3
+          node-set-blocking-2.0.0
+          node-decamelize-1.2.0
+          node-find-up-4.1.0
+          node-cliui-6.0.0
+          node-y18n-4.0.3))
+   (home-page "https://yargs.js.org/")
+   (synopsis "yargs the modern, pirate-themed, successor to optimist.")
+   (description "yargs the modern, pirate-themed, successor to optimist.")
+   (license license:expat)))
+
+(define-public node-dijkstrajs-1.0.3
+  (package
+   (name "node-dijkstrajs")
+   (version "1.0.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/dijkstrajs/-/dijkstrajs-1.0.3.tgz")
+     (sha256 (base32 "002czy5ryz3jnnj9c295gfhvh90bfw91krldgci9qacqmf39h507"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("expect.js" "jshint" "mocha")))))))))
+   (home-page "https://github.com/tcort/dijkstrajs")
+   (synopsis
+    "A simple JavaScript implementation of Dijkstra's single-source shortest-paths algorithm.")
+   (description
+    "A simple JavaScript implementation of Dijkstra's single-source shortest-paths algorithm.")
+   (license license:expat)))
+
+(define-public node-qrcode-1.5.4
+  (package
+   (name "node-qrcode")
+   (version "1.5.4")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/qrcode/-/qrcode-1.5.4.tgz")
+     (sha256 (base32 "1c724f4xdyk57w5jvh3k05xrg1dp7402wjpmvlprrwwrqbq78whc"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("tap"
+                        "sinon"
+                        "canvas"
+                        "colors"
+                        "rollup"
+                        "express"
+                        "standard"
+                        "browserify"
+                        "canvasutil"
+                        "@babel/core"
+                        "htmlparser2"
+                        "@babel/preset-env"
+                        "rollup-plugin-babel"
+                        "rollup-plugin-terser"
+                        "@rollup/plugin-commonjs"
+                        "@rollup/plugin-node-resolve"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-dijkstrajs-1.0.3 node-yargs-15.4.1 node-pngjs-5.0.0))
+   (home-page "http://github.com/soldair/node-qrcode")
+   (synopsis
+    "QRCode / 2d Barcode api with both server side and client side support using canvas")
+   (description
+    "QRCode / 2d Barcode api with both server side and client side support using canvas")
+   (license license:expat)))
+
+(define-public node-clawpdf-0.3.0
+  (package
+   (name "node-clawpdf")
+   (version "0.3.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/clawpdf/-/clawpdf-0.3.0.tgz")
+     (sha256 (base32 "1s1jc37yi1xj7lc90crqpqjxzfv3yvhc9abip6cqylj3an1znsbr"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node" "typescript" "vitest")))))))))
+   (home-page "https://github.com/openclaw/clawpdf#readme")
+   (synopsis
+    "Zero-dependency PDFium WASM bindings for PDF text extraction and page rendering.")
+   (description
+    "Zero-dependency PDFium WASM bindings for PDF text extraction and page rendering.")
+   (license license:expat)))
+
+(define-public node-bn-js-4.12.3
+  (package
+   (name "node-bn-js")
+   (version "4.12.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/bn.js/-/bn.js-4.12.3.tgz")
+     (sha256 (base32 "1iny8ivyxzg733zs8wirz4j8jb0fk2x0y63ydprnp3h37dd5328q"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("mocha" "istanbul" "semistandard")))))))))
+   (home-page "https://github.com/indutny/bn.js")
+   (synopsis "Big number implementation in pure javascript")
+   (description "Big number implementation in pure javascript")
+   (license license:expat)))
+
+(define-public node-minimalistic-assert-1.0.1
+  (package
+   (name "node-minimalistic-assert")
+   (version "1.0.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz")
+     (sha256 (base32 "187k0gdixs2zqkfvv6lm72w90c15rin2kx2zkyly7nyn8z4j4rgi"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://github.com/calvinmetcalf/minimalistic-assert")
+   (synopsis "minimalistic-assert ===")
+   (description "minimalistic-assert ===")
+   (license license:isc)))
+
+(define-public node-asn1-js-5.4.1
+  (package
+   (name "node-asn1-js")
+   (version "5.4.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/asn1.js/-/asn1.js-5.4.1.tgz")
+     (sha256 (base32 "18f2z3cg0gljsv2ycv8gl6r8cbdhdx6mizn9xkl4w9aza45rxicw"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json (delete-dependencies '("eslint" "mocha")))))))))
+   (inputs
+    (list node-safer-buffer-2.1.2
+          node-minimalistic-assert-1.0.1
+          node-inherits-2.0.4
+          node-bn-js-4.12.3))
+   (home-page "https://github.com/indutny/asn1.js")
+   (synopsis "ASN.1 encoder and decoder")
+   (description "ASN.1 encoder and decoder")
+   (license license:expat)))
+
+(define-public node-http-ece-1.2.0
+  (package
+   (name "node-http-ece")
+   (version "1.2.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/http_ece/-/http_ece-1.2.0.tgz")
+     (sha256 (base32 "0vkhny74mfbhkk5njmb6gi2q71mk6i3f7jzc8i2v62cgvainpm94"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://github.com/martinthomson/encrypted-content-encoding")
+   (synopsis "Encrypted Content-Encoding for HTTP")
+   (description "Encrypted Content-Encoding for HTTP")
+   (license license:expat)))
+
+(define-public node-web-push-3.6.7
+  (package
+   (name "node-web-push")
+   (version "3.6.7")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/web-push/-/web-push-3.6.7.tgz")
+     (sha256 (base32 "0gj62garzvaswicidxirhbsgcg0bwaxcxssc13g0pxq9xvzlyxw5"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("chromedriver"
+                        "del"
+                        "eslint"
+                        "eslint-config-airbnb"
+                        "eslint-plugin-import"
+                        "geckodriver"
+                        "nyc"
+                        "mkdirp"
+                        "mocha"
+                        "portfinder"
+                        "selenium-assistant"
+                        "sinon"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-minimist-1.2.8
+          node-jws-4.0.1
+          node-https-proxy-agent-7.0.6
+          node-http-ece-1.2.0
+          node-asn1-js-5.4.1))
+   (home-page "https://github.com/web-push-libs/web-push#readme")
+   (synopsis "Web Push library for Node.js")
+   (description "Web Push library for Node.js")
+   (license license:mpl2.0)))
+
+(define-public node-file-type-22.0.1
+  (package
+   (name "node-file-type")
+   (version "22.0.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/file-type/-/file-type-22.0.1.tgz")
+     (sha256 (base32 "10174fny3gqzz0rjgl2511v6r5sy2rsfggfz7qvlgv3igrawdzc7"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@tokenizer/token"
+                        "@types/node"
+                        "ava"
+                        "commonmark"
+                        "esbuild"
+                        "get-stream"
+                        "tsd"
+                        "xo"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-uint8array-extras-1.5.0
+          node-token-types-6.1.2
+          node-strtok3-10.3.5
+          node-tokenizer-inflate-0.4.1))
+   (home-page "https://github.com/sindresorhus/file-type#readme")
+   (synopsis "Detect the file type of a file, stream, or data")
+   (description "Detect the file type of a file, stream, or data")
+   (license license:expat)))
+
+(define-public node-rastermill-0.3.1
+  (package
+   (name "node-rastermill")
+   (version "0.3.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/rastermill/-/rastermill-0.3.1.tgz")
+     (sha256 (base32 "130cfwn4rvbnnwjp35sdkb2f2cg9hnj3973y0x4m4y7ky69z5mrz"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node"
+                        "@typescript/native-preview"
+                        "@vitest/coverage-v8"
+                        "oxfmt"
+                        "oxlint"
+                        "typescript"
+                        "vitest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-silvia-odwyer-photon-node-0.3.4))
+   (home-page "https://rastermill.com/")
+   (synopsis "Fast, portable image processing for Node agents.")
+   (description "Fast, portable image processing for Node agents.")
+   (license license:expat)))
+
+(define-public node-typescript-6.0.3
+  (package
+   (name "node-typescript")
+   (version "6.0.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz")
+     (sha256 (base32 "0anjcm0xk05wkls2sz1dlhs4rsnxc9n87nm92nfrx35apvhhxk9k"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@dprint/formatter"
+                        "@dprint/typescript"
+                        "@esfx/canceltoken"
+                        "@eslint/js"
+                        "@octokit/rest"
+                        "@types/chai"
+                        "@types/minimist"
+                        "@types/mocha"
+                        "@types/ms"
+                        "@types/node"
+                        "@types/source-map-support"
+                        "@types/which"
+                        "@typescript-eslint/rule-tester"
+                        "@typescript-eslint/type-utils"
+                        "@typescript-eslint/utils"
+                        "azure-devops-node-api"
+                        "c8"
+                        "chai"
+                        "chokidar"
+                        "diff"
+                        "dprint"
+                        "esbuild"
+                        "eslint"
+                        "eslint-plugin-regexp"
+                        "fast-xml-parser"
+                        "glob"
+                        "globals"
+                        "hereby"
+                        "jsonc-parser"
+                        "knip"
+                        "minimist"
+                        "mocha"
+                        "mocha-fivemat-progress-reporter"
+                        "monocart-coverage-reports"
+                        "ms"
+                        "picocolors"
+                        "playwright"
+                        "source-map-support"
+                        "tslib"
+                        "typescript"
+                        "typescript-eslint"
+                        "which"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://www.typescriptlang.org/")
+   (synopsis
+    "TypeScript is a language for application scale JavaScript development")
+   (description
+    "TypeScript is a language for application scale JavaScript development")
+   (license license:asl2.0)))
+
+(define-public node-highlight-js-11.11.1
+  (package
+   (name "node-highlight-js")
+   (version "11.11.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/highlight.js/-/highlight.js-11.11.1.tgz")
+     (sha256 (base32 "0fgdwyxaaxipwpghi17w35z8skgqfw5ma3k4slxmhxp9ccr49jgv"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("css"
+                        "del"
+                        "glob"
+                        "refa"
+                        "jsdom"
+                        "mocha"
+                        "eslint"
+                        "lodash"
+                        "rollup"
+                        "should"
+                        "terser"
+                        "clean-css"
+                        "cli-table"
+                        "commander"
+                        "handlebars"
+                        "typescript"
+                        "http-server"
+                        "tiny-worker"
+                        "@types/mocha"
+                        "glob-promise"
+                        "wcag-contrast"
+                        "@colors/colors"
+                        "css-color-names"
+                        "deep-freeze-es6"
+                        "eslint-plugin-node"
+                        "@rollup/plugin-json"
+                        "dependency-resolver"
+                        "eslint-plugin-import"
+                        "eslint-plugin-promise"
+                        "eslint-config-standard"
+                        "@rollup/plugin-commonjs"
+                        "@typescript-eslint/parser"
+                        "@rollup/plugin-node-resolve"
+                        "@typescript-eslint/eslint-plugin"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://highlightjs.org/")
+   (synopsis "Syntax highlighting with language autodetection.")
+   (description "Syntax highlighting with language autodetection.")
+   (license license:bsd-3)))
+
+(define-public node-quickjs-wasi-3.0.0
+  (package
+   (name "node-quickjs-wasi")
+   (version "3.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/quickjs-wasi/-/quickjs-wasi-3.0.0.tgz")
+     (sha256 (base32 "1yiycalrws58qwsvdqhix5n30z44kyx31fgq3c6z05d1031bhz5r"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@changesets/changelog-github"
+                        "@changesets/cli"
+                        "@types/node"
+                        "@vercel/nft"
+                        "bun"
+                        "core-js-pure"
+                        "degenerator"
+                        "esbuild"
+                        "fast-text-encoding"
+                        "quickjs-emscripten"
+                        "tinybench"
+                        "typescript"
+                        "vitest"
+                        "whatwg-fetch"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/vercel-labs/quickjs-wasi#readme")
+   (synopsis
+    "Snapshotable JavaScript runtime via WebAssembly. QuickJS-NG compiled to WASM with snapshot/restore support.")
+   (description
+    "Snapshotable JavaScript runtime via WebAssembly. QuickJS-NG compiled to WASM with snapshot/restore support.")
+   (license license:expat)))
+
+(define-public node-google-genai-2.7.0
+  (package
+   (name "node-google-genai")
+   (version "2.7.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@google/genai/-/genai-2.7.0.tgz")
+     (sha256 (base32 "157df679np5wq841f7vvsrn1jck1rp6y741sizha4aixbnndki0d"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("c8"
+                        "gts"
+                        "nyc"
+                        "tsx"
+                        "zod"
+                        "tslib"
+                        "eslint"
+                        "undici"
+                        "jasmine"
+                        "ts-node"
+                        "typedoc"
+                        "prettier"
+                        "@types/ws"
+                        "@eslint/js"
+                        "node-fetch"
+                        "typescript"
+                        "@types/node"
+                        "npm-run-all"
+                        "@types/unist"
+                        "undici-types"
+                        "patch-package"
+                        "@types/jasmine"
+                        "protobufjs-cli"
+                        "test-server-sdk"
+                        "@types/node-fetch"
+                        "jasmine-reporters"
+                        "typescript-eslint"
+                        "zod-to-json-schema"
+                        "@rollup/plugin-json"
+                        "@cfworker/json-schema"
+                        "@microsoft/api-extractor"
+                        "@modelcontextprotocol/sdk"
+                        "rollup-plugin-typescript2"
+                        "prettier-plugin-organize-imports"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-google-auth-library-10.6.2
+          node-protobufjs-7.6.2
+          node-p-retry-4.6.2
+          node-ws-8.21.0
+          node-modelcontextprotocol-sdk-1.29.0))
+   (home-page "https://github.com/googleapis/js-genai#readme")
+   (synopsis
+    "[![NPM Downloads](https://img.shields.io/npm/dw/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai) [![Node Current](https://img.shields.io/node/v/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai)")
+   (description
+    "[![NPM Downloads](https://img.shields.io/npm/dw/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai) [![Node Current](https://img.shields.io/node/v/%40google%2Fgenai)](https://www.npmjs.com/package/@google/genai)")
+   (license license:asl2.0)))
+
+(define-public node-clack-core-1.3.1
+  (package
+   (name "node-clack-core")
+   (version "1.3.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@clack/core/-/core-1.3.1.tgz")
+     (sha256 (base32 "0zxvab1abkpdwkmhdiygq7bnv1vl4a4gziwlra4zbcb58ada8ci4"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("vitest")))))))))
+   (inputs (list node-fast-wrap-ansi-0.2.2 node-sisteransi-1.0.5))
+   (home-page
+    "https://github.com/bombshell-dev/clack/tree/main/packages/core#readme")
+   (synopsis
+    "Clack contains low-level primitives for implementing your own command-line applications.")
+   (description
+    "Clack contains low-level primitives for implementing your own command-line applications.")
+   (license license:expat)))
+
+(define-public node-fast-wrap-ansi-0.2.2
+  (package
+   (name "node-fast-wrap-ansi")
+   (version "0.2.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/fast-wrap-ansi/-/fast-wrap-ansi-0.2.2.tgz")
+     (sha256 (base32 "0lg0zb9z4bx13v8rwh3zjwas7axi556bwd0p3bq0ai3b6h7s3d7n"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@eslint/js"
+                        "@types/node"
+                        "eslint"
+                        "fast-wrap-ansi-prod"
+                        "picocolors"
+                        "prettier"
+                        "tinybench"
+                        "typescript"
+                        "typescript-eslint"
+                        "vitest"
+                        "wrap-ansi"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-fast-string-width-3.0.2))
+   (home-page "https://github.com/43081j/fast-wrap-ansi#readme")
+   (synopsis
+    "A tiny and fast text wrap library which takes ANSI escapes into account.")
+   (description
+    "A tiny and fast text wrap library which takes ANSI escapes into account.")
+   (license license:expat)))
+
+(define-public node-fast-string-truncated-width-3.0.3
+  (package
+   (name "node-fast-string-truncated-width")
+   (version "3.0.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/fast-string-truncated-width/-/fast-string-truncated-width-3.0.3.tgz")
+     (sha256 (base32 "1cay7d986m3yy4rkh8ybcn54n4jjj10j1fjxxm9v8w1l88swxnmm"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("benchloop" "fava" "tsex" "typescript")))))))))
+   (home-page
+    "https://github.com/fabiospampinato/fast-string-truncated-width#readme")
+   (synopsis
+    "A fast function for calculating where a string should be truncated, given an optional width limit and an ellipsis string.")
+   (description
+    "A fast function for calculating where a string should be truncated, given an optional width limit and an ellipsis string.")
+   (license license:expat)))
+
+(define-public node-fast-string-width-3.0.2
+  (package
+   (name "node-fast-string-width")
+   (version "3.0.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/fast-string-width/-/fast-string-width-3.0.2.tgz")
+     (sha256 (base32 "0akmnc694qnsl8vdmiargfh9va9wd1i5zzr7l9ahx6r0vw9z3nkj"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("fava" "tsex" "typescript")))))))))
+   (inputs (list node-fast-string-truncated-width-3.0.3))
+   (home-page "https://github.com/fabiospampinato/fast-string-width#readme")
+   (synopsis
+    "A fast function for calculating the visual width of a string once printed to the terminal.")
+   (description
+    "A fast function for calculating the visual width of a string once printed to the terminal.")
+   (license license:expat)))
+
+(define-public node-clack-prompts-1.4.0
+  (package
+   (name "node-clack-prompts")
+   (version "1.4.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@clack/prompts/-/prompts-1.4.0.tgz")
+     (sha256 (base32 "1q7lk6q4vaf00ww8y0zyg22jzb3sqb72mm4ynbsjv2hpidlnyrd0"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("memfs"
+                        "vitest"
+                        "is-unicode-supported"
+                        "vitest-ansi-serializer"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-fast-string-width-3.0.2
+          node-fast-wrap-ansi-0.2.2
+          node-clack-core-1.3.1
+          node-sisteransi-1.0.5))
+   (home-page
+    "https://github.com/bombshell-dev/clack/tree/main/packages/prompts#readme")
+   (synopsis
+    "Effortlessly build beautiful command-line apps ð\x9fª\x84 [Try the demo](https://stackblitz.com/edit/clack-prompts?file=index.js)")
+   (description
+    "Effortlessly build beautiful command-line apps ð\x9fª\x84 [Try the demo](https://stackblitz.com/edit/clack-prompts?file=index.js)")
+   (license license:expat)))
+
+(define-public node-hosted-git-info-10.1.1
+  (package
+   (name "node-hosted-git-info")
+   (version "10.1.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-10.1.1.tgz")
+     (sha256 (base32 "1gm0x2xqhi0spij90si2vaxwjykdparpzccgi7vgrxqvl7aa5g2f"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@npmcli/eslint-config" "@npmcli/template-oss")))))))))
+   (inputs (list node-lru-cache-11.5.1))
+   (home-page "https://github.com/npm/hosted-git-info")
+   (synopsis
+    "Provides metadata and conversions from repository urls for GitHub, Bitbucket and GitLab")
+   (description
+    "Provides metadata and conversions from repository urls for GitHub, Bitbucket and GitLab")
+   (license license:isc)))
+
+(define-public node-playwright-core-1.60.0
+  (package
+   (name "node-playwright-core")
+   (version "1.60.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/playwright-core/-/playwright-core-1.60.0.tgz")
+     (sha256 (base32 "1gr5baf9877r718wagk4x8awkhgclw73b5n9nlga942ylwdzh7cb"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://playwright.dev")
+   (synopsis "A high-level API to automate web browsers")
+   (description "A high-level API to automate web browsers")
+   (license license:asl2.0)))
+
+(define-public node-web-tree-sitter-0.26.9
+  (package
+   (name "node-web-tree-sitter")
+   (version "0.26.9")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/web-tree-sitter/-/web-tree-sitter-0.26.9.tgz")
+     (sha256 (base32 "06v92if20282gc1y4ds6qsq5dg3a8x9p4vaj67jk5hcg0nv8mkda"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@eslint/js"
+                        "@types/emscripten"
+                        "@types/node"
+                        "@vitest/coverage-v8"
+                        "dts-buddy"
+                        "esbuild"
+                        "eslint"
+                        "source-map"
+                        "tsx"
+                        "typescript"
+                        "typescript-eslint"
+                        "vitest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/tree-sitter/tree-sitter#readme")
+   (synopsis "Tree-sitter bindings for the web")
+   (description "Tree-sitter bindings for the web")
+   (license license:expat)))
+
+(define-public node-homebridge-ciao-1.3.9
+  (package
+   (name "node-homebridge-ciao")
+   (version "1.3.9")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@homebridge/ciao/-/ciao-1.3.9.tgz")
+     (sha256 (base32 "0bbqfxsz9yzpw0y9xx4d711n7byxdnlk0hy8pirv8jcsxvvgp9pg"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/debug"
+                        "@types/jest"
+                        "@types/node"
+                        "@types/source-map-support"
+                        "@typescript-eslint/eslint-plugin"
+                        "@typescript-eslint/parser"
+                        "eslint"
+                        "jest"
+                        "rimraf"
+                        "ts-jest"
+                        "ts-node"
+                        "typedoc"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-tslib-2.8.1
+          node-source-map-support-0.5.21
+          node-fast-deep-equal-3.1.3
+          node-debug-4.4.3))
+   (home-page "https://github.com/homebridge/ciao")
+   (synopsis
+    "ciao is a RFC 6763 compliant dns-sd library, advertising on multicast dns (RFC 6762) implemented in plain Typescript/JavaScript")
+   (description
+    "ciao is a RFC 6763 compliant dns-sd library, advertising on multicast dns (RFC 6762) implemented in plain Typescript/JavaScript")
+   (license license:expat)))
+
+(define-public node-lydell-node-pty-1.2.0-beta.12
+  (package
+   (name "node-lydell-node-pty")
+   (version "1.2.0-beta.12")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@lydell/node-pty/-/node-pty-1.2.0-beta.12.tgz")
+     (sha256 (base32 "08zlc75pzyhl2yirzf2qzg2rfbmqb3lydwbxhycdzq5yjdlwwsfc"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases %standard-phases (delete 'build)))))
+   (home-page "https://github.com/lydell/node-pty#readme")
+   (synopsis "Smaller distribution of node-pty.")
+   (description "Smaller distribution of node-pty.")
+   (license license:expat)))
+
+(define-public node-tree-sitter-0.25.0
+  (package
+   (name "node-tree-sitter")
+   (version "0.25.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/tree-sitter/-/tree-sitter-0.25.0.tgz")
+     (sha256 (base32 "0jmakazk0vb0yfrr8wvg8gk2dl3css612p0mw7bsw8rcivp4hr01"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node"
+                        "@types/tmp"
+                        "glob"
+                        "node-gyp"
+                        "prebuildify"
+                        "tmp"
+                        "tree-sitter-c"
+                        "tree-sitter-embedded-template"
+                        "tree-sitter-html"
+                        "tree-sitter-java"
+                        "tree-sitter-javascript"
+                        "tree-sitter-json"
+                        "tree-sitter-python"
+                        "tree-sitter-ruby"
+                        "tree-sitter-rust"
+                        "typedoc"
+                        "typedoc-plugin-rename-defaults"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-node-gyp-build-4.8.4 node-node-addon-api-8.8.0))
+   (home-page "https://github.com/tree-sitter/node-tree-sitter#readme")
+   (synopsis "Node.js bindings to the Tree-sitter parsing library")
+   (description "Node.js bindings to the Tree-sitter parsing library")
+   (license license:expat)))
+
+(define-public node-node-addon-api-8.8.0
+  (package
+   (name "node-node-addon-api")
+   (version "8.8.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.8.0.tgz")
+     (sha256 (base32 "1ibnphalbrf7gn477yla6dvc4ll2w9dcq8ayhlcvra1mh8d8ylkj"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("benchmark"
+                        "bindings"
+                        "clang-format"
+                        "eslint"
+                        "fs-extra"
+                        "neostandard"
+                        "pre-commit"
+                        "semver"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/nodejs/node-addon-api")
+   (synopsis "Node.js API (Node-API)")
+   (description "Node.js API (Node-API)")
+   (license license:expat)))
+
+(define-public node-tree-sitter-bash-0.25.1
+  (package
+   (name "node-tree-sitter-bash")
+   (version "0.25.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/tree-sitter-bash/-/tree-sitter-bash-0.25.1.tgz")
+     (sha256 (base32 "1yd6wj59mphm7bqci5fkgc047m0hlq2f7xzzaf4wp5za12aq3cnl"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("eslint"
+                        "eslint-config-treesitter"
+                        "tree-sitter-cli"
+                        "prebuildify"
+                        "tree-sitter"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs
+    (list node-node-gyp-build-4.8.4
+          node-node-addon-api-8.8.0
+          node-tree-sitter-0.25.0))
+   (home-page "https://github.com/tree-sitter/tree-sitter-bash#readme")
+   (synopsis "Bash grammar for tree-sitter")
+   (description "Bash grammar for tree-sitter")
+   (license license:expat)))
+
+(define-public node-stablelib-base64-1.0.1
+  (package
+   (name "node-stablelib-base64")
+   (version "1.0.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@stablelib/base64/-/base64-1.0.1.tgz")
+     (sha256 (base32 "0sjrdadiyy1xyh6lp9pdlbxk8qdx6lgxn9bqdi1qfgqd5qfp2c01"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("@stablelib/benchmark")))))))))
+   (home-page
+    "https://github.com/StableLib/stablelib/tree/master/packages/base64")
+   (synopsis "Base64 encoding and decoding")
+   (description "Base64 encoding and decoding")
+   (license license:expat)))
+
+(define-public node-fast-sha256-1.3.0
+  (package
+   (name "node-fast-sha256")
+   (version "1.3.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/fast-sha256/-/fast-sha256-1.3.0.tgz")
+     (sha256 (base32 "1xl45kfg22wr0qnzybw05aahbwdlcl7lsz8f4nqwzjadb6i7x2ag"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("faucet" "tape" "tslint" "typescript" "uglify-js")))))))))
+   (home-page "https://github.com/dchest/fast-sha256-js#readme")
+   (synopsis
+    "SHA-256, HMAC and PBKDF2 implementation with typed arrays for modern browsers and Node.js")
+   (description
+    "SHA-256, HMAC and PBKDF2 implementation with typed arrays for modern browsers and Node.js")
+   (license license:unlicense)))
+
+(define-public node-standardwebhooks-1.0.0
+  (package
+   (name "node-standardwebhooks")
+   (version "1.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/standardwebhooks/-/standardwebhooks-1.0.0.tgz")
+     (sha256 (base32 "1gfv22b5wm5pklx1j3xxjyjk5v4vaw06zpw89jgx6g9hicdqwpck"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@stablelib/utf8"
+                        "@types/jest"
+                        "@typescript-eslint/eslint-plugin"
+                        "@typescript-eslint/parser"
+                        "@typescript-eslint/typescript-estree"
+                        "eslint"
+                        "jest"
+                        "prettier"
+                        "ts-jest"
+                        "typescript"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (inputs (list node-fast-sha256-1.3.0 node-stablelib-base64-1.0.1))
+   (home-page
+    "https://github.com/standard-webhooks/standard-webhooks/tree/main/libraries/javascript")
+   (synopsis "Standard Webhooks for TypeScript")
+   (description "Standard Webhooks for TypeScript")
+   (license license:expat)))
+
+(define-public node-anthropic-ai-sdk-0.100.1
+  (package
+   (name "node-anthropic-ai-sdk")
+   (version "0.100.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@anthropic-ai/sdk/-/sdk-0.100.1.tgz")
+     (sha256 (base32 "0d6fhp2wijvxbasx8igir39ssad0j6vhwhh6bwy88nmy9jcy1smy"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _ (modify-json (delete-dependencies '("zod")))))))))
+   (inputs
+    (list node-json-schema-to-ts-3.1.1
+          node-standardwebhooks-1.0.0
+          node-zod-4.4.3))
+   (home-page "https://github.com/anthropics/anthropic-sdk-typescript#readme")
+   (synopsis "The official TypeScript library for the Anthropic API")
+   (description "The official TypeScript library for the Anthropic API")
+   (license license:expat)))
+
+(define-public node-openclaw-fs-safe-0.3.0
+  (package
+   (name "node-openclaw-fs-safe")
+   (version "0.3.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@openclaw/fs-safe/-/fs-safe-0.3.0.tgz")
+     (sha256 (base32 "1p1xbj4v8x3pa5dzhifd0pwcvh4n7d44nv3q96lvbscyavhzskni"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node"
+                        "@vitest/coverage-v8"
+                        "typescript"
+                        "vitest"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/openclaw/fs-safe#readme")
+   (synopsis
+    "Capability-style filesystem roots for Node.js apps that handle untrusted relative paths.")
+   (description
+    "Capability-style filesystem roots for Node.js apps that handle untrusted relative paths.")
+   (license license:expat)))
+
+(define-public node-undici-8.3.0
+  (package
+   (name "node-undici")
+   (version "8.3.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/undici/-/undici-8.3.0.tgz")
+     (sha256 (base32 "1k92ck2f8x79vai2lbyz8z8pzglwmf5qhrh2cgyqw8r9w8anj530"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("c8"
+                        "ws"
+                        "tsd"
+                        "borp"
+                        "jest"
+                        "husky"
+                        "proxy"
+                        "eslint"
+                        "esbuild"
+                        "cross-env"
+                        "dns-packet"
+                        "fast-check"
+                        "node-forge"
+                        "typescript"
+                        "@types/node"
+                        "neostandard"
+                        "jsondiffpatch"
+                        "@fastify/busboy"
+                        "abort-controller"
+                        "@matteo.collina/tspl"
+                        "@sinonjs/fake-timers"
+                        "@metcoder95/https-pem"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://undici.nodejs.org")
+   (synopsis "An HTTP/1.1 client, written from scratch for Node.js")
+   (description "An HTTP/1.1 client, written from scratch for Node.js")
+   (license license:expat)))
+
+(define-public node-openclaw-proxyline-0.3.3
+  (package
+   (name "node-openclaw-proxyline")
+   (version "0.3.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@openclaw/proxyline/-/proxyline-0.3.3.tgz")
+     (sha256 (base32 "1czxlkbd8875k3wjmv7zd9vfrxc447plwgbw5yagv76i3i0qcxr3"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("@types/node"
+                        "@types/ws"
+                        "tsx"
+                        "typescript"
+                        "undici"
+                        "ws"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://proxyline.dev")
+   (synopsis "Process-global proxy routing for Node.js.")
+   (description "Process-global proxy routing for Node.js.")
+   (license license:expat)))
+
+(define-public node-earendil-works-pi-tui-0.78.0
+  (package
+   (name "node-earendil-works-pi-tui")
+   (version "0.78.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@earendil-works/pi-tui/-/pi-tui-0.78.0.tgz")
+     (sha256 (base32 "0wi26kw41lsj4ksc0sjv4bksj0q17z579f4vxh1658d64vpzm58l"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies '("@xterm/headless" "chalk")))))))))
+   (inputs (list node-marked-15.0.12 node-get-east-asian-width-1.6.0))
+   (home-page "https://github.com/earendil-works/pi#readme")
+   (synopsis
+    "Terminal User Interface library with differential rendering for efficient text-based applications")
+   (description
+    "Terminal User Interface library with differential rendering for efficient text-based applications")
+   (license license:expat)))
+
+(define-public node-agentclientprotocol-sdk-0.22.1
+  (package
+   (name "node-agentclientprotocol-sdk")
+   (version "0.22.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri "https://registry.npmjs.org/@agentclientprotocol/sdk/-/sdk-0.22.1.tgz")
+     (sha256 (base32 "1qbb2c8kh3s070gw3hkm6awppbsgfyyxfzb6g0p44vxnwq95v8h3"))))
+   (build-system node-build-system)
+   (arguments
+    (list #:tests?
+          #f
+          #:phases
+          (gexp (modify-phases
+                 %standard-phases
+                 (delete 'build)
+                 (add-after
+                  'patch-dependencies
+                  'delete-dev-dependencies
+                  (lambda _
+                    (modify-json
+                     (delete-dependencies
+                      '("tsx"
+                        "zod"
+                        "eslint"
+                        "vitest"
+                        "globals"
+                        "typedoc"
+                        "prettier"
+                        "@eslint/js"
+                        "typescript"
+                        "@types/node"
+                        "http-server"
+                        "concurrently"
+                        "@hey-api/openapi-ts"
+                        "typedoc-github-theme"
+                        "eslint-config-prettier"
+                        "@typescript-eslint/parser"
+                        "@typescript-eslint/eslint-plugin"))
+                     (delete-fields
+                      '(("scripts" "prepare")
+                        ("scripts" "prebuild")
+                        ("scripts" "pretest"))
+                      #:strict? #f))))))))
+   (home-page "https://github.com/agentclientprotocol/typescript-sdk#readme")
+   (synopsis
+    "The Agent Client Protocol (ACP) is a protocol that standardizes communication between *code editors* (interactive programs for viewing and editing source code) and *coding agents* (programs that use generative AI to autonomously modify code).")
+   (description
+    "The Agent Client Protocol (ACP) is a protocol that standardizes communication between *code editors* (interactive programs for viewing and editing source code) and *coding agents* (programs that use generative AI to autonomously modify code).")
+   (license license:asl2.0)))
 
