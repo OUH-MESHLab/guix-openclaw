@@ -42627,15 +42627,15 @@
    (description "Process-global proxy routing for Node.js.")
    (license license:expat)))
 
-(define-public node-earendil-works-pi-tui-0.78.0
+(define-public node-earendil-works-pi-tui-0.78.1
   (package
    (name "node-earendil-works-pi-tui")
-   (version "0.78.0")
+   (version "0.78.1")
    (source
     (origin
      (method url-fetch)
-     (uri "https://registry.npmjs.org/@earendil-works/pi-tui/-/pi-tui-0.78.0.tgz")
-     (sha256 (base32 "0wi26kw41lsj4ksc0sjv4bksj0q17z579f4vxh1658d64vpzm58l"))))
+     (uri "https://registry.npmjs.org/@earendil-works/pi-tui/-/pi-tui-0.78.1.tgz")
+     (sha256 (base32 "0l5v3v6qwqi2g7ijkbkqq3221mwjhwwvclb0k1x8jyi267lj334b"))))
    (build-system node-build-system)
    (arguments
     (list #:tests?
@@ -42658,15 +42658,15 @@
     "Terminal User Interface library with differential rendering for efficient text-based applications")
    (license license:expat)))
 
-(define-public node-earendil-works-pi-ai-0.78.0
+(define-public node-earendil-works-pi-ai-0.78.1
   (package
    (name "node-earendil-works-pi-ai")
-   (version "0.78.0")
+   (version "0.78.1")
    (source
     (origin
      (method url-fetch)
-     (uri "https://registry.npmjs.org/@earendil-works/pi-ai/-/pi-ai-0.78.0.tgz")
-     (sha256 (base32 "13yrds5yrfcy0z7jj4f9qlpi8jl80lfph7r14isd79c4v2f5chb4"))))
+     (uri "https://registry.npmjs.org/@earendil-works/pi-ai/-/pi-ai-0.78.1.tgz")
+     (sha256 (base32 "01w1zzkxp3a5yki77h2kzv978qyz308nsn5yffwfz97fbhz3qzcf"))))
    (build-system node-build-system)
    (arguments
     (list #:tests?
@@ -42699,15 +42699,15 @@
     "Unified LLM API with automatic model discovery and provider configuration")
    (license license:expat)))
 
-(define-public node-earendil-works-pi-agent-core-0.78.0
+(define-public node-earendil-works-pi-agent-core-0.78.1
   (package
    (name "node-earendil-works-pi-agent-core")
-   (version "0.78.0")
+   (version "0.78.1")
    (source
     (origin
      (method url-fetch)
-     (uri "https://registry.npmjs.org/@earendil-works/pi-agent-core/-/pi-agent-core-0.78.0.tgz")
-     (sha256 (base32 "18qw5bx8m4rhzpijklsivhhsy49n1zlwyjwswnlzvq6770hwhyxw"))))
+     (uri "https://registry.npmjs.org/@earendil-works/pi-agent-core/-/pi-agent-core-0.78.1.tgz")
+     (sha256 (base32 "03wqmskpxqmvfw8h2s0r1d501z6n5lwqvh4by8bp00qv7rqdg72z"))))
    (build-system node-build-system)
    (arguments
     (list #:tests?
@@ -42724,7 +42724,7 @@
                      (delete-dependencies
                       '("vitest" "typescript" "@types/node" "@vitest/coverage-v8")))))))))
    (inputs
-    (list node-earendil-works-pi-ai-0.78.0
+    (list node-earendil-works-pi-ai-0.78.1
           node-typebox-1.1.39
           node-ignore-7.0.5
           node-yaml-2.9.0))
@@ -42735,15 +42735,15 @@
     "General-purpose agent with transport abstraction, state management, and attachment support")
    (license license:expat)))
 
-(define-public node-earendil-works-pi-coding-agent-0.78.0
+(define-public node-earendil-works-pi-coding-agent-0.78.1
   (package
    (name "node-earendil-works-pi-coding-agent")
-   (version "0.78.0")
+   (version "0.78.1")
    (source
     (origin
      (method url-fetch)
-     (uri "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.78.0.tgz")
-     (sha256 (base32 "1vnhxlgdwv9ns4pvh6l012vnljyas031swd4d3ikb48xh1sxlix0"))))
+     (uri "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.78.1.tgz")
+     (sha256 (base32 "036xsylix4528y738ljcx50i8qip3v5vvbfrwwkzv4ix70f84sgg"))))
    (build-system node-build-system)
    (arguments
     (list #:tests?
@@ -42769,10 +42769,10 @@
                         "@types/hosted-git-info"
                         "@types/proper-lockfile")))))))))
    (inputs
-    (list node-earendil-works-pi-agent-core-0.78.0
+    (list node-earendil-works-pi-agent-core-0.78.1
           node-silvia-odwyer-photon-node-0.3.4
-          node-earendil-works-pi-tui-0.78.0
-          node-earendil-works-pi-ai-0.78.0
+          node-earendil-works-pi-tui-0.78.1
+          node-earendil-works-pi-ai-0.78.1
           node-proper-lockfile-4.1.2
           node-hosted-git-info-9.0.3
           node-highlight-js-10.7.3

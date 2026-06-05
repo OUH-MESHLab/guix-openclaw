@@ -22,7 +22,7 @@
 (define-public openclaw
   (package
     (name "openclaw")
-    (version "2026.3.13")
+    (version "2026.6.1")
     (source
      (origin
        (method url-fetch)
@@ -30,7 +30,7 @@
              "https://registry.npmjs.org/openclaw/-/openclaw-"
              version ".tgz"))
        (sha256
-        (base32 "0sp941m4014k4lh8zaiyva61n57fw9jnh3h9spfdnaziqkwdj4b7"))))
+        (base32 "1fx4d5iqc9y7054m6rxv78iya45i5qm6jhmabdvlgh8hv0gw8gp4"))))
     (build-system node-build-system)
     (arguments
      (list
@@ -43,27 +43,37 @@
             (lambda _
               (modify-json
                (delete-dependencies
-                '("@grammyjs/types"
-                  "@lit-labs/signals"
-                  "@lit/context"
-                  "@types/express"
-                  "@types/markdown-it"
-                  "@types/node"
-                  "@types/qrcode-terminal"
-                  "@types/ws"
-                  "@typescript/native-preview"
-                  "@vitest/coverage-v8"
+                '("lit"
+                  "tsx"
                   "jscpd"
                   "jsdom"
-                  "lit"
                   "oxfmt"
+                  "shiki"
+                  "unrun"
                   "oxlint"
-                  "oxlint-tsgolint"
-                  "signal-utils"
                   "tsdown"
-                  "tsx"
-                  "typescript"
                   "vitest"
+                  "esbuild"
+                  "@a2ui/lit"
+                  "@types/ws"
+                  "@mdx-js/mdx"
+                  "@types/node"
+                  "@lit/context"
+                  "signal-utils"
+                  "@shikijs/core"
+                  "@types/express"
+                  "@grammyjs/types"
+                  "oxlint-tsgolint"
+                  "@lit-labs/signals"
+                  "@copilotkit/aimock"
+                  "@types/cross-spawn"
+                  "@types/markdown-it"
+                  "@vitest/coverage-v8"
+                  "@types/hosted-git-info"
+                  "@types/proper-lockfile"
+                  "@shikijs/engine-oniguruma"
+                  "@shikijs/engine-javascript"
+                  "@typescript/native-preview"
                   ;; Optional peer deps — openclaw degrades gracefully without them
                   "node-llama-cpp"
                   "@napi-rs/canvas")))))
@@ -85,61 +95,61 @@
                 (symlink hpa-v7
                          (string-append nested "/https-proxy-agent"))))))))
     (inputs
-     (list node-zod-4.3.6
-           node-yaml-2.8.2
-           node-ws-8.19.0
-           node-undici-7.24.2
-           node-tslog-4.10.2
-           node-tar-7.5.11
-           node-sqlite-vec-0.1.7-alpha.2
-           node-sharp-0.34.5
-           node-qrcode-terminal-0.12.0
-           node-playwright-core-1.58.2
-           node-pdfjs-dist-5.5.207
-           node-osc-progress-0.3.0
-           node-opusscript-0.1.1
+     (list node-grammyjs-transformer-throttler-1.2.1
+           node-modelcontextprotocol-sdk-1.29.0
+           node-agentclientprotocol-sdk-0.22.1
+           node-earendil-works-pi-tui-0.78.1
+           node-mozilla-readability-0.6.0
+           node-mistralai-mistralai-2.2.5
+           node-openclaw-proxyline-0.3.3
+           node-openclaw-fs-safe-0.3.0
+           node-anthropic-ai-sdk-0.100.1
+           node-tree-sitter-bash-0.25.1
+           node-lydell-node-pty-1.2.0-beta.12
+           node-homebridge-ciao-1.3.9
+           node-grammyjs-runner-2.0.3
+           node-web-tree-sitter-0.26.9
+           node-proper-lockfile-4.1.2
+           node-playwright-core-1.60.0
+           node-hosted-git-info-10.1.1
+           node-clack-prompts-1.4.0
            node-node-edge-tts-1.2.10
-           node-markdown-it-14.1.1
-           node-long-5.3.2
+           node-google-genai-2.7.0
+           node-quickjs-wasi-3.0.0
+           node-partial-json-0.1.7
+           node-highlight-js-11.11.1
+           node-cross-spawn-7.0.6
+           node-clack-core-1.3.1
+           node-typescript-6.0.3
+           node-rastermill-0.3.1
+           node-minimatch-10.2.5
+           node-file-type-22.0.1
+           node-commander-14.0.3
+           node-web-push-3.6.7
            node-linkedom-0.18.12
+           node-chokidar-5.0.0
+           node-typebox-1.1.39
+           node-express-5.2.1
+           node-clawpdf-0.3.0
+           node-undici-8.3.0
+           node-qrcode-1.5.4
+           node-openai-6.39.1
+           node-kysely-0.29.2
+           node-ignore-7.0.5
+           node-grammy-1.43.0
+           node-dotenv-17.4.2
+           node-croner-10.0.1
+           node-tslog-4.10.2
            node-jszip-3.10.1
            node-json5-2.2.3
-           node-jiti-2.6.1
-           node-ipaddr-js-2.3.0
-           node-https-proxy-agent-8.0.0
-           node-hono-4.12.7
-           node-grammy-1.41.1
-           node-file-type-21.3.2
-           node-express-5.2.1
-           node-dotenv-17.3.1
-           node-discord-api-types-0.38.42
-           node-croner-10.0.1
-           node-commander-14.0.3
-           node-cli-highlight-2.1.11
-           node-chokidar-5.0.0
            node-chalk-5.6.2
-           node-ajv-8.18.0
-           node-whiskeysockets-baileys-7.0.0-rc.9
-           node-slack-web-api-7.15.0
-           node-slack-bolt-4.6.0
-           node-sinclair-typebox-0.34.48
-           node-mozilla-readability-0.6.0
-           node-modelcontextprotocol-sdk-1.27.1
-           node-mariozechner-pi-tui-0.58.0
-           node-mariozechner-pi-coding-agent-0.58.0
-           node-mariozechner-pi-ai-0.58.0
-           node-mariozechner-pi-agent-core-0.58.0
-           node-lydell-node-pty-1.2.0-beta.3
-           node-line-bot-sdk-10.6.0
-           node-larksuiteoapi-node-sdk-1.59.0
-           node-homebridge-ciao-1.3.5
-           node-grammyjs-transformer-throttler-1.2.1
-           node-grammyjs-runner-2.0.3
-           node-discordjs-voice-0.19.1
-           node-clack-prompts-1.1.0
-           node-buape-carbon-0.0.0-beta-20260216184201
-           node-aws-sdk-client-bedrock-3.1009.0
-           node-agentclientprotocol-sdk-0.16.1))
+           node-yaml-2.9.0
+           node-jiti-2.7.0
+           node-glob-13.0.6
+           node-diff-9.0.0
+           node-zod-4.4.3
+           node-tar-7.5.15
+           node-ws-8.21.0))
     (home-page "https://github.com/openclaw/openclaw")
     (synopsis "Multi-channel AI gateway with extensible messaging integrations")
     (description

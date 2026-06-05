@@ -46,6 +46,7 @@ installation, no system changes, full network isolation.
 
 ```bash
 mkdir -p ~/.openclaw-dev
+chmod 700 ~/.openclaw-dev
 
 cat > ~/.openclaw-dev/openclaw.json << 'EOF'
 {
@@ -61,33 +62,50 @@ cat > ~/.openclaw-dev/openclaw.json << 'EOF'
 EOF
 ```
 
-`auth: { mode: "none" }` is convenient for local dev.  For anything exposed
-further, use `"token"` and set `OPENCLAW_GATEWAY_TOKEN` in your environment.
+`auth: { mode: "none" }` is safe for local dev (loopback only).  For anything
+exposed further, use `"token"` — see [Secrets management](#secrets-management).
 
 ### 2. Launch the gateway
 
+Store your API key in [GNU Pass](https://www.passwordstore.org/) so it never
+appears in shell history:
+
 ```bash
-OPENCLAW_STATE_DIR=/var/lib/openclaw \
-OPENCLAW_CONFIG_PATH=/var/lib/openclaw/openclaw.json \
-OPENCLAW_GATEWAY_PORT=18789 \
-OPENCLAW_LOG_LEVEL=info \
-OPENCLAW_NO_RESPAWN=1 \
-ANTHROPIC_API_KEY=sk-ant-... \
-guix shell -L . -C --network \
-  --share="$HOME/.openclaw-dev=/var/lib/openclaw" \
-  --expose=/etc/ssl \
-  openclaw \
-  -- openclaw gateway
+pass insert openclaw/anthropic-key
 ```
+
+Then launch, injecting the key from pass at invocation time:
+
+```bash
+ANTHROPIC_API_KEY=$(pass show openclaw/anthropic-key) \
+guix shell -L . -C --pure --network \
+  --preserve='^ANTHROPIC_API_KEY$' \
+  --share="$HOME/.openclaw-dev=/var/lib/openclaw" \
+  --expose=/etc/ssl/certs \
+  openclaw \
+  -- env \
+     OPENCLAW_STATE_DIR=/var/lib/openclaw \
+     OPENCLAW_CONFIG_PATH=/var/lib/openclaw/openclaw.json \
+     OPENCLAW_GATEWAY_PORT=18789 \
+     OPENCLAW_LOG_LEVEL=info \
+     OPENCLAW_NO_RESPAWN=1 \
+     openclaw gateway
+```
+
+> **If you see `Missing config` on startup**, your existing `openclaw.json`
+> does not contain `gateway.mode`.  Either re-run step 1 (which overwrites the
+> file) or append `--allow-unconfigured` to the last line.
 
 Flag summary:
 
-| Flag                | Purpose                                                                               |
-|---------------------|---------------------------------------------------------------------------------------|
-| `-C`                | Isolated container — no host PATH leakage                                             |
-| `--network`         | Shares the host network namespace; the gateway binds to `127.0.0.1:18789` on the host |
-| `--share=SRC=DST`   | Bind-mounts your local state dir read-write at the path openclaw expects              |
-| `--expose=/etc/ssl` | Makes CA certificates available for outbound TLS to LLM APIs                          |
+| Flag                      | Purpose                                                                               |
+|---------------------------|---------------------------------------------------------------------------------------|
+| `-C`                      | Isolated container — no host filesystem or PATH leakage                               |
+| `--pure`                  | Clears all inherited env vars; only `--preserve`d ones enter the container            |
+| `--preserve=REGEXP`       | Passes matching env vars from the outer environment into the container                |
+| `--network`               | Shares the host network namespace; the gateway binds to `127.0.0.1:18789` on the host |
+| `--share=SRC=DST`         | Bind-mounts your local state dir read-write at the path openclaw expects              |
+| `--expose=/etc/ssl/certs` | Makes CA certificates available for outbound TLS to LLM APIs                         |
 
 ### 3. Check it is up
 
@@ -95,7 +113,17 @@ Flag summary:
 curl -s http://127.0.0.1:18789/health
 ```
 
-### 4. Open an interactive shell inside the container
+### 4. Open the web UI
+
+```
+http://127.0.0.1:18789/
+```
+
+> If you see "Unauthorized" after previously running with `auth.mode = "token"`,
+> your browser has a cached response.  Hard-refresh (`Ctrl+Shift+R`) or clear
+> site data for `127.0.0.1:18789` in your browser's dev tools.
+
+### 5. Open an interactive shell inside the container
 
 Useful for running `openclaw config set`, inspecting state, or debugging:
 
@@ -114,6 +142,105 @@ openclaw --version
 openclaw gateway &
 openclaw config set agent.model anthropic/claude-opus-4-6
 ```
+
+---
+
+## Secrets management
+
+OpenClaw needs several sensitive values at runtime: LLM API keys, a gateway
+auth token, and per-channel bot tokens.  **None of these should appear in shell
+history, the Guix store, or world-readable files.**  The recommended tool is
+[GNU Pass](https://www.passwordstore.org/), which stores everything
+GPG-encrypted in `~/.password-store/`.
+
+### Initial pass setup (once)
+
+```bash
+# Initialise with your GPG key ID (skip if already done)
+pass init your-gpg-key-id@example.com
+```
+
+### Storing OpenClaw secrets
+
+```bash
+# LLM provider key
+pass insert openclaw/anthropic-key
+
+# Gateway bearer token (generate a random one)
+pass insert openclaw/gateway-token
+# Tip: openssl rand -hex 32 | pass insert -e openclaw/gateway-token
+
+# Channel bot tokens
+pass insert openclaw/telegram-bot-token
+pass insert openclaw/slack-bot-token
+```
+
+Or store all service-level secrets as a single multi-line entry (one `KEY=value`
+per line) — useful for populating the system service's `secrets.env`:
+
+```bash
+pass insert -m openclaw/secrets
+# Paste the KEY=value block, then Ctrl-D:
+#   ANTHROPIC_API_KEY=sk-ant-...
+#   OPENCLAW_GATEWAY_TOKEN=<token>
+#   channels__telegram__botToken=123456:ABCdef...
+#   channels__slack__botToken=xoxb-...
+```
+
+### Using pass with `guix shell`
+
+Inject secrets at invocation time via `$(pass show ...)`.  Shell history records
+the `pass show` expression, not the secret value:
+
+```bash
+ANTHROPIC_API_KEY=$(pass show openclaw/anthropic-key) \
+OPENCLAW_GATEWAY_TOKEN=$(pass show openclaw/gateway-token) \
+guix shell -L . -C --pure --network \
+  --preserve='^(ANTHROPIC_API_KEY|OPENCLAW_GATEWAY_TOKEN)$' \
+  --share="$HOME/.openclaw-dev=/var/lib/openclaw" \
+  --expose=/etc/ssl/certs \
+  openclaw \
+  -- env \
+     OPENCLAW_STATE_DIR=/var/lib/openclaw \
+     OPENCLAW_CONFIG_PATH=/var/lib/openclaw/openclaw.json \
+     OPENCLAW_GATEWAY_PORT=18789 \
+     OPENCLAW_LOG_LEVEL=info \
+     OPENCLAW_NO_RESPAWN=1 \
+     openclaw gateway
+```
+
+### Using pass with the system/home service
+
+The system and home services read secrets from a plain-text `KEY=value` file at
+startup.  Use pass as the source of truth and write the file out once (or after
+rotating a key):
+
+```bash
+# System service
+sudo mkdir -p /etc/openclaw
+pass show openclaw/secrets | sudo tee /etc/openclaw/secrets.env > /dev/null
+sudo chmod 640 /etc/openclaw/secrets.env
+sudo chown root:openclaw /etc/openclaw/secrets.env
+sudo herd restart openclaw
+
+# Home service
+mkdir -p ~/.openclaw
+pass show openclaw/secrets > ~/.openclaw/secrets.env
+chmod 600 ~/.openclaw/secrets.env
+herd restart openclaw
+```
+
+The GPG-encrypted copy in pass remains the canonical record.  The on-disk
+`secrets.env` is a deploy-time artefact — regenerate it from pass whenever you
+rotate keys.
+
+### What the `--pure` flag buys you
+
+Without `--pure`, `guix shell -C` inherits the entire host environment,
+including any variables already set in your shell session.  With `--pure`,
+nothing enters the container unless you explicitly `--preserve` it.  This means
+no accidental leakage of `HISTFILE`, `DBUS_SESSION_BUS_ADDRESS`, credentials
+from other tools, etc.
 
 ---
 
@@ -160,29 +287,38 @@ For a server or NAS deployment managed by `guix system reconfigure`.
 ### Secrets file (`environment-file`)
 
 API keys and channel tokens must **not** go into the Guix store.  Put them in
-a file readable only by the `openclaw` user and point `environment-file` at it.
+a file readable only by root and the `openclaw` group, and point
+`environment-file` at it.  The recommended workflow uses [GNU Pass](#secrets-management)
+as the encrypted source of truth:
 
 ```bash
-# /etc/openclaw/secrets.env
-# chmod 640, owned by root:openclaw
+sudo mkdir -p /etc/openclaw
+pass show openclaw/secrets | sudo tee /etc/openclaw/secrets.env > /dev/null
+sudo chmod 640 /etc/openclaw/secrets.env
+sudo chown root:openclaw /etc/openclaw/secrets.env
+```
+
+The file format is one `KEY=value` per line; blank lines and `#` comments are
+ignored:
+
+```bash
+# /etc/openclaw/secrets.env  (chmod 640, root:openclaw)
 
 ANTHROPIC_API_KEY=sk-ant-...
-OPENCLAW_GATEWAY_TOKEN=change-me-to-a-long-random-string
+OPENCLAW_GATEWAY_TOKEN=<long-random-string>
 
-# Channel credentials (examples)
+# Channel credentials
 channels__telegram__botToken=123456:ABCdef...
 channels__slack__botToken=xoxb-...
 channels__discord__token=MTA...
 ```
 
-Create the file before the first `guix system reconfigure`:
+Regenerate the file from pass whenever you rotate a key, then restart the
+service:
 
 ```bash
-sudo mkdir -p /etc/openclaw
-sudo touch /etc/openclaw/secrets.env
-sudo chmod 640 /etc/openclaw/secrets.env
-sudo chown root:openclaw /etc/openclaw/secrets.env
-sudoedit /etc/openclaw/secrets.env
+pass show openclaw/secrets | sudo tee /etc/openclaw/secrets.env > /dev/null
+sudo herd restart openclaw
 ```
 
 ### First-run behaviour
