@@ -26,6 +26,7 @@
 (define-module (guix-openclaw packages node-openclaw-deps)
   #:use-module (gnu packages node)
   #:use-module (gnu packages node-xyz)
+  #:use-module (gnu packages rust-apps)
   #:use-module (guix build-system node)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
@@ -40716,6 +40717,16 @@
           (gexp (modify-phases
                  %standard-phases
                  (delete 'build)
+                 (replace 'unpack
+                   (lambda* (#:key source #:allow-other-keys)
+                     ;; Every directory in this tarball is stored with mode
+                     ;; 0666 (no execute bit), so tar cannot descend into
+                     ;; them to write files.  Pre-create them with 0755 and
+                     ;; use --no-overwrite-dir so tar keeps those perms.
+                     (mkdir-p "package/lib")
+                     (mkdir-p "package/coverage/lcov-report")
+                     (invoke "tar" "--no-overwrite-dir" "-xvf" source)
+                     (chdir "package")))
                  (add-after
                   'patch-dependencies
                   'delete-dev-dependencies
@@ -42650,7 +42661,7 @@
                   (lambda _
                     (modify-json
                      (delete-dependencies '("@xterm/headless" "chalk")))))))))
-   (inputs (list node-marked-15.0.12 node-get-east-asian-width-1.6.0))
+   (inputs (list node-marked-15.0.12 node-get-east-asian-width-1.6.0 fd))
    (home-page "https://github.com/earendil-works/pi#readme")
    (synopsis
     "Terminal User Interface library with differential rendering for efficient text-based applications")
@@ -42844,4 +42855,3 @@
    (description
     "The Agent Client Protocol (ACP) is a protocol that standardizes communication between *code editors* (interactive programs for viewing and editing source code) and *coding agents* (programs that use generative AI to autonomously modify code).")
    (license license:asl2.0)))
-
