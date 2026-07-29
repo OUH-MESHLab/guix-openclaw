@@ -27,11 +27,31 @@
   #:use-module (gnu packages node)
   #:use-module (gnu packages node-xyz)
   #:use-module (gnu packages rust-apps)
-  #:use-module (guix build-system node)
+  #:use-module ((guix-openclaw packages node-22) #:select (node-22))
+  #:use-module (guix build-system)
+  ;; Hide the upstream node-build-system; we re-bind it below to default to
+  ;; node 22.  node 24.x (guix's only node under recent pins) ships an npm
+  ;; that aborts with "Exit handler never called!" on the
+  ;; `npm --install-links --offline install' this build system runs.
+  #:use-module ((guix build-system node) #:hide (node-build-system))
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix gexp)
   #:use-module (guix packages))
+
+;;; node-build-system re-bound to default to node 22 (npm 10).  Packages that
+;;; want a different node still win via an explicit #:node.
+(define node-build-system
+  (let ((upstream (@ (guix build-system node) node-build-system)))
+    (build-system
+      (name 'node)
+      (description "Node.js build system defaulting to node 22")
+      (lower (lambda* (name #:rest rest)
+               (apply (build-system-lower upstream)
+                      name
+                      (if (memq #:node rest)
+                          rest
+                          (cons* #:node node-22 rest))))))))
 
 (define-public node-zod-4.3.6
   (package
